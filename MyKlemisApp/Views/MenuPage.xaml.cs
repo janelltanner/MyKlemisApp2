@@ -17,8 +17,10 @@ namespace MyKlemisApp.Views
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" }
+                new HomeMenuItem {Id = MenuItemType.Home, Title="Home", IconSource="home2.png" },
+                new HomeMenuItem {Id = MenuItemType.Locations, Title="Locations", IconSource=""},
+                new HomeMenuItem {Id = MenuItemType.Inventory, Title="Inventory", IconSource="" },
+                new HomeMenuItem {Id = MenuItemType.Help, Title="Help Chat", IconSource=""}
             };
 
             ListViewMenu.ItemsSource = menuItems;

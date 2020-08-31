@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MyKlemisApp.Views.HomePage" xmlns:vm="clr-namespace:MyKlemisApp.ViewModels" Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:HomeViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#e59032</Color>
+            <Color x:Key="Accent">#f8b735</Color>
+            <Color x:Key="LightTextColor">#2b898b</Color>
+            <Color x:Key="Accent2">#26704f</Color>
+            <Color x:Key="Accent3">#213037</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid  HorizontalOptions="Center" VerticalOptions="Center" RowSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200" />
+            <RowDefinition Height="150" />
+            <RowDefinition Height="170" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <StackLayout Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+                    <Image Source="logo.png" VerticalOptions="Center"/>
+                    <Label TextColor="{StaticResource Accent3}" FontSize="30" FontFamily="Alike">MyKlemis</Label>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+        <!--<ScrollView Grid.Row="1">
+            
+        </ScrollView>-->
+        <RelativeLayout BackgroundColor="#E2E2E2" HeightRequest="210"  IsClippedToBounds="True" Grid.Row="1">
+            <Image Source="welcome3.jpg" Aspect="Fill" HeightRequest="150" />
+            <StackLayout BackgroundColor="Transparent" Padding="20,10,5,10" Spacing="1">
+                <Label FontFamily="Alike-Regular" Text="Welcome!" TextColor="White" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="23" WidthRequest="280"/>
+                <Label TextColor="Black" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="20" WidthRequest="280">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="This is " />
+                            <Span FontFamily="Alike" FontAttributes="Bold" FontSize="20" Text="My Klemis, "/>
+                            <Span Text="a mobile app for the Klemis Kitchen on campus" />
+                        </FormattedString>
+                    </Label.FormattedText>
+               </Label>
+            </StackLayout>
+        </RelativeLayout>
+
+        <ScrollView Grid.Row="2">
+            <Frame CornerRadius="20" OutlineColor="{StaticResource LightTextColor}" BackgroundColor="{StaticResource LightTextColor}" Padding="10" HasShadow="False">
+                <StackLayout>
+                    <Label FontSize="22">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span FontFamily="Alike-Regular" Text="Announcements" FontAttributes="Bold" FontSize="20" TextColor="White"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+            </Frame>
+        </ScrollView>
+         <ScrollView Grid.Row="3">
+             <Frame CornerRadius="20" OutlineColor="LightGray" BackgroundColor="LightGray" Padding="10" HasShadow="False" >
+                <StackLayout>
+                    <Label FontSize="22">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span FontFamily="Alike-Regular" Text="Calendar" FontAttributes="Bold" FontSize="20" TextColor="White"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+            </Frame>
+         </ScrollView>
+    </Grid>
+</ContentPage>
