@@ -3,11 +3,13 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MyKlemisApp.Services;
 using MyKlemisApp.Views;
+[assembly: ExportFont("Alike-Regular.ttf", Alias = "Alike")]
 
 namespace MyKlemisApp
 {
     public partial class App : Application
     {
+        private NavigationPage NavigationPage;
 
         public App()
         {
@@ -15,6 +17,7 @@ namespace MyKlemisApp
 
             DependencyService.Register<MockDataStore>();
             MainPage = new MainPage();
+            NavigationPage = new NavigationPage(new HomePage());
         }
 
         protected override void OnStart()

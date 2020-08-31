@@ -1,13 +1,13 @@
 ﻿using System;
-using System.ComponentModel;
+using System.Collections.Generic;
+
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace MyKlemisApp.Views
 {
-    public partial class AboutPage : ContentPage
+    public partial class HelpPage : ContentPage
     {
-        public AboutPage()
+        public HelpPage()
         {
             InitializeComponent();
         }
