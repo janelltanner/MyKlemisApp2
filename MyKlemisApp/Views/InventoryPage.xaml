@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyKlemisApp.Views.InventoryPage"
+             xmlns:vm="clr-namespace:MyKlemisApp.ViewModels"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:InventoryViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <RelativeLayout
+                BackgroundColor="#D3D3D3"
+                HeightRequest="210"
+                IsClippedToBounds="True"
+                Grid.Row="1">
+                <Image
+                    Source="welcome3.jpg"
+                    Aspect="Fill"
+                    HeightRequest="100" />
+                <StackLayout
+                    BackgroundColor="Transparent"
+                    Padding="10, 30, 0, 0"
+                    Spacing="1">
+                    <Label
+                        FontFamily="Alike-Regular"
+                        Text="Welcome to Inventory Page"
+                        TextColor="White"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        FontSize="32"
+                        WidthRequest="400"/>                  
+                </StackLayout>
+            </RelativeLayout>
+       </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

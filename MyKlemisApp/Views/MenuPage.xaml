@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MyKlemisApp.Views.MenuPage" IconImageSource="hamburger.png" Title="Menu Page">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyKlemisApp.Views.MenuPage"
+             IconImageSource="hamburger.png"
+             Title="Menu Page">
     <StackLayout VerticalOptions="FillAndExpand">
         <ListView x:Name="ListViewMenu" HasUnevenRows="True">
             <ListView.ItemTemplate>
