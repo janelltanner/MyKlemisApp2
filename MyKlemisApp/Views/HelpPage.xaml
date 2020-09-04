@@ -1,9 +1,80 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MyKlemisApp.Views.HelpPage" xmlns:vm="clr-namespace:MyKlemisApp.ViewModels" Title="{Binding Title}">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyKlemisApp.Views.HelpPage"
+             xmlns:vm="clr-namespace:MyKlemisApp.ViewModels"
+             Title="{Binding Title}">
     <ContentPage.BindingContext>
         <vm:HelpViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-
+       <ScrollView>
+           <Grid HorizontalOptions="Center"
+                 VerticalOptions="Center"
+                 RowSpacing="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="170" />
+                    <RowDefinition Height="100" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                </Grid.ColumnDefinitions>
+                <RelativeLayout
+                    BackgroundColor="#D3D3D3"
+                    HeightRequest="210"
+                    IsClippedToBounds="True"
+                    Grid.Row="1">
+                    <Image
+                        Source="welcome3.jpg"
+                        Aspect="Fill"
+                        HeightRequest="100" />
+                    <StackLayout
+                        BackgroundColor="Transparent"
+                        Padding="20, 10"
+                        Spacing="1">
+                        <Label
+                            FontFamily="Alike-Regular"
+                            Text="Support Center"
+                            TextColor="White"
+                            VerticalOptions="Center"
+                            HorizontalOptions="CenterAndExpand"
+                            FontSize="40"
+                            WidthRequest="280"/>
+                        <Label
+                            FontFamily="Alike-Regular"
+                            Text="FAQs"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            VerticalOptions="Center"
+                            HorizontalOptions="CenterAndExpand"
+                            FontSize="20"
+                            WidthRequest="280"/>
+                    </StackLayout>
+                </RelativeLayout>
+                <ScrollView Grid.Row="2">
+                    <Frame CornerRadius="20"
+                           Padding="10" HasShadow="False">
+                        <StackLayout>
+                            <Label FontSize="22">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span FontFamily="Alike-Regular"
+                                                  Text="Announcements"
+                                                  FontAttributes="Bold"
+                                                  FontSize="20"
+                                                  TextColor="White"/>
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+                    </Frame>
+                </ScrollView>
+            </Grid>
+       </ScrollView>
     </ContentPage.Content>
 </ContentPage>
+

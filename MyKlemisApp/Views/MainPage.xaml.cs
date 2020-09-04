@@ -32,6 +32,15 @@ namespace MyKlemisApp.Views
                     case (int)MenuItemType.Home:
                         MenuPages.Add(id, new NavigationPage(new HomePage()));
                         break;
+                    case (int)MenuItemType.Locations:
+                        MenuPages.Add(id, new NavigationPage(new LocationsPage()));
+                        break;
+                    case (int)MenuItemType.Inventory:
+                        MenuPages.Add(id, new NavigationPage(new InventoryPage()));
+                        break;
+                    case (int)MenuItemType.Help:
+                        MenuPages.Add(id, new NavigationPage(new HelpPage()));
+                        break;
                 }
             }
 
