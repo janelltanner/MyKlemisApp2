@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Amazon;
+using Amazon.Util;
 
 using Foundation;
 using UIKit;
@@ -22,6 +24,12 @@ namespace MyKlemisApp.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            var loggingConfig = AWSConfigs.LoggingConfig;
+            loggingConfig.LogMetrics = true;
+            loggingConfig.LogResponses = ResponseLoggingOption.Always;
+            loggingConfig.LogMetricsFormat = LogMetricsFormatOption.JSON;
+            loggingConfig.LogTo = LoggingOptions.SystemDiagnostics;
+            AWSConfigs.AWSRegion = "us-east-2";
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
