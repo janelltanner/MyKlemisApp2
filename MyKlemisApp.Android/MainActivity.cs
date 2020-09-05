@@ -6,6 +6,10 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Amazon;
+using Amazon.Util;
+using Amazon.DynamoDBv2.DataModel;
+using Amazon.CognitoIdentity;
 
 namespace MyKlemisApp.Droid
 {
@@ -17,6 +21,18 @@ namespace MyKlemisApp.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
+            var loggingConfig = AWSConfigs.LoggingConfig;
+            loggingConfig.LogMetrics = true;
+            loggingConfig.LogResponses = ResponseLoggingOption.Always;
+            loggingConfig.LogMetricsFormat = LogMetricsFormatOption.JSON;
+            loggingConfig.LogTo = LoggingOptions.SystemDiagnostics;
+            AWSConfigs.AWSRegion = "us-east-2";
+            CognitoAWSCredentials credentials = new CognitoAWSCredentials(
+                "us-east-2:d2f90bfd-19f7-4b20-ad29-09f8b19da906", // Identity pool ID
+                RegionEndpoint.USEast2 // Region
+            );
+            var client = new Amazon.DynamoDBv2.AmazonDynamoDBClient(credentials);
+            DynamoDBContext context = new DynamoDBContext(client);
             base.OnCreate(savedInstanceState);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);

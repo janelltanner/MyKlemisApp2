@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.30413.136
+VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyKlemisApp.Android", "MyKlemisApp.Android\MyKlemisApp.Android.csproj", "{976AE0E9-0379-4D58-A613-1A0C969AB203}"
 EndProject
@@ -71,6 +71,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {97230EF7-86C1-4CE0-AE9C-899546F7DACA}
+		SolutionGuid = {45382A51-E440-4DF0-9BB2-0F273598FC23}
 	EndGlobalSection
 EndGlobal
