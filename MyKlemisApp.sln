@@ -10,11 +10,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyKlemisApp", "MyKlemisApp\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EB1AA390-5FCA-4DA3-9E28-EB2428017CFC}"
 	ProjectSection(SolutionItems) = preProject
+		..\..\..\Desktop\imgs\croslandTower.jpg = ..\..\..\Desktop\imgs\croslandTower.jpg
 		MyKlemisApp.Android\Resources\drawable\hamburger.png = MyKlemisApp.Android\Resources\drawable\hamburger.png
 		MyKlemisApp.Android\Resources\drawable\help.png = MyKlemisApp.Android\Resources\drawable\help.png
 		MyKlemisApp.Android\Resources\drawable\home.png = MyKlemisApp.Android\Resources\drawable\home.png
 		MyKlemisApp.Android\Resources\drawable\inventory.png = MyKlemisApp.Android\Resources\drawable\inventory.png
 		MyKlemisApp.Android\Resources\drawable\location.png = MyKlemisApp.Android\Resources\drawable\location.png
+		..\..\..\Desktop\imgs\moseBldg.jpg = ..\..\..\Desktop\imgs\moseBldg.jpg
 	EndProjectSection
 EndProject
 Global
