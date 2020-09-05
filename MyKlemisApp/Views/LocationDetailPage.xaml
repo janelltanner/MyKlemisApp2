@@ -1,12 +1,7 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyKlemisApp.Views.LocationsPage"
-             xmlns:vm="clr-namespace:MyKlemisApp.ViewModels"
-             Title="{Binding Title}">
-    <ContentPage.BindingContext>
-        <vm:LocationsViewModel/>
-    </ContentPage.BindingContext>
+             x:Class="MyKlemisApp.Views.LocationDetailPage">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Primary">#e59032</Color>
@@ -33,30 +28,32 @@
                 <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
                     <StackLayout>
                         <StackLayout Padding="0,40,0,0" VerticalOptions="FillAndExpand">
-                            <Label TextColor="{StaticResource Accent3}" FontSize="30" FontFamily="Alike">Klemis Locations</Label>
+                            <Label TextColor="{StaticResource Accent3}" FontSize="30" FontFamily="Alike">Klemis Kitchen (Main)</Label>
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
 
                 <RelativeLayout BackgroundColor="#E2E2E2" HeightRequest="210"  IsClippedToBounds="True" Grid.Row="1">
-                    <RelativeLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnClickLocation"/>
-                    </RelativeLayout.GestureRecognizers>
                     <Image Source="moseBldg.jpg" Aspect="Fill" HeightRequest="150"/>
-                    <StackLayout BackgroundColor="Transparent" Padding="20,30,5,10" Spacing="1">
-                        <Label FontAttributes="Bold" Text="Klemis Kitchen (Main)" TextColor="White" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="30" WidthRequest="280"/>
-                    </StackLayout>
                 </RelativeLayout>
+                
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill" Grid.Row="2" Margin="0, 40 , 0, 0">
+                    <StackLayout>
+                        <Label TextColor="Black" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="20" WidthRequest="280">
+                            Address:
+                        </Label>
+                        <Label TextColor="Black" VerticalOptions="Center" HorizontalOptions="CenterAndExpand">Molecular Sciences And Engineering Bldg</Label>
 
-                <RelativeLayout BackgroundColor="#E2E2E2" HeightRequest="210"  IsClippedToBounds="True" Grid.Row="2">
-                    <RelativeLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnClickNotAvaliable"/>
-                    </RelativeLayout.GestureRecognizers>
-                    <Image Source="croslandTower.jpg" Aspect="Fill" HeightRequest="150"/>
-                    <StackLayout BackgroundColor="Transparent" Padding="20,30,5,10" Spacing="1">
-                        <Label FontAttributes="Bold" Text="Library Outpost (coming soon)" TextColor="White" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="30" WidthRequest="280"/>
+                        <Label TextColor="Black" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="20" WidthRequest="280">
+                            Hours:
+                        </Label>
+                        <Label TextColor="Black" Margin="30,0,0,0">24/7</Label>
+
                     </StackLayout>
-                </RelativeLayout>
+                    <Button Text="Go to Inventory" Margin="0, 20, 0, 0"></Button>
+                </StackLayout>
+                
+                
             </Grid>
         </ScrollView>
     </ContentPage.Content>
