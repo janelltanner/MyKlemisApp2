@@ -27,12 +27,6 @@ namespace MyKlemisApp.Droid
             loggingConfig.LogMetricsFormat = LogMetricsFormatOption.JSON;
             loggingConfig.LogTo = LoggingOptions.SystemDiagnostics;
             AWSConfigs.AWSRegion = "us-east-2";
-            CognitoAWSCredentials credentials = new CognitoAWSCredentials(
-                "us-east-2:d2f90bfd-19f7-4b20-ad29-09f8b19da906", // Identity pool ID
-                RegionEndpoint.USEast2 // Region
-            );
-            var client = new Amazon.DynamoDBv2.AmazonDynamoDBClient(credentials);
-            DynamoDBContext context = new DynamoDBContext(client);
             base.OnCreate(savedInstanceState);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);

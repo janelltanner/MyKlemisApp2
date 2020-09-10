@@ -2,8 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MyKlemisApp.Views.DBTestPage" xmlns:vm="clr-namespace:MyKlemisApp.ViewModels" Title="{Binding Title}">
 
     <ContentPage.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
+        <StackLayout x:Name="layout">
+        </StackLayout>
   </ContentPage.Content>
 </ContentPage>
