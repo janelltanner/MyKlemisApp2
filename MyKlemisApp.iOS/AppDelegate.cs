@@ -31,7 +31,7 @@ namespace MyKlemisApp.iOS
             loggingConfig.LogResponses = ResponseLoggingOption.Always;
             loggingConfig.LogMetricsFormat = LogMetricsFormatOption.JSON;
             loggingConfig.LogTo = LoggingOptions.SystemDiagnostics;
-            AWSConfigs.AWSRegion = "us-east-2"
+            AWSConfigs.AWSRegion = "us-east-2";
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
