@@ -26,7 +26,11 @@ namespace MyKlemisApp.Views
             {
                 await DisplayAlert("Login", "Login Success", "Okay");
 
-                await Navigation.PushAsync(new NavigationPage(new HomePage()));
+                await Navigation.PushAsync(new MainPage());
+
+                //await Navigation.PushAsync(new NavigationPage(new MainPage()));
+
+                //await Navigation.PushAsync(new NavigationPage(new HomePage()));
             }
             else
             {

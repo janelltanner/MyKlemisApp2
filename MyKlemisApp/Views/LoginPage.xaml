@@ -3,11 +3,38 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyKlemisApp.Views.LoginPage">
 
-    <StackLayout>
-        <Label x:Name="UserNameLabel" Text="Username" />
-        <Entry x:Name="NameEntry" Placeholder="Username" />
-        <Label x:Name="PasswordLabel" Text="Password" />
-        <Entry x:Name="PasswordEntry" Placeholder="Password" />
-        <Button x:Name="SigninButton" Text="Sign In" Clicked="SignInProcedure" />
-    </StackLayout>
+    <Grid BackgroundColor="LightBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="250" />
+            <RowDefinition Height="200" />
+        </Grid.RowDefinitions>
+        
+        <StackLayout Grid.Row="1" x:Name="LogoStack" VerticalOptions="FillAndExpand">
+            <Image x:Name="LoginIcon" Source="logo.png" Margin="0,40,0,0" />
+            <Label TextColor="Black" FontSize="30"
+                   Margin="50,0,0,0" FontFamily="Alike">Welcome to MyKlemis</Label>
+        </StackLayout>
+
+        <StackLayout Grid.Row="2" x:Name="LoginEntriesStack"
+                     VerticalOptions="Center" HorizontalOptions="Fill">
+            <StackLayout.Padding>
+                <OnIdiom x:TypeArguments="Thickness">
+                    <OnIdiom.Phone>15,0,0,0</OnIdiom.Phone>
+                    <OnIdiom.Tablet>140,150,140,0</OnIdiom.Tablet>
+                </OnIdiom>
+            </StackLayout.Padding>
+
+            <Label x:Name="UserNameLabel" Text="Username" />
+            <Entry x:Name="NameEntry" HorizontalOptions="Start" WidthRequest="380" Placeholder="Username" />
+            <Label x:Name="PasswordLabel" Text="Password" />
+            <Entry x:Name="PasswordEntry" HorizontalOptions="Start" WidthRequest="380" Placeholder="Password" />
+        </StackLayout>
+
+        <StackLayout Grid.Row="3" HorizontalOptions="Center">
+            <Button x:Name="SigninButton" Text="Sign In"
+                    TextColor="Black" WidthRequest="100"
+                    BackgroundColor="White" Clicked="SignInProcedure" />
+        </StackLayout>
+    </Grid>
 </ContentPage>
