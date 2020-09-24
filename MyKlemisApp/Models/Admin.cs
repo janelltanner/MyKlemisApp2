@@ -22,7 +22,8 @@ namespace MyKlemisApp.Models
 
         public bool CheckInformation()
         {
-            if (this.Username.Equals("Klemis") && this.Password.Equals("Kitchen"))
+            if (this.Username.Equals("Klemis") && this.Password.Equals("Kitchen")
+                || this.Username.Equals("Name") && this.Password.Equals("Password"))
             {
                 return true;
             }
