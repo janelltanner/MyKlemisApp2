@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using MyKlemisApp.Services;
 
 namespace MyKlemisApp.Views
 {
@@ -17,6 +18,7 @@ namespace MyKlemisApp.Views
 
             menuItems = new List<HomeMenuItem>
             {
+
                 new HomeMenuItem {Id = MenuItemType.Home, Title="Home", IconSource="home2.png" },
                 new HomeMenuItem {Id = MenuItemType.Locations, Title="Locations", IconSource=""},
                 new HomeMenuItem {Id = MenuItemType.Inventory, Title="Inventory", IconSource="" },

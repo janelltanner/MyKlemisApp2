@@ -7,14 +7,24 @@
     <ContentPage.BindingContext>
         <vm:HelpViewModel/>
     </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#5BBB93</Color>
+            <Color x:Key="Accent">#1E4471</Color>
+            <Color x:Key="LightTextColor">#F5C851</Color>
+            <Color x:Key="Accent2">#EF823F</Color>
+            <Color x:Key="Accent3">#CEE2DA</Color>
+            <Color x:Key="Black">#000000</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
        <ScrollView>
            <Grid HorizontalOptions="Center"
                  VerticalOptions="Center"
-                 RowSpacing="20">
+                 RowSpacing="10">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="150" />
+                    <RowDefinition Height="0" />
+                    <RowDefinition Height="250" />
                     <RowDefinition Height="170" />
                     <RowDefinition Height="100" />
                 </Grid.RowDefinitions>
@@ -22,28 +32,20 @@
                     <ColumnDefinition Width="300"/>
                 </Grid.ColumnDefinitions>
                 <RelativeLayout
-                    BackgroundColor="#D3D3D3"
-                    HeightRequest="210"
-                    IsClippedToBounds="True"
                     Grid.Row="1">
-                    <Image
-                        Source="welcome3.jpg"
-                        Aspect="Fill"
-                        HeightRequest="100" />
                     <StackLayout
-                        BackgroundColor="Transparent"
-                        Padding="20, 10"
+                        Padding="0, 0"
                         Spacing="1">
                         <Label
-                            FontFamily="Alike-Regular"
-                            Text="Support Center"
-                            TextColor="White"
+                            FontFamily="Roboto-Black"
+                            Text="MyKlemis Support Center"
+                            TextColor="Black"
                             VerticalOptions="Center"
                             HorizontalOptions="CenterAndExpand"
-                            FontSize="40"
+                            FontSize="30"
                             WidthRequest="280"/>
                         <Label
-                            FontFamily="Alike-Regular"
+                            FontFamily="Roboto-Regular"
                             Text="FAQs"
                             TextColor="Black"
                             FontAttributes="Bold"

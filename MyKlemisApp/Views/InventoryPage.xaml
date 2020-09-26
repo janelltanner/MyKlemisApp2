@@ -7,31 +7,45 @@
     <ContentPage.BindingContext>
         <vm:InventoryViewModel/>
     </ContentPage.BindingContext>
+      <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#5BBB93</Color>
+            <Color x:Key="Accent">#1E4471</Color>
+            <Color x:Key="LightTextColor">#F5C851</Color>
+            <Color x:Key="Accent2">#EF823F</Color>
+            <Color x:Key="Accent3">#CEE2DA</Color>
+            <Color x:Key="Black">#000000</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
+             <Grid HorizontalOptions="Start"
+                 VerticalOptions="Start"
+                 RowSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="170" />
+                    <RowDefinition Height="100" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="350"/>
+                </Grid.ColumnDefinitions>
             <RelativeLayout
-                BackgroundColor="#D3D3D3"
-                HeightRequest="210"
-                IsClippedToBounds="True"
                 Grid.Row="1">
-                <Image
-                    Source="welcome3.jpg"
-                    Aspect="Fill"
-                    HeightRequest="100" />
-                <StackLayout
-                    BackgroundColor="Transparent"
-                    Padding="10, 30, 0, 0"
-                    Spacing="1">
-                    <Label
-                        FontFamily="Alike-Regular"
-                        Text="Welcome to Inventory Page"
-                        TextColor="White"
-                        VerticalOptions="Center"
-                        HorizontalOptions="Center"
+                <StackLayout Padding="20,0,0,0">
+                    <!--<Label
+                        FontFamily="Roboto-Black"
+                        Text="Inventory"
+                        TextColor="Black"
+                        VerticalOptions="Start"
+                        HorizontalOptions="Start"
                         FontSize="32"
-                        WidthRequest="400"/>                  
+                        WidthRequest="200"/>-->
+                    <SearchBar Placeholder="Search items..." />
                 </StackLayout>
             </RelativeLayout>
+           </Grid>
        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
