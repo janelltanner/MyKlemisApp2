@@ -1,12 +1,7 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyKlemisApp.Views.LocationsPage"
-             xmlns:vm="clr-namespace:MyKlemisApp.ViewModels"
-             Title="{Binding Title}">
-    <ContentPage.BindingContext>
-        <vm:LocationsViewModel/>
-    </ContentPage.BindingContext>
+             x:Class="MyKlemisApp.Views.LocationsEditAdminPage">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Primary">#e59032</Color>
@@ -18,7 +13,7 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
-            <Grid  HorizontalOptions="Center" VerticalOptions="Center" RowSpacing="10">
+            <Grid  HorizontalOptions="Center" x:Name="locationsLayout" VerticalOptions="Center" RowSpacing="10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="100" />
                     <RowDefinition Height="150" />
@@ -30,29 +25,66 @@
                     <ColumnDefinition Width="*"/>
 
                 </Grid.ColumnDefinitions>
-                
+
                 <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
                     <StackLayout>
-                        <StackLayout Padding="0,40,0,0" VerticalOptions="FillAndExpand">
+                        <Button Text="Done"
+                        BackgroundColor="{StaticResource Accent2}"
+                        TextColor="White"
+                        VerticalOptions="Start"
+                        HorizontalOptions="End"
+                        Clicked="OnClickDone"/>
+                        <StackLayout Padding="0,0,0,0" VerticalOptions="FillAndExpand">
                             <Label TextColor="{StaticResource Accent3}" FontSize="30" FontFamily="Alike">Klemis Locations</Label>
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
 
-                <RelativeLayout BackgroundColor="#E2E2E2" HeightRequest="210"  IsClippedToBounds="True" Grid.Row="1">
-                    <RelativeLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnClickLocation"/>
-                    </RelativeLayout.GestureRecognizers>
+
+
+                <RelativeLayout x:Name="location1" BackgroundColor="#E2E2E2" HeightRequest="210"  IsClippedToBounds="True" Grid.Row="1">
+                    <Button Text="Delete"
+                        BackgroundColor="Transparent"
+                        TextColor="White"
+                        HeightRequest="40"
+                        Margin="220, 0, 0, 0"
+                        Clicked="OnClickDelete1"/>
+
+
+
+                    <Button Text="Edit"
+                        BackgroundColor="{StaticResource Accent}"
+                        TextColor="White"
+                        WidthRequest="60"
+                        HeightRequest="40"
+                        Margin="230, 100, 0, 0"
+                        Clicked="OnClickEditor"/>
+                    <!--this is gonna cause problems future me - Rebekah-->
                     <Image Source="moseBldg.jpg" Aspect="Fill" HeightRequest="150"/>
+
                     <StackLayout BackgroundColor="Transparent" Padding="20,30,5,10" Spacing="1">
                         <Label FontAttributes="Bold" Text="Klemis Kitchen (Main)" TextColor="White" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="30" WidthRequest="280"/>
                     </StackLayout>
                 </RelativeLayout>
 
-                <RelativeLayout BackgroundColor="#E2E2E2" HeightRequest="210"  IsClippedToBounds="True" Grid.Row="2">
-                    <RelativeLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnClickNotAvaliable"/>
-                    </RelativeLayout.GestureRecognizers>
+
+                <RelativeLayout x:Name="location2" BackgroundColor="#E2E2E2" HeightRequest="210"  IsClippedToBounds="True" Grid.Row="2">
+                    <Button Text="Delete"
+                        BackgroundColor="Transparent"
+                        TextColor="White"
+                        HeightRequest="40"
+                        Margin="220, 0, 0, 0"
+                        Clicked="OnClickDelete2"/>
+
+
+
+                    <Button Text="Edit"
+                        BackgroundColor="{StaticResource Accent}"
+                        TextColor="White"
+                        WidthRequest="60"
+                        HeightRequest="40"
+                        Margin="230, 100, 0, 0"
+                        Clicked="OnClickEditor"/>
                     <Image Source="croslandTower.jpg" Aspect="Fill" HeightRequest="150"/>
                     <StackLayout BackgroundColor="Transparent" Padding="20,30,5,10" Spacing="1">
                         <Label FontAttributes="Bold" Text="Library Outpost (coming soon)" TextColor="White" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="30" WidthRequest="280"/>

@@ -15,6 +15,15 @@ namespace MyKlemisApp.Views
         public LocationDetailPage()
         {
             InitializeComponent();
+
+            MessagingCenter.Subscribe<object, string[]>(this, "PassData", (sender, args) =>
+            {
+                DisplayAlert("Message received", "arg=" + args[0] + "\n" + args[1] + "\n" + args[2], "OK");
+
+                locName.Text = args[0];
+                locAddress.Text = args[1];
+                locHours.Text = args[2];
+            });
         }
 
         //Handler for the 'go to inventory' button on the location page
@@ -26,5 +35,7 @@ namespace MyKlemisApp.Views
         {
             await Navigation.PopAsync();
         }
+
+
     }
 }

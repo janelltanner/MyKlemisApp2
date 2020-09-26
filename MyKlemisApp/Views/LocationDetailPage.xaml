@@ -28,13 +28,13 @@
                 <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
                     <StackLayout>
                         <StackLayout Padding="0,40,0,0" VerticalOptions="FillAndExpand">
-                            <Label TextColor="{StaticResource Accent3}" FontSize="30" FontFamily="Alike">Klemis Kitchen (Main)</Label>
+                            <Label x:Name="locName" TextColor="{StaticResource Accent3}" FontSize="30" FontFamily="Alike">Klemis Kitchen (Main)</Label>
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
 
                 <RelativeLayout BackgroundColor="#E2E2E2" HeightRequest="210"  IsClippedToBounds="True" Grid.Row="1">
-                    <Image Source="moseBldg.jpg" Aspect="Fill" HeightRequest="150"/>
+                    <Image x:Name="locImg" Source="moseBldg.jpg" Aspect="Fill" HeightRequest="150"/>
                 </RelativeLayout>
                 
                 <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill" Grid.Row="2" Margin="0, 40 , 0, 0">
@@ -42,12 +42,12 @@
                         <Label TextColor="Black" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="20" WidthRequest="280">
                             Address:
                         </Label>
-                        <Label TextColor="Black" VerticalOptions="Center" HorizontalOptions="CenterAndExpand">Molecular Sciences And Engineering Bldg</Label>
+                        <Label x:Name="locAddress" TextColor="Black" VerticalOptions="Center" HorizontalOptions="CenterAndExpand">Molecular Sciences And Engineering Bldg</Label>
 
                         <Label TextColor="Black" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="20" WidthRequest="280">
                             Hours:
                         </Label>
-                        <Label TextColor="Black" Margin="30,0,0,0">24/7</Label>
+                        <Label x:Name="locHours" TextColor="Black" Margin="30,0,0,0">24/7</Label>
 
                     </StackLayout>
                     <Button Text="Go to Inventory" Margin="0, 20, 0, 0"></Button>
