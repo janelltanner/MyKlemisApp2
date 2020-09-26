@@ -10,7 +10,8 @@ namespace MyKlemisApp.Models
         Locations,
         Inventory,
         Help,
-        DBTest
+        DBTest,
+        AnnouncementEnter
     }
     public class HomeMenuItem
     {

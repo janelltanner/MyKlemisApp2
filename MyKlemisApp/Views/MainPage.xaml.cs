@@ -44,6 +44,9 @@ namespace MyKlemisApp.Views
                     case (int)MenuItemType.DBTest:
                         MenuPages.Add(id, new NavigationPage(new DBTestPage()));
                         break;
+                    case (int)MenuItemType.AnnouncementEnter:
+                        MenuPages.Add(id, new NavigationPage(new AnnouncementEntry()));
+                        break;
                 }
             }
 
