@@ -31,8 +31,14 @@ namespace MyKlemisApp.Views
         {
             InitializeComponent();
             Title = "Home";
-            Task food = addFoodItemsAsync();
-            food.Wait();
+            //Task food = addFoodItemsAsync();
+            //food.Wait();
+            Services.TransactInterface test = new Services.TransactInterface();
+            //Task t = test.authenticate();
+            //t.Wait();
+            test.authenticateTask();
+            while (!test.isAuthorized()) { }
+            test.GetInventoryItems();
         }
 
         private async Task addFoodItemsAsync()
