@@ -10,19 +10,15 @@ using MyKlemisApp.Views;
 
 namespace MyKlemisApp.ViewModels
 {
-    public class LocationsViewModel : BaseViewModel
+    public class LocationsAdminViewModel : BaseViewModel
     {
         public ObservableCollection<Location> Locations { get; set; }
         public Command LoadLocationsCommand { get; set; }
-        public Boolean IsAdmin { get; set; }
 
-        public LocationsViewModel()
+        public LocationsAdminViewModel()
         {
-            Title = "Locations";
-            Locations = new ObservableCollection<Location>();
+            Title = "Locations Admin";
+
         }
-
-       
-
     }
 }
