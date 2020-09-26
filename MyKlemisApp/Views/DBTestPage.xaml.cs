@@ -12,6 +12,7 @@ using Amazon;
 
 using MyKlemisApp.Models;
 using MyKlemisApp.ViewModels;
+using MyKlemisApp.Services;
 using Amazon.DynamoDBv2.DocumentModel;
 
 namespace MyKlemisApp.Views
@@ -33,6 +34,13 @@ namespace MyKlemisApp.Views
             Title = "Home";
             Task food = addFoodItemsAsync();
             food.Wait();
+            if (Settings.IsAdmin)
+            {
+                ToolbarItems.Add(new ToolbarItem("Edit", "", () =>
+                {
+                    //logic code goes here
+                }));
+            }
         }
 
         private async Task addFoodItemsAsync()

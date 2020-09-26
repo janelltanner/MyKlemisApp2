@@ -6,6 +6,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using MyKlemisApp.Models;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace MyKlemisApp.Views
 {
@@ -19,10 +21,8 @@ namespace MyKlemisApp.Views
         {
             InitializeComponent();
             MasterBehavior = MasterBehavior.Popover;
-
             MenuPages.Add((int)MenuItemType.Home, (NavigationPage)Detail);
         }
-
         public async Task NavigateFromMenu(int id)
         {
             if (!MenuPages.ContainsKey(id))
