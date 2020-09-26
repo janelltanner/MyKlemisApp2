@@ -9,37 +9,38 @@
     </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Color x:Key="Primary">#e59032</Color>
-            <Color x:Key="Accent">#f8b735</Color>
-            <Color x:Key="LightTextColor">#2b898b</Color>
-            <Color x:Key="Accent2">#26704f</Color>
-            <Color x:Key="Accent3">#213037</Color>
+            <Color x:Key="Primary">#5BBB93</Color>
+            <Color x:Key="Accent">#1E4471</Color>
+            <Color x:Key="LightTextColor">#F5C851</Color>
+            <Color x:Key="Accent2">#EF823F</Color>
+            <Color x:Key="Accent3">#CEE2DA</Color>
+            <Color x:Key="Black">#000000</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <ScrollView>
-            <Grid  HorizontalOptions="Center" VerticalOptions="Center" RowSpacing="10">
+        <ScrollView BackgroundColor="{Binding BC}">
+            <Grid  HorizontalOptions="Center" VerticalOptions="Center" RowSpacing="10" >
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="200" />
-                    <RowDefinition Height="150" />
-                    <RowDefinition Height="170" />
                     <RowDefinition Height="100" />
+                    <!--<RowDefinition Height="150" />
+                    <RowDefinition Height="170" />
+                    <RowDefinition Height="100" />-->
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                        <StackLayout Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-                            <Image Source="logo.png" VerticalOptions="Center"/>
-                            <Label TextColor="{StaticResource Accent3}" FontSize="30" FontFamily="Alike">MyKlemis</Label>
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout Padding="20,30,0,30">
+                            <!--<Image Source="icon2.png" VerticalOptions="Center"/>-->
+                            <Label TextColor="White" VerticalTextAlignment="Start" FontSize="30" FontFamily="Roboto-Bold">MyKlemis</Label>
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
                 <!--<ScrollView Grid.Row="1">
             
                 </ScrollView>-->
-                <RelativeLayout BackgroundColor="#E2E2E2" HeightRequest="210"  IsClippedToBounds="True" Grid.Row="1">
+                <!--<RelativeLayout BackgroundColor="#E2E2E2" HeightRequest="210"  IsClippedToBounds="True" Grid.Row="1">
                     <Image Source="welcome3.jpg" Aspect="Fill" HeightRequest="150" />
                     <StackLayout BackgroundColor="Transparent" Padding="20,10,5,10" Spacing="1">
                         <Label FontFamily="Alike-Regular" Text="Welcome!" TextColor="White" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="23" WidthRequest="280"/>
@@ -47,15 +48,31 @@
                             <Label.FormattedText>
                                 <FormattedString>
                                     <Span Text="This is " />
-                                    <Span FontFamily="Alike" FontAttributes="Bold" FontSize="20" Text="My Klemis, "/>
+                                    <Span FontFamily="Alike" FontSize="20" Text="My Klemis, "/>
                                     <Span Text="a mobile app for the Klemis Kitchen on campus" />
                                 </FormattedString>
                             </Label.FormattedText>
                        </Label>
                     </StackLayout>
-                </RelativeLayout>
+                </RelativeLayout>-->
+                <FlexLayout Direction="Row" WidthRequest="400" IsClippedToBounds="True" Grid.Row="1" VerticalOptions="FillAndExpand">
+                    <Frame CornerRadius="20"  HeightRequest="1000" BackgroundColor="White" Padding="20" HasShadow="False" WidthRequest="800"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <StackLayout>
+                            <Label FontSize="22">
+                                <Label.Text FontFamily="Roboto-Bold" FontSize="20" TextColor="Black">Annoucements</Label.Text>
+                            </Label>
+                            <Frame CornerRadius="20" OutlineColor="{StaticResource LightTextColor}" HasShadow="False" BackgroundColor="{StaticResource LightTextColor}" HeightRequest="200" Padding="10">
+                            </Frame>
+                            <Label FontSize="22">
+                                <Label.Text FontFamily="Roboto-Boldsx" TextColor="Black">Calendar</Label.Text>
+                            </Label>
+                            <Frame CornerRadius="20" OutlineColor="{StaticResource Accent3}" HasShadow="False" HeightRequest="150" BackgroundColor="{StaticResource Accent3}" Padding="10">
+                            </Frame>
+                        </StackLayout>
+                    </Frame>
+                </FlexLayout>
 
-                <ScrollView Grid.Row="2">
+                <!--<ScrollView Grid.Row="2">
                     <Frame CornerRadius="20" OutlineColor="{StaticResource LightTextColor}" BackgroundColor="{StaticResource LightTextColor}" Padding="10" HasShadow="False">
                         <StackLayout>
                             <Label FontSize="22">
@@ -84,7 +101,7 @@
                             </Label>
                         </StackLayout>
                     </Frame>
-                 </ScrollView>
+                 </ScrollView>-->
             </Grid>
         </ScrollView>
     </ContentPage.Content>

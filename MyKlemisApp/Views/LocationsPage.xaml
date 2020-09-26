@@ -9,11 +9,11 @@
     </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Color x:Key="Primary">#e59032</Color>
-            <Color x:Key="Accent">#f8b735</Color>
-            <Color x:Key="LightTextColor">#2b898b</Color>
-            <Color x:Key="Accent2">#26704f</Color>
-            <Color x:Key="Accent3">#213037</Color>
+            <Color x:Key="Primary">#5BBB93</Color>
+            <Color x:Key="Accent">#1E4471</Color>
+            <Color x:Key="LightTextColor">#F5C851</Color>
+            <Color x:Key="Accent2">#EF823F</Color>
+            <Color x:Key="Accent3">#CEE2DA</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -30,10 +30,11 @@
                     <ColumnDefinition Width="*"/>
 
                 </Grid.ColumnDefinitions>
+                
                 <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
                     <StackLayout>
                         <StackLayout Padding="0,40,0,0" VerticalOptions="FillAndExpand">
-                            <Label TextColor="{StaticResource Accent3}" FontSize="30" FontFamily="Alike">Klemis Locations</Label>
+                            <Label TextColor="Black" FontSize="30" FontFamily="Roboto-Black">MyKlemis Locations</Label>
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
@@ -44,7 +45,7 @@
                     </RelativeLayout.GestureRecognizers>
                     <Image Source="moseBldg.jpg" Aspect="Fill" HeightRequest="150"/>
                     <StackLayout BackgroundColor="Transparent" Padding="20,30,5,10" Spacing="1">
-                        <Label FontAttributes="Bold" Text="Klemis Kitchen (Main)" TextColor="White" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="30" WidthRequest="280"/>
+                        <Label FontAttributes="Bold" FontFamily="Roboto-Regular" Text="Klemis Kitchen (Main)" TextColor="White" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="20" WidthRequest="280"/>
                     </StackLayout>
                 </RelativeLayout>
 
@@ -54,7 +55,7 @@
                     </RelativeLayout.GestureRecognizers>
                     <Image Source="croslandTower.jpg" Aspect="Fill" HeightRequest="150"/>
                     <StackLayout BackgroundColor="Transparent" Padding="20,30,5,10" Spacing="1">
-                        <Label FontAttributes="Bold" Text="Library Outpost (coming soon)" TextColor="White" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="30" WidthRequest="280"/>
+                        <Label FontAttributes="Bold" FontFamily="Roboto-Regular" Text="Library Outpost (coming soon)" TextColor="White" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="20" WidthRequest="280"/>
                     </StackLayout>
                 </RelativeLayout>
             </Grid>
