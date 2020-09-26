@@ -20,8 +20,10 @@ namespace MyKlemisApp.Views
         public MainPage()
         {
             InitializeComponent();
+
             MasterBehavior = MasterBehavior.Popover;
-            MenuPages.Add((int)MenuItemType.Home, (NavigationPage)Detail);
+            Xamarin.Forms.NavigationPage.SetHasNavigationBar(this, false);
+//             MenuPages.Add((int)MenuItemType.Home, (NavigationPage)Detail);
         }
         public async Task NavigateFromMenu(int id)
         {

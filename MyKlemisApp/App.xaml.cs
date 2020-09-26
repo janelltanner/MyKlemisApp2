@@ -28,8 +28,10 @@ namespace MyKlemisApp
 
             DependencyService.Register<MockDataStore>();
             //MainPage = new MainPage();
+            MainPage = new NavigationPage(new LoginPage());
+            //MainPage = new LoginPage();
             MainPage = new MainPage();
-            NavigationPage = new NavigationPage(new HomePage());
+//             NavigationPage = new NavigationPage(new HomePage());
         }
 
         protected override void OnStart()
