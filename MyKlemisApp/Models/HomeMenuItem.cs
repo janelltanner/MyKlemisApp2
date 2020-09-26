@@ -12,6 +12,7 @@ namespace MyKlemisApp.Models
         Help,
         DBTest,
         AnnouncementEnter
+        LocationsAdmin
     }
     public class HomeMenuItem
     {

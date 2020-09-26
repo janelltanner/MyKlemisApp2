@@ -5,13 +5,13 @@ using Xamarin.Forms.Xaml;
 
 using MyKlemisApp.Models;
 using MyKlemisApp.ViewModels;
+using MyKlemisApp.Services;
 
 namespace MyKlemisApp.Views
 {
     public partial class ItemDetailPage : ContentPage
     {
         ItemDetailViewModel viewModel;
-
         public ItemDetailPage(ItemDetailViewModel viewModel)
         {
             InitializeComponent();
@@ -31,6 +31,14 @@ namespace MyKlemisApp.Views
 
             viewModel = new ItemDetailViewModel(item);
             BindingContext = viewModel;
+            Console.WriteLine("ITEM ADMIN STATUS: " + Settings.IsAdmin);
+            if (Settings.IsAdmin)
+            {
+                ToolbarItems.Add(new ToolbarItem("Edit", "", () =>
+                {
+                    //logic code goes here
+                }));
+            }
         }
     }
 }

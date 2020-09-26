@@ -6,6 +6,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using MyKlemisApp.Models;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace MyKlemisApp.Views
 {
@@ -19,10 +21,8 @@ namespace MyKlemisApp.Views
         {
             InitializeComponent();
             MasterBehavior = MasterBehavior.Popover;
-
             MenuPages.Add((int)MenuItemType.Home, (NavigationPage)Detail);
         }
-
         public async Task NavigateFromMenu(int id)
         {
             if (!MenuPages.ContainsKey(id))
@@ -46,6 +46,8 @@ namespace MyKlemisApp.Views
                         break;
                     case (int)MenuItemType.AnnouncementEnter:
                         MenuPages.Add(id, new NavigationPage(new AnnouncementEntry()));
+                    case (int)MenuItemType.LocationsAdmin:
+                        MenuPages.Add(id, new NavigationPage(new LocationsAdminPage()));
                         break;
                 }
             }
