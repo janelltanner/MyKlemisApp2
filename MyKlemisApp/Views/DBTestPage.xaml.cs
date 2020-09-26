@@ -32,6 +32,14 @@ namespace MyKlemisApp.Views
         {
             InitializeComponent();
             Title = "Home";
+            //Task food = addFoodItemsAsync();
+            //food.Wait();
+            Services.TransactInterface test = new Services.TransactInterface();
+            //Task t = test.authenticate();
+            //t.Wait();
+            test.authenticateTask();
+            while (!test.isAuthorized()) { }
+            test.GetInventoryItems();
             Task food = addFoodItemsAsync();
             food.Wait();
             if (Settings.IsAdmin)
@@ -41,6 +49,7 @@ namespace MyKlemisApp.Views
                     //logic code goes here
                 }));
             }
+
         }
 
         private async Task addFoodItemsAsync()
