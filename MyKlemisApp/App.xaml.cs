@@ -30,7 +30,7 @@ namespace MyKlemisApp
             //MainPage = new MainPage();
             MainPage = new NavigationPage(new LoginPage());
             //MainPage = new LoginPage();
-            MainPage = new MainPage();
+            //MainPage = new MainPage();
 //             NavigationPage = new NavigationPage(new HomePage());
         }
 

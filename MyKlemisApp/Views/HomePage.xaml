@@ -18,7 +18,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <ScrollView BackgroundColor="{Binding BC}">
+        <ScrollView BackgroundColor="#5BBB93">
             <Grid  HorizontalOptions="Center" VerticalOptions="Center" RowSpacing="10" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="100" />

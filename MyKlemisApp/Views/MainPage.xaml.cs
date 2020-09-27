@@ -23,7 +23,7 @@ namespace MyKlemisApp.Views
 
             MasterBehavior = MasterBehavior.Popover;
             Xamarin.Forms.NavigationPage.SetHasNavigationBar(this, false);
-//             MenuPages.Add((int)MenuItemType.Home, (NavigationPage)Detail);
+            MenuPages.Add((int)MenuItemType.Home, (NavigationPage)Detail);
         }
         public async Task NavigateFromMenu(int id)
         {
@@ -48,6 +48,7 @@ namespace MyKlemisApp.Views
                         break;
                     case (int)MenuItemType.AnnouncementEnter:
                         MenuPages.Add(id, new NavigationPage(new AnnouncementEntry()));
+                        break;
                     case (int)MenuItemType.LocationsAdmin:
                         MenuPages.Add(id, new NavigationPage(new LocationsAdminPage()));
                         break;
