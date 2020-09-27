@@ -34,31 +34,31 @@ namespace MyKlemisApp.Views
                     //logic code goes here
                 }));
             }
-            BC = getBackgroundColor(Settings.IsAdmin);
+            //BC = getBackgroundColor(Settings.IsAdmin);
         }
-        public Color BC
-        {
-            set
-            {
-                BC = value;
-            }
-            get
-            {
-                return BC;
-            }
-        } 
-        public Color getBackgroundColor (bool adminStatus)
-        {
-            switch (adminStatus)
-            {
-                case true:
-                    return Color.FromHex("#1E4471");
-                case false:
-                    return Color.FromHex("#5BBB93");
-                default:
-                    return Color.FromHex("#5BBB93");
+        //public Color BC
+        //{
+        //    set
+        //    {
+        //        BC = value;
+        //    }
+        //    get
+        //    {
+        //        return BC;
+        //    }
+        //} 
+        //public Color getBackgroundColor (bool adminStatus)
+        //{
+        //    switch (adminStatus)
+        //    {
+        //        case true:
+        //            return Color.FromHex("#1E4471");
+        //        case false:
+        //            return Color.FromHex("#5BBB93");
+        //        default:
+        //            return Color.FromHex("#5BBB93");
 
-            }
-        }
+        //    }
+        //}
     }
 }
