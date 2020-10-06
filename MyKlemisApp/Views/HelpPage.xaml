@@ -1,82 +1,24 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyKlemisApp.Views.HelpPage"
-             xmlns:vm="clr-namespace:MyKlemisApp.ViewModels"
-             Title="{Binding Title}">
-    <ContentPage.BindingContext>
-        <vm:HelpViewModel/>
-    </ContentPage.BindingContext>
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="Primary">#5BBB93</Color>
-            <Color x:Key="Accent">#1E4471</Color>
-            <Color x:Key="LightTextColor">#F5C851</Color>
-            <Color x:Key="Accent2">#EF823F</Color>
-            <Color x:Key="Accent3">#CEE2DA</Color>
-            <Color x:Key="Black">#000000</Color>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-    <ContentPage.Content>
-       <ScrollView>
-           <Grid HorizontalOptions="Center"
-                 VerticalOptions="Center"
-                 RowSpacing="10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0" />
-                    <RowDefinition Height="250" />
-                    <RowDefinition Height="170" />
-                    <RowDefinition Height="100" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="300"/>
-                </Grid.ColumnDefinitions>
-                <RelativeLayout
-                    Grid.Row="1">
-                    <StackLayout
-                        Padding="0, 0"
-                        Spacing="1">
-                        <Label
-                            FontFamily="Roboto-Black"
-                            Text="MyKlemis Support Center"
-                            TextColor="Black"
-                            VerticalOptions="Center"
-                            HorizontalOptions="CenterAndExpand"
-                            FontSize="30"
-                            WidthRequest="280"/>
-                        <Label
-                            FontFamily="Roboto-Regular"
-                            Text="FAQs"
-                            TextColor="Black"
-                            FontAttributes="Bold"
-                            VerticalOptions="Center"
-                            HorizontalOptions="CenterAndExpand"
-                            FontSize="20"
-                            WidthRequest="280"/>
-                    </StackLayout>
-                </RelativeLayout>
-                <ScrollView Grid.Row="2">
-                    <Frame CornerRadius="20"
-                           Padding="10" HasShadow="False">
-                        <StackLayout>
-                            <Label FontSize="22">
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <FormattedString.Spans>
-                                            <Span FontFamily="Alike-Regular"
-                                                  Text="Announcements"
-                                                  FontAttributes="Bold"
-                                                  FontSize="20"
-                                                  TextColor="White"/>
-                                        </FormattedString.Spans>
-                                    </FormattedString>
-                                </Label.FormattedText>
-                            </Label>
-                        </StackLayout>
-                    </Frame>
-                </ScrollView>
-            </Grid>
-       </ScrollView>
-    </ContentPage.Content>
-</ContentPage>
+             x:Class="MyKlemisApp.Views.HelpPage">
+            
+    <Grid BackgroundColor="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="250" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
 
+        <StackLayout Grid.Row="1" HorizontalOptions="Center">
+            <Label FontFamily="Roboto-Black" Text="MyKlemis Support Center"
+                TextColor="Black" FontSize="30"
+                WidthRequest="280"/>
+        </StackLayout>
+
+        <StackLayout Grid.Row="2">
+         
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
