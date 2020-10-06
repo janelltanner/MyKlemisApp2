@@ -6,18 +6,22 @@
     <Grid BackgroundColor="LightGray">
         <Grid.RowDefinitions>
             <RowDefinition Height="10" />
-            <RowDefinition Height="250" />
-            <RowDefinition Height="100" />
+            <RowDefinition Height="500" />
         </Grid.RowDefinitions>
 
-        <StackLayout Grid.Row="1" HorizontalOptions="Center">
+        <StackLayout x:Name="Logo" VerticalOptions="Center" HorizontalOptions="Center">
+            <Image x:Name="HelpIcon" Source="help.png"
+                   Margin="0,50,0,0" WidthRequest="80" HeightRequest="80"/>
             <Label FontFamily="Roboto-Black" Text="MyKlemis Support Center"
-                TextColor="Black" FontSize="30"
-                WidthRequest="280"/>
+                   Margin="25,30,0,0"
+                   WidthRequest="500" HeightRequest="150"
+                   TextColor="Blue" FontSize="30" />
         </StackLayout>
 
-        <StackLayout Grid.Row="2">
-         
+        <StackLayout Grid.Row="1"
+                     HorizontalOptions="Center" VerticalOptions="Center">
+            <Button Text="Email Us" BackgroundColor="DarkGray" TextColor="DarkBlue"
+                    WidthRequest="100" Clicked="OnClickedEmail" />
         </StackLayout>
     </Grid>
 
