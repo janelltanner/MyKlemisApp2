@@ -150,6 +150,11 @@
     <BundleResource Include="Resources\croslandTower.jpg" />
     <BundleResource Include="Resources\icon2.png" />
     <BundleResource Include="Resources\moseBldg.jpg" />
+    <BundleResource Include="Resources\logo2.png" />
+    <BundleResource Include="Resources\logo3.png" />
+    <BundleResource Include="Resources\anonymous.jpg" />
+    <BundleResource Include="Resources\anonymous.png" />
+    <BundleResource Include="Resources\showmore.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

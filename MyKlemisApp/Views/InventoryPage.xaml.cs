@@ -19,13 +19,13 @@ namespace MyKlemisApp.Views
         public InventoryPage()
         {
             InitializeComponent();
-            Title = "Inventory";
+            //Title = "Inventory";
             Console.WriteLine("INVENTORY ADMIN STATUS: " + Settings.IsAdmin);
             if (Settings.IsAdmin)
             {
-                ToolbarItems.Add(new ToolbarItem("Edit", "", () =>
+                ToolbarItems.Add(new ToolbarItem("Log Out", "", async () =>
                 {
-                    //logic code goes here
+                    await Navigation.PushAsync(new LoginPage());
                 }));
             }
 

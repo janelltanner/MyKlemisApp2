@@ -29,9 +29,9 @@
                 <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
                     <StackLayout>
                         <StackLayout Padding="0,40,0,0" VerticalOptions="FillAndExpand">
-                             <Label x:Name="locName" TextColor="{StaticResource Accent3}" FontSize="30" FontFamily="Alike">Klemis Kitchen (Main)</Label>
+                             <!--<Label x:Name="locName" TextColor="{StaticResource Accent3}" FontSize="30" FontFamily="Alike">Klemis Kitchen (Main)</Label>-->
  
-                            <Label TextColor="Black" FontSize="30" FontFamily="Roboto-Black">Klemis Kitchen (Main)</Label>
+                            <Label x:Name="locName" TextColor="Black" FontSize="30" FontFamily="Roboto-Black">Klemis Kitchen (Main)</Label>
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
@@ -48,16 +48,16 @@
                             Address:
                         </Label>
 
-                         <Label x:Name="locAddress" TextColor="Black" VerticalOptions="Center" HorizontalOptions="CenterAndExpand">Molecular Sciences And Engineering Bldg</Label> 
-                        <Label FontFamily="Roboto-Light" TextColor="Black" Margin="30, 0, 0, 0" VerticalOptions="Center" HorizontalOptions="CenterAndExpand">Molecular Sciences And Engineering Bldg</Label>
+                         <!--<Label x:Name="locAddress" TextColor="Black" VerticalOptions="Center" HorizontalOptions="CenterAndExpand">Molecular Sciences And Engineering Bldg</Label>--> 
+                        <Label x:Name="locAddress" FontFamily="Roboto-Light" TextColor="Black" Margin="30, 0, 0, 0" VerticalOptions="Center" HorizontalOptions="CenterAndExpand">Molecular Sciences And Engineering Bldg</Label>
 
                         <Label FontFamily="Roboto-Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="20" WidthRequest="280">
                             Hours:
                         </Label>
 
-                         <Label x:Name="locHours" TextColor="Black" Margin="30,0,0,0">24/7</Label> 
+                         <!--<Label x:Name="locHours" TextColor="Black" Margin="30,0,0,0">24/7</Label>--> 
 
-                        <Label FontFamily="Roboto-Light" TextColor="Black" Margin="30,0,0,0">24/7</Label>
+                        <Label x:Name="locHours" FontFamily="Roboto-Light" TextColor="Black" Margin="30,0,0,0">24/7</Label>
 
                     </StackLayout>
                     <Button Text="Go to Inventory" FontFamily="Roboto-Light" VerticalOptions="Center"></Button>

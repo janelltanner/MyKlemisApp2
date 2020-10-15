@@ -20,19 +20,30 @@ namespace MyKlemisApp
 {
     public partial class App : Application
     {
+        //public Color primary; 
+        //public Color NavigationPrimary { get { return primary; } }
         private NavigationPage NavigationPage;
-
+        private bool isAdmin = Settings.IsAdmin; 
+        public bool IsAdmin { get { return isAdmin; } }
         public App()
         {
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
             //MainPage = new MainPage();
+            //isAdmin = Settings.IsAdmin;
+            this.BindingContext = this;
             MainPage = new NavigationPage(new LoginPage());
-            //MainPage = new LoginPage();
-            //MainPage = new MainPage();
-//             NavigationPage = new NavigationPage(new HomePage());
+
         }
+
+        //public Color NavBarColor
+        //{
+        //    get
+        //    {
+        //        return Settings.IsAdmin ? Color.FromHex("#1E4471") : Color.FromHex("#5BBB93");
+        //    }
+        //}
 
         protected override void OnStart()
         {
