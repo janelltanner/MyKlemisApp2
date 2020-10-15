@@ -1,7 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyKlemisApp.Views.HelpPage"
+             x:Class="MyKlemisApp.Views.HelpPage">
+            
+    <Grid BackgroundColor="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="500" />
+        </Grid.RowDefinitions>
+
+<!--              x:Class="MyKlemisApp.Views.HelpPage"
              xmlns:vm="clr-namespace:MyKlemisApp.ViewModels"
              Title="{Binding Title}">
     <ContentPage.BindingContext>
@@ -53,17 +61,35 @@
                         <RowDefinition Height="10" />
                         <!--<RowDefinition Height="250" />
                         <RowDefinition Height="270" />
-                        <RowDefinition Height="100" />-->
+                        <RowDefinition Height="100" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <!--<ScrollView Grid.Row="2">
               
-                    </ScrollView>-->
+                    </ScrollView>
                 </Grid>
             </RelativeLayout>
        </ScrollView>
     </ContentPage.Content>
-</ContentPage>
+</ContentPage> -->
 
+
+        <StackLayout x:Name="Logo" VerticalOptions="Center" HorizontalOptions="Center">
+            <Image x:Name="HelpIcon" Source="help.png"
+                   Margin="0,50,0,0" WidthRequest="80" HeightRequest="80"/>
+            <Label FontFamily="Roboto-Black" Text="MyKlemis Support Center"
+                   Margin="25,30,0,0"
+                   WidthRequest="500" HeightRequest="150"
+                   TextColor="Blue" FontSize="30" />
+        </StackLayout>
+
+        <StackLayout Grid.Row="1"
+                     HorizontalOptions="Center" VerticalOptions="Center">
+            <Button Text="Email Us" BackgroundColor="DarkGray" TextColor="DarkBlue"
+                    WidthRequest="100" Clicked="OnClickedEmail" />
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
