@@ -19,7 +19,17 @@ namespace MyKlemisApp.Views
         public HomePage()
         {
             InitializeComponent();
+<<<<<<< HEAD
             //Title = "Home";
+=======
+            //intialize inventory cache
+            Task init = Task.Run(() => TransactInterface.initialize());
+
+            Title = "Home";
+            Settings.IsAdmin = true;
+            //isAdmin = viewModel.IsAdmin;
+            Console.WriteLine("HOME ADMIN STATUS: " + Settings.IsAdmin);
+>>>>>>> 8fbf6b3f7b3a0438c0a6052003a521a86ad4230f
             if (Settings.IsAdmin)
             {
                 //HomeBackground.BackgroundColor = Color.White;
