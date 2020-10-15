@@ -23,6 +23,9 @@ namespace MyKlemisApp.Views
         public HomePage()
         {
             InitializeComponent();
+            //intialize inventory cache
+            Task init = Task.Run(() => TransactInterface.initialize());
+
             Title = "Home";
             Settings.IsAdmin = true;
             //isAdmin = viewModel.IsAdmin;

@@ -17,6 +17,7 @@ namespace MyKlemisApp.Views
         {
             InitializeComponent();
             Xamarin.Forms.NavigationPage.SetHasNavigationBar(this, false);
+            Task cred = Task.Run(() => Admin.pullCredentials());
         }
 
         async void SignInProcedure(object sender, EventArgs e)
