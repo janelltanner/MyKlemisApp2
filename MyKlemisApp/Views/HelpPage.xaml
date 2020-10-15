@@ -1,15 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyKlemisApp.Views.HelpPage">
-            
-    <Grid BackgroundColor="LightGray">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="10" />
-            <RowDefinition Height="500" />
-        </Grid.RowDefinitions>
-
-<!--              x:Class="MyKlemisApp.Views.HelpPage"
+             x:Class="MyKlemisApp.Views.HelpPage"
              xmlns:vm="clr-namespace:MyKlemisApp.ViewModels"
              Title="{Binding Title}">
     <ContentPage.BindingContext>
@@ -27,55 +19,11 @@
     </ContentPage.Resources>
     <ContentPage.Content>
        <ScrollView>
-           <RelativeLayout>
-                <StackLayout
-                    Padding="20"
-                    Spacing="5">
-                    <Label
-                        FontFamily="Roboto-Black"
-                        Text="Support Center"
-                        TextColor="Black"
-                        VerticalOptions="Center"
-                        HorizontalOptions="CenterAndExpand"
-                        FontSize="30"
-                        WidthRequest="280"
-                         Padding="0"
-                        />
-                    <Label
-                        FontFamily="Roboto-Regular"
-                        Text="FAQs"
-                        TextColor="Black"
-                        FontAttributes="Bold"
-                        VerticalOptions="Center"
-                        HorizontalOptions="CenterAndExpand"
-                        FontSize="20"
-                        WidthRequest="280"
-                        Padding="0"
-                        />
-                </StackLayout>
-               <Grid HorizontalOptions="Center"
-                 VerticalOptions="Center"
-                 RowSpacing="0"
-                 >
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="10" />
-                        <!--<RowDefinition Height="250" />
-                        <RowDefinition Height="270" />
-                        <RowDefinition Height="100" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <!--<ScrollView Grid.Row="2">
-              
-                    </ScrollView>
-                </Grid>
-            </RelativeLayout>
-       </ScrollView>
-    </ContentPage.Content>
-</ContentPage> -->
-
-
+            <Grid BackgroundColor="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="500" />
+        </Grid.RowDefinitions>
         <StackLayout x:Name="Logo" VerticalOptions="Center" HorizontalOptions="Center">
             <Image x:Name="HelpIcon" Source="help.png"
                    Margin="0,50,0,0" WidthRequest="80" HeightRequest="80"/>
@@ -84,12 +32,13 @@
                    WidthRequest="500" HeightRequest="150"
                    TextColor="Blue" FontSize="30" />
         </StackLayout>
-
         <StackLayout Grid.Row="1"
                      HorizontalOptions="Center" VerticalOptions="Center">
             <Button Text="Email Us" BackgroundColor="DarkGray" TextColor="DarkBlue"
                     WidthRequest="100" Clicked="OnClickedEmail" />
         </StackLayout>
-    </Grid>
-
+        </Grid>
+       </ScrollView>
+    </ContentPage.Content>
 </ContentPage>
+

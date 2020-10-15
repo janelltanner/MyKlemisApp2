@@ -3,6 +3,7 @@ using MyKlemisApp.ViewModels;
 using MyKlemisApp.Services;
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
+using System.Threading.Tasks;
 
 namespace MyKlemisApp.Views
 {
@@ -19,17 +20,13 @@ namespace MyKlemisApp.Views
         public HomePage()
         {
             InitializeComponent();
-<<<<<<< HEAD
-            //Title = "Home";
-=======
             //intialize inventory cache
             Task init = Task.Run(() => TransactInterface.initialize());
 
             Title = "Home";
             Settings.IsAdmin = true;
             //isAdmin = viewModel.IsAdmin;
-            Console.WriteLine("HOME ADMIN STATUS: " + Settings.IsAdmin);
->>>>>>> 8fbf6b3f7b3a0438c0a6052003a521a86ad4230f
+            //Console.WriteLine("HOME ADMIN STATUS: " + Settings.IsAdmin);
             if (Settings.IsAdmin)
             {
                 //HomeBackground.BackgroundColor = Color.White;
@@ -43,6 +40,7 @@ namespace MyKlemisApp.Views
                 }));
             } else
             {
+                Settings.IsAdmin = false;
                 welcomeMessage = "MyKlemis";
                 //HomeBackground.BackgroundColor = Color.FromHex("#5BBB93");
             }
