@@ -31,7 +31,7 @@ namespace MyKlemisApp.Views
         public DBTestPage()
         {
             InitializeComponent();
-            Title = "Home";
+            //Title = "Home";
             //Task food = addFoodItemsAsync();
             //food.Wait();
             Services.TransactInterface test = new Services.TransactInterface();
