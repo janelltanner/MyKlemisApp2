@@ -7,16 +7,35 @@ using System.Threading.Tasks;
 using MyKlemisApp.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using MyKlemisApp.Services;
+using System.Collections.ObjectModel;
 
 namespace MyKlemisApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
+        //ObservableCollection<Admin> admins = new ObservableCollection<Admin>();
+        //public ObservableCollection<Admin> Admins { get { return admins; } }
         public LoginPage()
         {
             InitializeComponent();
             Xamarin.Forms.NavigationPage.SetHasNavigationBar(this, false);
+<<<<<<< HEAD
+            StudentLogin.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnLabelClicked()));
+        }
+        
+
+        async private void OnLabelClicked()
+        {
+            await Navigation.PushAsync(new MainPage());
+            await Device.InvokeOnMainThreadAsync(() => {
+                Application.Current.MainPage = new MainPage();
+                Settings.IsAdmin = false;
+            });
+=======
+            Task cred = Task.Run(() => Admin.pullCredentials());
+>>>>>>> 8fbf6b3f7b3a0438c0a6052003a521a86ad4230f
         }
 
         async void SignInProcedure(object sender, EventArgs e)
@@ -29,18 +48,26 @@ namespace MyKlemisApp.Views
 
                 await Navigation.PushAsync(new MainPage());
 
-                await Device.InvokeOnMainThreadAsync(() => {
+                await Device.InvokeOnMainThreadAsync(async () =>
+                {
+                    Settings.IsAdmin = true;
+                    admin.FullName = await DisplayPromptAsync("Welcome to MyKlemis", "What's your full name?");
+                    HomePage.welcomeMessage = "Welcome Back, " + admin.FullName + "!";
                     Application.Current.MainPage = new MainPage();
+                    //Settings.IsAdmin = true;
+
+                    if (!Contacts.contains(admin.Username))
+                    {
+                        Contacts.admins.Add(admin);
+                    }
+                    //HomePage.welcomeMessage = "Welcome Back, " + admin.FullName + "!";
                 });
-
-                //await Navigation.PushAsync(new NavigationPage(new MainPage()));
-
-                //await Navigation.PushAsync(new NavigationPage(new HomePage()));
             }
             else
             {
                 await DisplayAlert("Login", "Login Failed", "Okay");
             }
         }
+        
     }
 }

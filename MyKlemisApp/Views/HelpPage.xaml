@@ -19,63 +19,50 @@
     </ContentPage.Resources>
     <ContentPage.Content>
        <ScrollView>
-           <Grid HorizontalOptions="Center"
+           <RelativeLayout>
+                <StackLayout
+                    Padding="20"
+                    Spacing="5">
+                    <Label
+                        FontFamily="Roboto-Black"
+                        Text="Support Center"
+                        TextColor="Black"
+                        VerticalOptions="Center"
+                        HorizontalOptions="CenterAndExpand"
+                        FontSize="30"
+                        WidthRequest="280"
+                         Padding="0"
+                        />
+                    <Label
+                        FontFamily="Roboto-Regular"
+                        Text="FAQs"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        VerticalOptions="Center"
+                        HorizontalOptions="CenterAndExpand"
+                        FontSize="20"
+                        WidthRequest="280"
+                        Padding="0"
+                        />
+                </StackLayout>
+               <Grid HorizontalOptions="Center"
                  VerticalOptions="Center"
-                 RowSpacing="10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0" />
-                    <RowDefinition Height="250" />
-                    <RowDefinition Height="170" />
-                    <RowDefinition Height="100" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="300"/>
-                </Grid.ColumnDefinitions>
-                <RelativeLayout
-                    Grid.Row="1">
-                    <StackLayout
-                        Padding="0, 0"
-                        Spacing="1">
-                        <Label
-                            FontFamily="Roboto-Black"
-                            Text="MyKlemis Support Center"
-                            TextColor="Black"
-                            VerticalOptions="Center"
-                            HorizontalOptions="CenterAndExpand"
-                            FontSize="30"
-                            WidthRequest="280"/>
-                        <Label
-                            FontFamily="Roboto-Regular"
-                            Text="FAQs"
-                            TextColor="Black"
-                            FontAttributes="Bold"
-                            VerticalOptions="Center"
-                            HorizontalOptions="CenterAndExpand"
-                            FontSize="20"
-                            WidthRequest="280"/>
-                    </StackLayout>
-                </RelativeLayout>
-                <ScrollView Grid.Row="2">
-                    <Frame CornerRadius="20"
-                           Padding="10" HasShadow="False">
-                        <StackLayout>
-                            <Label FontSize="22">
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <FormattedString.Spans>
-                                            <Span FontFamily="Alike-Regular"
-                                                  Text="Announcements"
-                                                  FontAttributes="Bold"
-                                                  FontSize="20"
-                                                  TextColor="White"/>
-                                        </FormattedString.Spans>
-                                    </FormattedString>
-                                </Label.FormattedText>
-                            </Label>
-                        </StackLayout>
-                    </Frame>
-                </ScrollView>
-            </Grid>
+                 RowSpacing="0"
+                 >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10" />
+                        <!--<RowDefinition Height="250" />
+                        <RowDefinition Height="270" />
+                        <RowDefinition Height="100" />-->
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--<ScrollView Grid.Row="2">
+              
+                    </ScrollView>-->
+                </Grid>
+            </RelativeLayout>
        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

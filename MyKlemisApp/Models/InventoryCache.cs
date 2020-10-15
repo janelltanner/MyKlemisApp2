@@ -6,7 +6,7 @@ namespace MyKlemisApp.Models
 {
     class InventoryCache
     {
-        private static List<Item> items;
+        private static List<Item> items = new List<Item>();
         public static void setItems(List<Item> setItems)
         {
             items = setItems;
@@ -15,6 +15,11 @@ namespace MyKlemisApp.Models
         public static List<Item>.Enumerator getItemsEnum()
         {
             return items.GetEnumerator();
+        }
+
+        public static int getCount()
+        {
+            return items.Count;
         }
     }
 }

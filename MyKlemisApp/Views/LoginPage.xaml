@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyKlemisApp.Views.LoginPage">
 
-    <Grid BackgroundColor="LightBlue">
+    <Grid BackgroundColor="#0bb0e7">
         <Grid.RowDefinitions>
             <RowDefinition Height="10" />
             <RowDefinition Height="250" />
@@ -11,9 +11,9 @@
         </Grid.RowDefinitions>
         
         <StackLayout Grid.Row="1" x:Name="LogoStack" VerticalOptions="FillAndExpand">
-            <Image x:Name="LoginIcon" Source="logo.png" Margin="0,40,0,0" />
-            <Label TextColor="Black" FontSize="30"
-                   Margin="50,0,0,0" FontFamily="Alike">Welcome to MyKlemis</Label>
+            <Image x:Name="LoginIcon" Source="logo3.png" Margin="0,40,0,0" />
+            <Label TextColor="White" FontSize="30"
+                   Margin="50,0,0,0" FontFamily="Roboto-Black">Welcome to MyKlemis</Label>
         </StackLayout>
 
         <StackLayout Grid.Row="2" x:Name="LoginEntriesStack"
@@ -33,8 +33,17 @@
 
         <StackLayout Grid.Row="3" HorizontalOptions="Center">
             <Button x:Name="SigninButton" Text="Sign In"
-                    TextColor="Black" WidthRequest="100"
-                    BackgroundColor="White" Clicked="SignInProcedure" />
+                    TextColor="Black" WidthRequest="100" BorderRadius="20"
+                    BackgroundColor="#F5C851" Clicked="SignInProcedure" />
+            <!--<Label x:Name="UserNameLabel" Text="Login " />-->
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Are you a student?" FontAttributes="Bold"/>
+                        <Span x:Name="StudentLogin" Text="Click Here" TextDecorations="Underline"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
         </StackLayout>
     </Grid>
 </ContentPage>

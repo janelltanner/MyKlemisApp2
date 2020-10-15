@@ -23,6 +23,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Xamarin.ConfigPlugin" Version="2.1.0" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="SkiaSharp" Version="2.80.2" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="2.80.2" />
+    <PackageReference Include="SkiaSharp.Views" Version="2.80.2" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
