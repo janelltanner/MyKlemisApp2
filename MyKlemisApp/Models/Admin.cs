@@ -31,11 +31,12 @@ namespace MyKlemisApp.Models
 
         public bool CheckInformation()
         {
-            return true;
+            //return true;
             if(this.Username == null || this.Password == null)
             {
                 return false;
             }
+            while(areCredsLoaded == false) { }
             for(int i = 0; i < credentials.Count; i++) 
             {
                 if (this.Username.Equals(credentials[i].username) && this.Password.Equals(credentials[i].password))
