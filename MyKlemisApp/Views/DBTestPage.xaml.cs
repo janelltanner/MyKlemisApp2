@@ -39,7 +39,7 @@ namespace MyKlemisApp.Views
             //t.Wait();
 
             //old db test code
-/*            while (!TransactInterface.isInitialized()) { }
+            while (!TransactInterface.isInitialized()) { }
             IEnumerator<Item> itemsEnum = Models.InventoryCache.getItemsEnum();
             itemsEnum.MoveNext();
             int count = 0;
@@ -51,7 +51,7 @@ namespace MyKlemisApp.Views
                 item.HeightRequest = 50.0;
                 layout.Children.Add(item);
                 itemsEnum.MoveNext();
-            }*/
+            }
 
 
 

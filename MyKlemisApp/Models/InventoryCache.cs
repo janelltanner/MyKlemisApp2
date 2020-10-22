@@ -17,6 +17,11 @@ namespace MyKlemisApp.Models
             return items.GetEnumerator();
         }
 
+        public static List<Item> getItems()
+        {
+            return items;
+        }
+
         public static int getCount()
         {
             return items.Count;

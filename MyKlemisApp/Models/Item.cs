@@ -3,7 +3,7 @@ using System;
 
 namespace MyKlemisApp.Models
 {
-    public class Item
+    public class Item : IComparable
     {
         [JsonProperty("description")]
         public string Description { get; set; }
@@ -19,5 +19,10 @@ namespace MyKlemisApp.Models
         public bool enabled { get; set; }
         public bool outofstock { get; set; }
         public int total_on_hand { get; set; }
+
+        public int CompareTo(object obj)
+        {
+            return label.CompareTo(((Item)obj).label);
+        }
     }
 }

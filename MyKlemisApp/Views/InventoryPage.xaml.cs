@@ -29,6 +29,30 @@ namespace MyKlemisApp.Views
                 }));
             }
 
+            //add inventory items
+            List<Models.Item> items = Models.InventoryCache.getItems();
+            items.Sort();
+            foreach(Models.Item i in items)
+            {
+                Frame itemFrame = new Frame();
+                StackLayout layout = new StackLayout();
+                itemFrame.BackgroundColor = Color.LightBlue;
+                layout.Orientation = StackOrientation.Horizontal;
+                Label itemName = new Label();
+                itemName.TextColor = Color.DarkSlateGray;
+                itemName.FontSize = 24;
+                itemName.GestureRecognizers.Add(new TapGestureRecognizer((view) => sendToProductInfo()));
+                itemName.Text = i.label;
+                layout.Children.Add(itemName);
+                itemFrame.Content = layout;
+                scrollLayout.Children.Add(itemFrame);
+            }
+
+        }
+
+        public void sendToProductInfo()
+        {
+            //TODO (ashwin): put code to move user to product info screen in this method
         }
     }
 }
