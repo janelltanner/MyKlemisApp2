@@ -53,9 +53,6 @@ namespace MyKlemisApp.Views
                         case (int)MenuItemType.AnnouncementEnter:
                             MenuPages.Add(id, new NavigationPage(new AnnouncementEntry()));
                             break;
-                        case (int)MenuItemType.LocationsAdmin:
-                            MenuPages.Add(id, new NavigationPage(new LocationsAdminPage()));
-                            break;
                         case (int)MenuItemType.Contacts:
                             MenuPages.Add(id, new NavigationPage(new Contacts()));
                             break;
