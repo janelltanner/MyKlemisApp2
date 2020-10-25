@@ -19,19 +19,25 @@
                         <DataTemplate>
                             <!--<TextCell Text="{Binding FullName}" />-->
                             <ViewCell>
-                                 <StackLayout Orientation="Vertical">
-                                    <StackLayout Orientation="Horizontal">
+                                <ViewCell.View>
+                                     <Grid Padding="0, 10, 0, 0" x:Name="Item">
+
+                                        <Grid.ColumnDefinitions>
+                                          <ColumnDefinition Width="Auto"/>
+                                          <ColumnDefinition Width="200"/>
+                                          <ColumnDefinition Width="100"/>
+                                          <ColumnDefinition />
+                                          <!--<ColumnDefinition Width="Auto"/>-->
+                                          <!--<ColumnDefinition Width="Auto"/>-->
+                                        </Grid.ColumnDefinitions>
                                         <Image Margin="20,0,0,0" Source="anonymous.png"/>
-                                        <Label Padding="0,10,0,0" Text="{Binding FullName}"/>
-                                        <Label x:Name="ContactAdmins" Padding="180,10,0,0" Text="Contact" TextColor="#0bb0e7"/>
-                                    <!--<Image Source="{Binding image}" />
-                                <Label Text="{Binding title}"
-                                TextColor="#f35e20" />
-                                <Label Text="{Binding subtitle}"
-                                HorizontalOptions="EndAndExpand"
-                                TextColor="#503026" />-->
-                                    </StackLayout>
-                                </StackLayout>
+                                        <Label Grid.Column="1" Text="{Binding name}"/>
+                                        <Button  Grid.Column="2" BorderColor="Transparent" BackgroundColor="Transparent" Text="Contact" TextColor="#0bb0e7" Clicked="OpenEmailForm" />
+                                        <!--<Label x:Name="ContactAdmins" Grid.Column="2" Text="Contact" TextColor="#0bb0e7" />-->
+                                        <!--<Button Grid.Column="3" BindingContext="{Binding Source={x:Reference ArbeitsEinträgeList}, Path=BindingContext}"   Command="{Binding EditEintragCommand}"   CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}" Text="&#xf040;" FontFamily="../Ressources/fontawesome.ttf#FontAwesome"></Button>
+                                        <Button Grid.Column="4" BindingContext="{Binding Source={x:Reference ArbeitsEinträgeList}, Path=BindingContext}" Command="{Binding DeleteEintragCommand}"  CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}" Text="&#xF00D;" FontFamily="../Ressources/fontawesome.ttf#FontAwesome"></Button>-->
+                                      </Grid>
+                                </ViewCell.View>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>

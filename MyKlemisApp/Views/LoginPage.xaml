@@ -26,9 +26,25 @@
             </StackLayout.Padding>
 
             <Label x:Name="UserNameLabel" Text="Username" />
-            <Entry x:Name="NameEntry" HorizontalOptions="Start" WidthRequest="380" Placeholder="Username" />
+            <Entry x:Name="NameEntry" HorizontalOptions="Start" WidthRequest="380" Placeholder="Username">
+                <Entry.Keyboard>
+                    <Keyboard x:FactoryMethod="Create">
+                        <x:Arguments>
+                        <KeyboardFlags>None</KeyboardFlags>
+                        </x:Arguments>
+                    </Keyboard>
+                </Entry.Keyboard>
+            </Entry>
             <Label x:Name="PasswordLabel" Text="Password" />
-            <Entry x:Name="PasswordEntry" HorizontalOptions="Start" WidthRequest="380" Placeholder="Password" />
+            <Entry x:Name="PasswordEntry" IsPassword="True" HorizontalOptions="Start" WidthRequest="380" Placeholder="Password">
+                <Entry.Keyboard>
+                    <Keyboard x:FactoryMethod="Create">
+                        <x:Arguments>
+                        <KeyboardFlags>None</KeyboardFlags>
+                        </x:Arguments>
+                    </Keyboard>
+                </Entry.Keyboard>
+            </Entry>
         </StackLayout>
 
         <StackLayout Grid.Row="3" HorizontalOptions="Center">

@@ -5,13 +5,16 @@ using Xamarin.Forms;
 using System.Collections.ObjectModel;
 using MyKlemisApp.Models;
 using MyKlemisApp.Services;
+using Rg.Plugins.Popup.Pages;
+using Rg.Plugins.Popup.Services;
 
 namespace MyKlemisApp.Views
 {
     public partial class Contacts : ContentPage
     {
-        public static HashSet<Admin> admins = new HashSet<Admin>();
-        public static HashSet<Admin> Admins { get { return admins; } set { admins = value; } }
+        private EmailPopupPage _emailPopup;
+        public static List<KlemisCredentials> admins = new List<KlemisCredentials>();
+        public static List<KlemisCredentials> Admins { get { return admins; } set { admins = value; } }
         public Contacts()
         {
             if (Settings.IsAdmin)
@@ -26,7 +29,10 @@ namespace MyKlemisApp.Views
                 }));
             }
             InitializeComponent();
+            //this.BindingContext = this;
+            //ContactAdmins.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnLabelClicked()));
             Title = "Contacts";
+            _emailPopup = new EmailPopupPage();
         }
         protected override void OnAppearing()
         {
@@ -34,17 +40,29 @@ namespace MyKlemisApp.Views
 
         }
 
-        public static bool contains(string username)
+        async void OpenEmailForm(object sender, EventArgs e)
         {
-            bool hasUser = false; 
-            foreach (Admin admin in admins)
-            {
-                if (admin.Username.Equals(username))
-                {
-                    hasUser =  true; 
-                }   
-            }
-            return hasUser;
+            await PopupNavigation.Instance.PushAsync(_emailPopup);
+            //await Navigation.PushAsync(new MainPage());
+            //await Device.InvokeOnMainThreadAsync(() => {
+            //    Application.Current.MainPage = new MainPage();
+            //    Settings.IsAdmin = false;
+            //});
+            //ContactAdmins;
         }
+
+        
+        //public static bool contains(string username)
+        //{
+        //    //bool hasUser = false; 
+        //    ////foreach (Admin admin in admins)
+        //    ////{
+        //    ////    if (admin.Username.Equals(username))
+        //    ////    {
+        //    ////        hasUser =  true; 
+        //    ////    }   
+        //    ////}
+        //    //return hasUser;
+        //}
     }
 }

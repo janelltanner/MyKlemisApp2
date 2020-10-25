@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MyKlemisApp.Models
 {
-    class KlemisCredentials
+    public class KlemisCredentials
     {
         public string name { get; set; }
         public string email { get; set; }

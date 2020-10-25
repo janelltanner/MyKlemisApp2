@@ -2,6 +2,7 @@
 using Amazon.CognitoIdentity;
 using Amazon.DynamoDBv2.DataModel;
 using Amazon.DynamoDBv2.DocumentModel;
+using MyKlemisApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -29,6 +30,17 @@ namespace MyKlemisApp.Models
             this.Password = Password;
         }
 
+        public static void AddToContactBook()
+        {
+            foreach (KlemisCredentials kc in credentials)
+            {
+                if (!   Contacts.admins.Contains(kc))
+                {
+                    Contacts.admins.Add(kc);
+                }
+            }
+        }
+
         public bool CheckInformation()
         {
             //return true;
@@ -45,6 +57,18 @@ namespace MyKlemisApp.Models
                 }
             }
             return false;
+        }
+
+        public static KlemisCredentials GetCurrAdmin(Admin ad)
+        {
+            foreach (KlemisCredentials kc in credentials)
+            {
+                if (kc.username.ToLower().Equals(ad.Username.ToLower()))
+                {
+                    return kc;
+                } 
+            }
+            return null;
         }
 
         public static async void pullCredentials()

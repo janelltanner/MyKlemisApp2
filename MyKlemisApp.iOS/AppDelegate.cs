@@ -26,6 +26,7 @@ namespace MyKlemisApp.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            Rg.Plugins.Popup.Popup.Init();
             var loggingConfig = AWSConfigs.LoggingConfig;
             loggingConfig.LogMetrics = true;
             loggingConfig.LogResponses = ResponseLoggingOption.Always;
