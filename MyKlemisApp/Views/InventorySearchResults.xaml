@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyKlemisApp.Views.InventoryPage"
+             x:Class="MyKlemisApp.Views.InventorySearchResults"
              xmlns:vm="clr-namespace:MyKlemisApp.ViewModels"
              Title="{Binding Title}">
     <ContentPage.BindingContext>
@@ -28,8 +28,8 @@
                         HorizontalOptions="Start"
                         FontSize="32"
                         WidthRequest="200"/>-->
-                <SearchBar x:Name="InventorySearch" SearchButtonPressed="Handle_SearchButtonPressed"
-                           Placeholder="Search items..." />
+                <!-- <SearchBar x:Name="InventorySearch" SearchButtonPressed="Handle_SearchButtonPressed"
+                           Placeholder="Search items..." /> -->
             </StackLayout>
             <ScrollView>
                 <StackLayout x:Name="scrollLayout"></StackLayout>

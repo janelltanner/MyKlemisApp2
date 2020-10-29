@@ -26,7 +26,6 @@ namespace MyKlemisApp.Views
                     new HomeMenuItem {Id = MenuItemType.Help, Title="Help Chat", IconSource=""},
                     new HomeMenuItem {Id = MenuItemType.DBTest, Title = "[DB Test]", IconSource = ""},
                     new HomeMenuItem {Id = MenuItemType.AnnouncementEnter, Title = "Announcement Entry", IconSource = ""},
-                    new HomeMenuItem {Id = MenuItemType.LocationsAdmin, Title="Locations Admin", IconSource=""},
                     new HomeMenuItem {Id = MenuItemType.Contacts, Title="Contacts", IconSource=""}
                 };
             } else

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyKlemisApp.Views.ProductInfo">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+             <Color x:Key="Primary">#5BBB93</Color>
+            <Color x:Key="Accent">#1E4471</Color>
+            <Color x:Key="LightTextColor">#F5C851</Color>
+            <Color x:Key="Accent2">#EF823F</Color>
+            <Color x:Key="Accent3">#CEE2DA</Color>
+            <Color x:Key="Black">#000000</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid  HorizontalOptions="Center" VerticalOptions="Center" RowSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="150" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                    <StackLayout>
+                        <StackLayout Padding="0,40,0,0" VerticalOptions="FillAndExpand">
+                             <!--<Label x:Name="locName" TextColor="{StaticResource Accent3}" FontSize="30" FontFamily="Alike">Klemis Kitchen (Main)</Label>-->
+ 
+                            <Label x:Name="prodName" TextColor="Black" FontSize="30" FontFamily="Roboto-Black">Klemis Kitchen (Main)</Label>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
+<!--                 <RelativeLayout BackgroundColor="#E2E2E2" HeightRequest="210"  IsClippedToBounds="True" Grid.Row="1">
+                    <Image x:Name="locImg" Source="moseBldg.jpg" Aspect="Fill" HeightRequest="150"/> -->
+                
+                <RelativeLayout BackgroundColor="#E2E2E2" Margin="0,30,0,0" HeightRequest="210"  IsClippedToBounds="True" Grid.Row="1">
+                    <Image Source="moseBldg.jpg"  Aspect="Fill" HeightRequest="150"/>
+                </RelativeLayout>
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill" Grid.Row="2" Margin="0, 40 , 0, 0">
+                    <StackLayout>
+                        <Label FontFamily="Roboto-Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="20" WidthRequest="280">
+                            Location:
+                        </Label>
+
+                         <!--<Label x:Name="locAddress" TextColor="Black" VerticalOptions="Center" HorizontalOptions="CenterAndExpand">Molecular Sciences And Engineering Bldg</Label>--> 
+                        <Label x:Name="location" FontFamily="Roboto-Light" TextColor="Black" Margin="30, 0, 0, 0" VerticalOptions="Center" HorizontalOptions="CenterAndExpand">Molecular Sciences And Engineering Bldg</Label>
+
+                        <Label FontFamily="Roboto-Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="20" WidthRequest="280">
+                            Carbs:
+                        </Label>
+
+                         <!--<Label x:Name="locHours" TextColor="Black" Margin="30,0,0,0">24/7</Label>--> 
+
+                        <Label x:Name="carbs" FontFamily="Roboto-Light" TextColor="Black" Margin="30,0,0,0">24/7</Label>
+
+                    </StackLayout>
+                   
+                </StackLayout>
+                
+                
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
