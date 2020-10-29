@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using MyKlemisApp.ViewModels;
 using MyKlemisApp.Services;
-
+using System.Linq;
 
 namespace MyKlemisApp.Views
 {
@@ -141,6 +141,21 @@ namespace MyKlemisApp.Views
         }
 
         //this isn't working aaaa feel free to delete -- Rebekah
+
+        async void Handle_SearchButtonPressed(object sender, System.EventArgs e)
+        {
+            List<Models.Item> items = Models.InventoryCache.getItems();
+            List<String> itemnames = new List<String>();
+            foreach (Models.Item i in items)
+            {
+                itemnames.Add(i.label);
+            }
+
+            IEnumerable<String> itemsSearched = itemnames.Where(c => c.Contains(InventorySearch.Text));
+            await Navigation.PushAsync(new InventorySearchResults(itemsSearched));
+
+
+        }
 
         async public void OnItemSwiped(object sender, SwipedEventArgs e) {
             switch (e.Direction)

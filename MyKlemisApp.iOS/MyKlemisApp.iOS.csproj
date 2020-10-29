@@ -50,6 +50,8 @@
     <MtouchDebug>true</MtouchDebug><!--    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
 -->    <!--    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
 -->    <!--    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+-->    <!--    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+-->    <!--    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
 -->    
 <!--    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
 -->    <MtouchLink>None</MtouchLink>
@@ -63,6 +65,8 @@
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
     <CodesignKey>iPhone Developer</CodesignKey><!--    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+-->  <!--    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+-->  <!--    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
 -->  <!--    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
 -->  <!--    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
 -->  
