@@ -60,7 +60,7 @@ namespace MyKlemisApp.Views
                 
                 itemName.TextColor = Color.DarkSlateGray;
                 itemName.FontSize = 24;
-                itemName.GestureRecognizers.Add(new TapGestureRecognizer((view) => sendToProductInfo()));
+                itemName.GestureRecognizers.Add(new TapGestureRecognizer((view) => sendToProductInfo(i)));
                 itemName.Text = i.label;
                 itemGrid.Children.Add(itemName, 1, 0);
 
@@ -135,9 +135,10 @@ namespace MyKlemisApp.Views
 
         }
 
-        public void sendToProductInfo()
+        async public void sendToProductInfo(Models.Item i)
         {
             //TODO (ashwin): put code to move user to product info screen in this method
+            await Navigation.PushAsync(new ProductInfo(i));
         }
 
         //this isn't working aaaa feel free to delete -- Rebekah
