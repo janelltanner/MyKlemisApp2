@@ -1,10 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyKlemisApp.Views.HomePage"
-             xmlns:vm="clr-namespace:MyKlemisApp.ViewModels" xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
-             Title="{Binding Title}"
-            >  <!--Title="{Binding Title}"-->
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:vm="clr-namespace:MyKlemisApp.ViewModels" xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MyKlemisApp.Views.StudentHomePage">
     <ContentPage.BindingContext>
         <vm:HomeViewModel/>
     </ContentPage.BindingContext>
@@ -34,7 +29,7 @@
                     <StackLayout Orientation="Horizontal">
                         <StackLayout Padding="20,40,0,30">
                             <!--<Image Source="icon2.png" VerticalOptions="Center"/>-->
-                            <Label TextColor="Black" VerticalTextAlignment="Start" FontSize="30" FontFamily="Roboto-Bold" Text="{Binding WelcomeMessage}" />
+                            <Label TextColor="Black" VerticalTextAlignment="Start" FontSize="30" FontFamily="Roboto-Bold" Text="MyKlemis" />
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
@@ -52,7 +47,6 @@
                                     <Label.Text FontFamily="Roboto-Bold" FontSize="20" HorizontalOptions="End" VerticalOptions="Center" TextColor="Black">Annoucements</Label.Text> 
                                     </Label>
                                     <!--<Button Grid.Column="1" Text="add"/>-->
-                                    <ImageButton Grid.Column="1" Source="add.png" BackgroundColor="Transparent" Clicked="OpenAnnouncementsForm"/>
                                 </Grid>
                             </StackLayout>
 

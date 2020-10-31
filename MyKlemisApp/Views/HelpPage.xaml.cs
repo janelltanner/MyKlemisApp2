@@ -23,13 +23,10 @@ namespace MyKlemisApp.Views
             InitializeComponent();
             Title = "Help";
             Console.WriteLine("HELP ADMIN STATUS: " + Settings.IsAdmin);
-            if (Settings.IsAdmin)
+            ToolbarItems.Add(new ToolbarItem("Log Out", "", async () =>
             {
-                ToolbarItems.Add(new ToolbarItem("Log Out", "", async () =>
-                {
-                    await Navigation.PushAsync(new LoginPage());
-                }));
-            }
+                await Navigation.PushAsync(new LoginPage());
+            }));
         }
 
         private async void OnClickedEmail(System.Object sender, System.EventArgs e)

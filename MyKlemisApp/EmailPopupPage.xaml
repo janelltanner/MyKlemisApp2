@@ -37,10 +37,10 @@
             <Button  Grid.Column="2" BorderColor="Transparent" BackgroundColor="Transparent" Text="Contact" TextColor="#0bb0e7" Clicked="OpenEmailForm" />-->
         </Grid>
         <StackLayout HeightRequest="500" Padding="0,20,0,0" BackgroundColor="White">
-            <StackLayout Orientation="Horizontal" Padding="10">
+            <StackLayout x:Name="ToBlock" Orientation="Horizontal" Padding="10">
                 <Label Text="To:" />
-                <Entry Margin="10,0,0,0" x:Name="emailTo" Text="{Binding ToRecipient}" HorizontalOptions="StartAndExpand" WidthRequest="320"> 
-                </Entry>
+                <!--<Entry Margin="10,0,0,0" x:Name="emailTo" Text="{Binding ToRecipient}" HorizontalOptions="StartAndExpand" WidthRequest="320"> 
+                </Entry>-->
             </StackLayout>
             <StackLayout Orientation="Horizontal" Padding="10">
                 <Label Text="Subject:" />

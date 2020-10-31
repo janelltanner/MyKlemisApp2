@@ -1,28 +1,24 @@
-﻿using Xamarin.Forms;
-using MyKlemisApp.ViewModels;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using MyKlemisApp.Services;
+using MyKlemisApp.ViewModels;
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
-using System.Threading.Tasks;
-using Rg.Plugins.Popup.Services;
-using System;
+using Xamarin.Forms;
 
 namespace MyKlemisApp.Views
 {
-    public partial class HomePage : ContentPage
+    public partial class StudentHomePage : ContentPage
     {
-        HomeViewModel viewModel;
-        private AnnouncementPopupPage _announcementPopup = new AnnouncementPopupPage();
-        public static string welcomeMessage = "";
-        public static bool isAdminBtnVisible;
-        public static bool IsAdminBtnVisible { get { return isAdminBtnVisible; } }
-        public string WelcomeMessage { get { return welcomeMessage; } }
-        public HomePage(HomeViewModel viewModel)
+        private HomeViewModel viewModel;
+
+        public StudentHomePage(HomeViewModel viewModel)
         {
             InitializeComponent();
             BindingContext = this.viewModel = viewModel;
         }
-        public HomePage()
+        public StudentHomePage()
         {
             InitializeComponent();
             //intialize inventory cache
@@ -33,16 +29,8 @@ namespace MyKlemisApp.Views
                 await Navigation.PushAsync(new LoginPage());
 
             }));
-            
-            this.BindingContext = this;
-        }
 
-        async void OpenAnnouncementsForm(object sender, EventArgs e)
-        {
-            if (Settings.IsAdmin)
-            {
-                await PopupNavigation.Instance.PushAsync(_announcementPopup);
-            }
+            this.BindingContext = this;
         }
 
         private void SKCanvasView_PaintSurface(object sender, SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs args)

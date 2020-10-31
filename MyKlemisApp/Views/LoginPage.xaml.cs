@@ -29,10 +29,11 @@ namespace MyKlemisApp.Views
 
         async private void OnLabelClicked()
         {
-            await Navigation.PushAsync(new MainPage());
+            await Navigation.PushAsync(new NavigationPage(new StudentHomePage()));
             await Device.InvokeOnMainThreadAsync(() => {
-                Application.Current.MainPage = new MainPage();
                 Settings.IsAdmin = false;
+                Application.Current.MainPage = new StudentMainPage();
+
             });
 
             
@@ -56,11 +57,11 @@ namespace MyKlemisApp.Views
                     if (currAdmin != null)
                     {
                         HomePage.welcomeMessage = "Welcome Back, " + currAdmin.name + "!";
+                        Admin.AddToContactBook();
                     }
                     Application.Current.MainPage = new MainPage();
-                    Admin.AddToContactBook();
-                    EmailPopupPage.toRecipient = currAdmin.email;
-                    //HomePage.welcomeMessage = "Welcome Back, " + admin.FullName + "!";
+                    //Admin.AddToContactBook();
+                    //EmailPopupPage.toRecipient = currAdmin.email;
                 });
             }
             else

@@ -15,8 +15,8 @@
         <StackLayout Margin="10" 
                      Orientation="Vertical">
 
-            <Button Text="Done" Clicked="OnClickDone" FontSize="Small" BackgroundColor="{StaticResource Accent2}" BorderRadius="2"  BorderWidth="5" TextColor="White"  VerticalOptions="CenterAndExpand" HorizontalOptions="End" Margin="15, 15, 15, 0"/>
-            <Label Text="Klemis Locations" FontSize="Title" TextColor="Black" HorizontalOptions="Start" VerticalTextAlignment="Left" Margin="15, 15, 15, 15" />
+            <Button Text="Done" Clicked="OnClickDone" FontSize="Medium" BackgroundColor="Transparent" FontFamily="Roboto-Black" BorderColor="Transparent" TextColor="#b5d83b"  VerticalOptions="CenterAndExpand" HorizontalOptions="End" Margin="15, 15, 15, 0"/>
+            <Label Text="Klemis Locations" FontFamily="Roboto-Black" FontSize="30" TextColor="Black" HorizontalOptions="Start" VerticalTextAlignment="Left" Margin="15, 15, 15, 15"/>
 
             <ListView ItemsSource="{Binding Locations}"
                       HasUnevenRows="true"

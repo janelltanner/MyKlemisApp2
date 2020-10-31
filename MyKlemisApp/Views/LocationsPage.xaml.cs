@@ -43,15 +43,14 @@ namespace MyKlemisApp.Views
             });
 
             BindingContext = this;
-            Console.WriteLine("LOCATION ADMIN STATUS: " + Settings.IsAdmin);
-            if (Settings.IsAdmin)
+            //Console.WriteLine("LOCATION ADMIN STATUS: " + Settings.IsAdmin);
+          
+            editBtn.IsVisible = Settings.IsAdmin;
+            ToolbarItems.Add(new ToolbarItem("Log Out", "", async () =>
             {
-                editBtn.IsVisible = true;
-                ToolbarItems.Add(new ToolbarItem("Log Out", "", async () =>
-                {
-                    await Navigation.PushAsync(new LoginPage());
-                }));
-            }
+                await Navigation.PushAsync(new LoginPage());
+            }));
+            
         }
 
         async void OnClickLocation(object sender, ItemTappedEventArgs e)

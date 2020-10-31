@@ -1,70 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MyKlemisApp.Views;
 using Rg.Plugins.Popup.Services;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace MyKlemisApp
 {
-    public partial class EmailPopupPage : Rg.Plugins.Popup.Pages.PopupPage
+    public partial class AnnouncementPopupPage : Rg.Plugins.Popup.Pages.PopupPage
     {
-        public static string toRecipient = "";
-        public string ToRecipient { get { return toRecipient; } }
-        public Entry emailTo = new Entry();
-        public EmailPopupPage()
+        public AnnouncementPopupPage()
         {
-            BindingContext = this;
-         
             InitializeComponent();
-            //emailTo.Text = toRecipient;
         }
-
-        async void CloseEmailForm(object sender, EventArgs e)
+        async void CloseAnnouncementForm(object sender, EventArgs e)
         {
             await PopupNavigation.Instance.PopAsync();
+            //await Navigation.PushAsync(new MainPage());
+            //await Device.InvokeOnMainThreadAsync(() => {
+            //    Application.Current.MainPage = new MainPage();
+            //    Settings.IsAdmin = false;
+            //});
+            //ContactAdmins;
         }
 
-        async void btnSend_Clicked(object sender, System.EventArgs e)
+        private async void NavigateButton_PostAnnouncement(object sender, EventArgs e)
         {
-            List<string> toAddress = new List<string>();
-            toAddress.Add(emailTo.Text);
-            await SendEmail(emailSubject.Text, emailBody.Text, toAddress);
+            await Navigation.PushAsync(new HomePage());
+
+
+            //var id = (int) MenuItemType.Home;
+            //await RootPage.NavigateFromMenu(id);
+            //await Navigation.PushAsync(new LocationDetailPage());
         }
-
-        public async Task SendEmail(string subject, string body, List<string> recipients)
-        {
-            try
-            {
-
-                var message = new EmailMessage
-                {
-                    Subject = subject,
-                    Body = body,
-                    To = recipients,
-                    //Cc = ccRecipients,
-                    //Bcc = bccRecipients
-                };
-                await Email.ComposeAsync(message);
-            }
-            catch (FeatureNotSupportedException fbsEx)
-            {
-                // Email is not supported on this device
-            }
-            catch (Exception ex)
-            {
-                // Some other exception occurred
-            }
-        }
-
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            emailTo.Text = toRecipient;
-            emailTo.HorizontalOptions = LayoutOptions.StartAndExpand;
-            emailTo.WidthRequest = 320;
-            emailTo.Margin = new Thickness(10, 0, 0, 0);
-            ToBlock.Children.Add(emailTo);  
         }
 
         protected override void OnDisappearing()
@@ -133,6 +105,5 @@ namespace MyKlemisApp
             // Return false if you don't want to close this popup page when a background of the popup page is clicked
             return base.OnBackgroundClicked();
         }
-
     }
 }

@@ -29,7 +29,7 @@ namespace MyKlemisApp.Views
                 }));
             }
             InitializeComponent();
-            //this.BindingContext = this;
+            this.BindingContext = this;
             //ContactAdmins.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnLabelClicked()));
             Title = "Contacts";
             _emailPopup = new EmailPopupPage();
@@ -37,6 +37,15 @@ namespace MyKlemisApp.Views
         protected override void OnAppearing()
         {
             AdminView.ItemsSource = admins;
+
+        }
+
+        void OnItemSelected(object sender, EventArgs e)
+        {
+            //EmailPopupPage.toRecipient =
+            KlemisCredentials selectedItem = (KlemisCredentials)AdminView.SelectedItem;
+            //Console.WriteLine("[CONTACT PAGE]" + selectedItem.email);
+            EmailPopupPage.toRecipient = selectedItem.email;
 
         }
 
@@ -50,19 +59,5 @@ namespace MyKlemisApp.Views
             //});
             //ContactAdmins;
         }
-
-        
-        //public static bool contains(string username)
-        //{
-        //    //bool hasUser = false; 
-        //    ////foreach (Admin admin in admins)
-        //    ////{
-        //    ////    if (admin.Username.Equals(username))
-        //    ////    {
-        //    ////        hasUser =  true; 
-        //    ////    }   
-        //    ////}
-        //    //return hasUser;
-        //}
     }
 }

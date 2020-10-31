@@ -14,7 +14,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label Padding="20,0,0,0" TextColor="Black" Grid.Row="1" VerticalTextAlignment="Start" FontSize="30" FontFamily="Roboto-Bold">Contact Book</Label>
-                <ListView x:Name="AdminView" ItemsSource="{Binding Admins}" Grid.Row="2">
+                <ListView x:Name="AdminView" ItemsSource="{Binding Admins}" ItemSelected="OnItemSelected" Grid.Row="2">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <!--<TextCell Text="{Binding FullName}" />-->
@@ -33,9 +33,7 @@
                                         <Image Margin="20,0,0,0" Source="anonymous.png"/>
                                         <Label Grid.Column="1" Text="{Binding name}"/>
                                         <Button  Grid.Column="2" BorderColor="Transparent" BackgroundColor="Transparent" Text="Contact" TextColor="#0bb0e7" Clicked="OpenEmailForm" />
-                                        <!--<Label x:Name="ContactAdmins" Grid.Column="2" Text="Contact" TextColor="#0bb0e7" />-->
-                                        <!--<Button Grid.Column="3" BindingContext="{Binding Source={x:Reference ArbeitsEinträgeList}, Path=BindingContext}"   Command="{Binding EditEintragCommand}"   CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}" Text="&#xf040;" FontFamily="../Ressources/fontawesome.ttf#FontAwesome"></Button>
-                                        <Button Grid.Column="4" BindingContext="{Binding Source={x:Reference ArbeitsEinträgeList}, Path=BindingContext}" Command="{Binding DeleteEintragCommand}"  CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}" Text="&#xF00D;" FontFamily="../Ressources/fontawesome.ttf#FontAwesome"></Button>-->
+                                        
                                       </Grid>
                                 </ViewCell.View>
                             </ViewCell>

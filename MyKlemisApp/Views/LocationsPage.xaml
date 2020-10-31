@@ -20,8 +20,8 @@
         <StackLayout Margin="10" 
                      Orientation="Vertical">
 
-            <Button Text="Edit" x:Name="editBtn" Clicked="OnClickEditLocations" FontSize="Small" BackgroundColor="{StaticResource Accent2}" BorderRadius="2"  BorderWidth="5" TextColor="White"  VerticalOptions="CenterAndExpand" HorizontalOptions="End" Margin="15, 15, 15, 0" IsVisible="false"/>
-            <Label Text="Klemis Locations" FontSize="Title" TextColor="Black" HorizontalOptions="Start" VerticalTextAlignment="Left" Margin="15, 15, 15, 15" />
+            <Button Text="Edit" x:Name="editBtn" Clicked="OnClickEditLocations" FontFamily="Roboto-Black" FontSize="Medium" BackgroundColor="Transparent"  BorderColor="Transparent" BorderRadius="2" TextColor="#f9a72b"  VerticalOptions="CenterAndExpand" HorizontalOptions="End" Margin="15, 15, 15, 0" IsVisible="false"/>
+            <Label Text="Klemis Locations" FontSize="30" TextColor="Black" HorizontalOptions="Start" VerticalTextAlignment="Left" Margin="15, 15, 15, 15" FontFamily="Roboto-Black"/>
 
             <ListView ItemsSource="{Binding Locations}"
                       HasUnevenRows="true"
@@ -51,3 +51,68 @@
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
+<!--<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyKlemisApp.Views.LocationsPage"
+             xmlns:vm="clr-namespace:MyKlemisApp.ViewModels"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:LocationsViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#5BBB93</Color>
+            <Color x:Key="Accent">#1E4471</Color>
+            <Color x:Key="LightTextColor">#F5C851</Color>
+            <Color x:Key="Accent2">#EF823F</Color>
+            <Color x:Key="Accent3">#CEE2DA</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="White">
+            <Grid  HorizontalOptions="Center" VerticalOptions="Center" RowSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="150" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+                
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                    <StackLayout>
+                        <StackLayout Padding="0,25,0,0" VerticalOptions="Start">
+                            <Label TextColor="Black" FontSize="30" FontFamily="Roboto-Black">MyKlemis Locations</Label>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
+                <RelativeLayout BackgroundColor="Transparent" HeightRequest="210" WidthRequest="200" IsClippedToBounds="True" Grid.Row="1">
+                    <RelativeLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnClickLocation"/>
+                    </RelativeLayout.GestureRecognizers>
+                    <Image Source="moseBldg.jpg" Aspect="Fill" WidthRequest="300" HeightRequest="150"/>
+                    <StackLayout BackgroundColor="Transparent" Padding="20,30,5,10" Spacing="1">
+                        <Label FontAttributes="Bold" FontFamily="Roboto-Regular" Text="Klemis Kitchen (Main)" TextColor="White" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="20" WidthRequest="280"/>
+                    </StackLayout>
+                </RelativeLayout>
+
+
+                <RelativeLayout BackgroundColor="Transparent" HeightRequest="210"  IsClippedToBounds="True" Grid.Row="2">
+                    <RelativeLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnClickNotAvaliable"/>
+                    </RelativeLayout.GestureRecognizers>
+                    <Image Source="croslandTower.jpg" WidthRequest="300"  Aspect="Fill" HeightRequest="150"/>
+                    <StackLayout BackgroundColor="Transparent" Padding="20,30,5,10" Spacing="1">
+                        <Label FontAttributes="Bold" FontFamily="Roboto-Regular" Text="Library Outpost (coming soon)" TextColor="White" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="20" WidthRequest="280"/>
+                    </StackLayout>
+                </RelativeLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>-->

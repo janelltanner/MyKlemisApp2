@@ -32,13 +32,8 @@ namespace MyKlemisApp.Models
 
         public static void AddToContactBook()
         {
-            foreach (KlemisCredentials kc in credentials)
-            {
-                if (!   Contacts.admins.Contains(kc))
-                {
-                    Contacts.admins.Add(kc);
-                }
-            }
+            Contacts.admins = credentials;
+           
         }
 
         public bool CheckInformation()

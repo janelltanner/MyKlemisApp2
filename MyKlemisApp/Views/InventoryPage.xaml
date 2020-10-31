@@ -19,7 +19,7 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout Padding="20,0,0,0">
+            <StackLayout Padding="0,0,0,0">
                 <!--<Label
                         FontFamily="Roboto-Black"
                         Text="Inventory"

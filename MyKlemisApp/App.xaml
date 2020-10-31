@@ -5,8 +5,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <!--Global Styles-->
-            <Color x:Key="NavigationPrimary">#1E4471</Color> <!--admin-->
-            <Color x:Key="NavigationSecondary">#5BBB93</Color> <!--student-->
+            <Color x:Key="NavigationPrimary">#0bb0e7</Color> <!--admin-->
+            <Color x:Key="NavigationSecondary">#c32c40</Color> <!--student-->
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="BarTextColor" Value="White" />

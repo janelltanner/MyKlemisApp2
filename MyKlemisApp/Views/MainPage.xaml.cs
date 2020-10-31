@@ -25,6 +25,7 @@ namespace MyKlemisApp.Views
             MasterBehavior = MasterBehavior.Popover;
             Xamarin.Forms.NavigationPage.SetHasNavigationBar(this, false);
             MenuPages.Add((int)MenuItemType.Home, (NavigationPage)Detail);
+            
 
         }
         public async Task NavigateFromMenu(int id)
@@ -47,12 +48,12 @@ namespace MyKlemisApp.Views
                         case (int)MenuItemType.Help:
                             MenuPages.Add(id, new NavigationPage(new HelpPage()));
                             break;
-                        case (int)MenuItemType.DBTest:
-                            MenuPages.Add(id, new NavigationPage(new DBTestPage()));
-                            break;
-                        case (int)MenuItemType.AnnouncementEnter:
-                            MenuPages.Add(id, new NavigationPage(new AnnouncementEntry()));
-                            break;
+                        //case (int)MenuItemType.DBTest:
+                        //    //MenuPages.Add(id, new NavigationPage(new DBTestPage()));
+                        //    break;
+                        //case (int)MenuItemType.AnnouncementEnter:
+                        //    MenuPages.Add(id, new NavigationPage(new AnnouncementEntry()));
+                        //    break;
                         case (int)MenuItemType.Contacts:
                             MenuPages.Add(id, new NavigationPage(new Contacts()));
                             break;
@@ -62,7 +63,7 @@ namespace MyKlemisApp.Views
                     switch (id)
                     {
                         case (int)MenuItemType.Home:
-                            MenuPages.Add(id, new NavigationPage(new HomePage()));
+                            MenuPages.Add(id, new NavigationPage(new StudentHomePage()));
                             break;
                         case (int)MenuItemType.Locations:
                             MenuPages.Add(id, new NavigationPage(new LocationsPage()));
@@ -73,9 +74,9 @@ namespace MyKlemisApp.Views
                         case (int)MenuItemType.Help:
                             MenuPages.Add(id, new NavigationPage(new HelpPage()));
                             break;
-                        case (int)MenuItemType.DBTest:
-                            MenuPages.Add(id, new NavigationPage(new DBTestPage()));
-                            break;
+                        //case (int)MenuItemType.DBTest:
+                        //    MenuPages.Add(id, new NavigationPage(new DBTestPage()));
+                        //    break;
                     }
                 }
             }
