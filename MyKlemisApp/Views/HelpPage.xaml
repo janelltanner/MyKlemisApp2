@@ -19,24 +19,44 @@
     </ContentPage.Resources>
     <ContentPage.Content>
        <ScrollView>
-            <Grid BackgroundColor="LightGray">
+            <Grid BackgroundColor="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="10" />
-            <RowDefinition Height="500" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="150" />
         </Grid.RowDefinitions>
-        <StackLayout x:Name="Logo" VerticalOptions="Center" HorizontalOptions="Center">
-            <Image x:Name="HelpIcon" Source="help.png"
-                   Margin="0,50,0,0" WidthRequest="80" HeightRequest="80"/>
+        <StackLayout Grid.Row="1" x:Name="Logo" VerticalOptions="Center" HorizontalOptions="Center">
+            <!--<Image x:Name="HelpIcon" Source="logo6.png"
+                   Margin="0,50,0,0" WidthRequest="80" HeightRequest="80"/>-->
             <Label FontFamily="Roboto-Black" Text="MyKlemis Support Center"
-                   Margin="25,30,0,0"
+                   Margin="25,0,0,0"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
                    WidthRequest="500" HeightRequest="150"
-                   TextColor="Blue" FontSize="30" />
+                   TextColor="Black" FontSize="25" />
+            <Label FontFamily="Roboto-Black" Padding="25, 0, 0, 0" TextColor="#b5d83b" Text="Need Some Help? Send us an email" />
+            <ImageButton Source="email3.png"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Clicked="OnClickedEmail"
+                    BackgroundColor="Transparent"
+                    />
+              <BoxView Color="Gray" HeightRequest="0.5" WidthRequest="350" VerticalOptions="Center" HorizontalOptions="Center"/>
         </StackLayout>
-        <StackLayout Grid.Row="1"
-                     HorizontalOptions="Center" VerticalOptions="Center">
-            <Button Text="Email Us" BackgroundColor="DarkGray" TextColor="DarkBlue"
+        <!--<FlexLayout Padding="20,0,0,0" Direction="Column" Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+          
+        </FlexLayout>-->
+        <!--<StackLayout Grid.Row="2"
+                     HorizontalOptions="Start" VerticalOptions="Center" Padding="0,0,0,0">
+            <Button Text="Email Us" BackgroundColor="DarkGray" TextColor="DarkBlue" 
                     WidthRequest="100" Clicked="OnClickedEmail" />
-        </StackLayout>
+            <ImageButton Source="email3.png"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Clicked="OnClickedEmail"
+                    BackgroundColor="Transparent"
+                    />
+            
+        </StackLayout>-->
         </Grid>
        </ScrollView>
     </ContentPage.Content>

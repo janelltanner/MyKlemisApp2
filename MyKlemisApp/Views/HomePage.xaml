@@ -32,36 +32,30 @@
                 </Grid.ColumnDefinitions>
                 <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
                     <StackLayout Orientation="Horizontal">
-                        <StackLayout Padding="20,30,0,30">
+                        <StackLayout Padding="20,40,0,30">
                             <!--<Image Source="icon2.png" VerticalOptions="Center"/>-->
                             <Label TextColor="Black" VerticalTextAlignment="Start" FontSize="30" FontFamily="Roboto-Bold" Text="{Binding WelcomeMessage}" />
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
-                <!--<ScrollView Grid.Row="1">
-            
-                </ScrollView>-->
-                <!--<RelativeLayout BackgroundColor="#E2E2E2" HeightRequest="210"  IsClippedToBounds="True" Grid.Row="1">
-                    <Image Source="welcome3.jpg" Aspect="Fill" HeightRequest="150" />
-                    <StackLayout BackgroundColor="Transparent" Padding="20,10,5,10" Spacing="1">
-                        <Label FontFamily="Alike-Regular" Text="Welcome!" TextColor="White" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="23" WidthRequest="280"/>
-                        <Label TextColor="Black" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="20" WidthRequest="280">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="This is " />
-                                    <Span FontFamily="Alike" FontSize="20" Text="My Klemis, "/>
-                                    <Span Text="a mobile app for the Klemis Kitchen on campus" />
-                                </FormattedString>
-                            </Label.FormattedText>
-                       </Label>
-                    </StackLayout>
-                </RelativeLayout>-->
+               
                 <FlexLayout Direction="Row" WidthRequest="450" IsClippedToBounds="True" Grid.Row="1" VerticalOptions="FillAndExpand">
                     <Frame BackgroundColor="#fafafa" CornerRadius="20"  HeightRequest="1000" Padding="20" HasShadow="False" WidthRequest="800"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                         <StackLayout>
-                            <Label FontSize="22">
-                                <Label.Text FontFamily="Roboto-Bold" FontSize="20" TextColor="Black">Annoucements</Label.Text>
-                            </Label>
+                             <StackLayout>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="250"/>
+                                        <ColumnDefinition Width="140"/>
+                                    </Grid.ColumnDefinitions>
+                                     <Label Grid.Column="0" HorizontalOptions="StartAndExpand" VerticalOptions="Center" FontSize="22">
+                                    <Label.Text FontFamily="Roboto-Bold" FontSize="20" HorizontalOptions="End" VerticalOptions="Center" TextColor="Black">Annoucements</Label.Text> 
+                                    </Label>
+                                    <!--<Button Grid.Column="1" Text="add"/>-->
+                                    <ImageButton Grid.Column="1" Source="add.png" BackgroundColor="Transparent" Clicked="OpenAnnouncementsForm"/>
+                                </Grid>
+                            </StackLayout>
+
                             <!--<Frame CornerRadius="20" HasShadow="True" OutlineColor="White"  BackgroundColor="White" HeightRequest="200" Padding="10">
                             </Frame>
                             <Label FontSize="22">
@@ -96,15 +90,17 @@
                             <BoxView
                                 Grid.Row="1"
                                 Grid.ColumnSpan="2"
-                                BackgroundColor="{StaticResource Accent4}"
+                                BackgroundColor="#b5d83b"
                                 CornerRadius="0,0,6,6" />
                             <Label
+                                x:Name="openAnnouncements"
                                 Grid.Row="1"
                                 Grid.ColumnSpan="2"
                                 HorizontalOptions="Center"
                                 Text="View More Announcements"
                                 TextColor="White"
                                 VerticalOptions="Center" />
+                            <!--<ImageButton  />-->
                             <skia:SKCanvasView
                             Grid.Row="2"
                             Grid.RowSpan="2"
@@ -141,7 +137,7 @@
                             <BoxView
                                 Grid.Row="1"
                                 Grid.ColumnSpan="2"
-                                BackgroundColor="{StaticResource Accent2}"
+                                BackgroundColor="#f9a72b"
                                 CornerRadius="0,0,6,6" />
                             <Label
                                 Grid.Row="1"

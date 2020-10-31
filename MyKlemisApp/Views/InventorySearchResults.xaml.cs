@@ -11,6 +11,8 @@ namespace MyKlemisApp.Views
     public partial class InventorySearchResults : ContentPage
     {
         InventoryViewModel viewModel;
+        List<string> randomPNGs = new List<string> { "food1.png", "food2.png", "food3.png", "food4.png", "food5.png", "food6.png", "food7.png", "food8.png" };
+        Random random = new Random();
         public InventorySearchResults(InventoryViewModel viewModel)
         {
             InitializeComponent();
@@ -20,7 +22,7 @@ namespace MyKlemisApp.Views
         {
             InitializeComponent();
             //Title = "Inventory";
-            Console.WriteLine("INVENTORY ADMIN STATUS: " + Settings.IsAdmin);
+            //Console.WriteLine("INVENTORY ADMIN STATUS: " + Settings.IsAdmin);
             if (Settings.IsAdmin)
             {
                 ToolbarItems.Add(new ToolbarItem("Log Out", "", async () =>
@@ -68,12 +70,14 @@ namespace MyKlemisApp.Views
 
                     itemFrame.Content = layout;
                     scrollLayout.Children.Add(itemFrame);
+                    int index = random.Next(randomPNGs.Count);
 
                     //placeholder image -- this should be replaced by item specific images that are held in the item class
                     // see Location model for example
                     Image sample = new Image()
                     {
-                        Source = "moseBldg.jpg",
+                        //Source = "moseBldg.jpg",
+                        Source = randomPNGs[index],
                         HeightRequest = 40,
                     };
                     itemGrid.Children.Add(sample);

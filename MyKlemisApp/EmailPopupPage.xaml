@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MyKlemisApp.EmailPopupPage">
+    <ContentPage.Content>
+    </ContentPage.Content>
+</ContentPage>-->
+<pages:PopupPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    x:Class="MyKlemisApp.EmailPopupPage">
+    <!--You can set an animation in the xaml file or in the csharp code behind-->
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    <!--You can use any elements here which are extended from Xamarin.Forms.View-->
+    <StackLayout>
+        <Grid HeightRequest="50" BackgroundColor="#F8F8F8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="100"/>
+                <!--<ColumnDefinition Width="*"/>-->
+            </Grid.ColumnDefinitions>
+            <Button  Grid.Column="1" BorderColor="Transparent" BackgroundColor="Transparent" VerticalOptions="Start" HorizontalOptions="Start" Text="Cancel" Clicked="CloseEmailForm" TextColor="#0bb0e7"/>
+            <Label Grid.Column="2" WidthRequest="300" VerticalOptions="Center" HorizontalOptions="Center" Padding="15" Text="New Message"/>
+            <!--<Button  Grid.Column="3" BorderColor="Transparent" BackgroundColor="Transparent" Text="Send" TextColor="#909090"/>-->
+            <!--<Label Grid.Column="1" Text="{Binding name}"/>
+            <Button  Grid.Column="2" BorderColor="Transparent" BackgroundColor="Transparent" Text="Contact" TextColor="#0bb0e7" Clicked="OpenEmailForm" />-->
+        </Grid>
+        <StackLayout HeightRequest="500" Padding="0,20,0,0" BackgroundColor="White">
+            <StackLayout x:Name="ToBlock" Orientation="Horizontal" Padding="10">
+                <Label Text="To:" />
+                <!--<Entry Margin="10,0,0,0" x:Name="emailTo" Text="{Binding ToRecipient}" HorizontalOptions="StartAndExpand" WidthRequest="320"> 
+                </Entry>-->
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="10">
+                <Label Text="Subject:" />
+                <Entry  Margin="10,0,0,0" x:Name="emailSubject" HorizontalOptions="StartAndExpand" WidthRequest="290"> 
+                </Entry>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="10">
+                <Entry  Margin="10,0,0,0" x:Name="emailBody" HorizontalOptions="StartAndExpand" WidthRequest="350" HeightRequest="250"> 
+                </Entry>
+            </StackLayout>
+            <Button VerticalOptions="Center" HorizontalOptions="Center" BorderColor="Transparent" Padding="20,20,20,20" BackgroundColor="Transparent" Text="Send" TextColor="#909090" Clicked="btnSend_Clicked" />
+
+        </StackLayout>
+    </StackLayout>
+</pages:PopupPage>

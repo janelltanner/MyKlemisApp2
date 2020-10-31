@@ -4,13 +4,18 @@ using MyKlemisApp.Services;
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
 using System.Threading.Tasks;
+using Rg.Plugins.Popup.Services;
+using System;
 
 namespace MyKlemisApp.Views
 {
     public partial class HomePage : ContentPage
     {
         HomeViewModel viewModel;
+        private AnnouncementPopupPage _announcementPopup = new AnnouncementPopupPage();
         public static string welcomeMessage = "";
+        public static bool isAdminBtnVisible;
+        public static bool IsAdminBtnVisible { get { return isAdminBtnVisible; } }
         public string WelcomeMessage { get { return welcomeMessage; } }
         public HomePage(HomeViewModel viewModel)
         {
@@ -22,30 +27,24 @@ namespace MyKlemisApp.Views
             InitializeComponent();
             //intialize inventory cache
             Task init = Task.Run(() => TransactInterface.initialize());
-
             Title = "Home";
-            Settings.IsAdmin = true;
-            //isAdmin = viewModel.IsAdmin;
-            //Console.WriteLine("HOME ADMIN STATUS: " + Settings.IsAdmin);
-            if (Settings.IsAdmin)
+            ToolbarItems.Add(new ToolbarItem("Log Out", "", async () =>
             {
-                //HomeBackground.BackgroundColor = Color.White;
-                ToolbarItems.Add(new ToolbarItem("Log Out", "", async () =>
-                {
-                    await Navigation.PushAsync(new LoginPage());
-                    
-                    //await Device.InvokeOnMainThreadAsync(() => {
-                    //    Application.Current.MainPage = new LoginPage();
-                    //});
-                }));
-            } else
-            {
-                Settings.IsAdmin = false;
-                welcomeMessage = "MyKlemis";
-                //HomeBackground.BackgroundColor = Color.FromHex("#5BBB93");
-            }
+                await Navigation.PushAsync(new LoginPage());
+
+            }));
+            
             this.BindingContext = this;
         }
+
+        async void OpenAnnouncementsForm(object sender, EventArgs e)
+        {
+            if (Settings.IsAdmin)
+            {
+                await PopupNavigation.Instance.PushAsync(_announcementPopup);
+            }
+        }
+
         private void SKCanvasView_PaintSurface(object sender, SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs args)
         {
             SKImageInfo info = args.Info;

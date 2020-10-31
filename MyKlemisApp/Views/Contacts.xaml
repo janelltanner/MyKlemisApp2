@@ -14,24 +14,28 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label Padding="20,0,0,0" TextColor="Black" Grid.Row="1" VerticalTextAlignment="Start" FontSize="30" FontFamily="Roboto-Bold">Contact Book</Label>
-                <ListView x:Name="AdminView" ItemsSource="{Binding Admins}" Grid.Row="2">
+                <ListView x:Name="AdminView" ItemsSource="{Binding Admins}" ItemSelected="OnItemSelected" Grid.Row="2">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <!--<TextCell Text="{Binding FullName}" />-->
                             <ViewCell>
-                                 <StackLayout Orientation="Vertical">
-                                    <StackLayout Orientation="Horizontal">
+                                <ViewCell.View>
+                                     <Grid Padding="0, 10, 0, 0" x:Name="Item">
+
+                                        <Grid.ColumnDefinitions>
+                                          <ColumnDefinition Width="Auto"/>
+                                          <ColumnDefinition Width="200"/>
+                                          <ColumnDefinition Width="100"/>
+                                          <ColumnDefinition />
+                                          <!--<ColumnDefinition Width="Auto"/>-->
+                                          <!--<ColumnDefinition Width="Auto"/>-->
+                                        </Grid.ColumnDefinitions>
                                         <Image Margin="20,0,0,0" Source="anonymous.png"/>
-                                        <Label Padding="0,10,0,0" Text="{Binding FullName}"/>
-                                        <Label x:Name="ContactAdmins" Padding="180,10,0,0" Text="Contact" TextColor="#0bb0e7"/>
-                                    <!--<Image Source="{Binding image}" />
-                                <Label Text="{Binding title}"
-                                TextColor="#f35e20" />
-                                <Label Text="{Binding subtitle}"
-                                HorizontalOptions="EndAndExpand"
-                                TextColor="#503026" />-->
-                                    </StackLayout>
-                                </StackLayout>
+                                        <Label Grid.Column="1" Text="{Binding name}"/>
+                                        <Button  Grid.Column="2" BorderColor="Transparent" BackgroundColor="Transparent" Text="Contact" TextColor="#0bb0e7" Clicked="OpenEmailForm" />
+                                        
+                                      </Grid>
+                                </ViewCell.View>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>

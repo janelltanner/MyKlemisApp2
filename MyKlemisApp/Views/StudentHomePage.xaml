@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:vm="clr-namespace:MyKlemisApp.ViewModels" xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MyKlemisApp.Views.StudentHomePage">
+    <ContentPage.BindingContext>
+        <vm:HomeViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#5BBB93</Color>
+            <Color x:Key="Accent">#1E4471</Color>
+            <Color x:Key="LightTextColor">#F5C851</Color>
+            <Color x:Key="Accent2">#EF823F</Color>
+            <Color x:Key="Accent3">#CEE2DA</Color>
+            <Color x:Key="Accent4">#0bb0e7</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView x:Name="HomeBackground" BackgroundColor="#fafafa" >
+            <Grid  HorizontalOptions="Center" VerticalOptions="Center" RowSpacing="10" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <!--<RowDefinition Height="150" />
+                    <RowDefinition Height="170" />
+                    <RowDefinition Height="100" />-->
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout Padding="20,40,0,30">
+                            <!--<Image Source="icon2.png" VerticalOptions="Center"/>-->
+                            <Label TextColor="Black" VerticalTextAlignment="Start" FontSize="30" FontFamily="Roboto-Bold" Text="MyKlemis" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+               
+                <FlexLayout Direction="Row" WidthRequest="450" IsClippedToBounds="True" Grid.Row="1" VerticalOptions="FillAndExpand">
+                    <Frame BackgroundColor="#fafafa" CornerRadius="20"  HeightRequest="1000" Padding="20" HasShadow="False" WidthRequest="800"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <StackLayout>
+                             <StackLayout>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="250"/>
+                                        <ColumnDefinition Width="140"/>
+                                    </Grid.ColumnDefinitions>
+                                     <Label Grid.Column="0" HorizontalOptions="StartAndExpand" VerticalOptions="Center" FontSize="22">
+                                    <Label.Text FontFamily="Roboto-Bold" FontSize="20" HorizontalOptions="End" VerticalOptions="Center" TextColor="Black">Annoucements</Label.Text> 
+                                    </Label>
+                                    <!--<Button Grid.Column="1" Text="add"/>-->
+                                </Grid>
+                            </StackLayout>
+
+                            <!--<Frame CornerRadius="20" HasShadow="True" OutlineColor="White"  BackgroundColor="White" HeightRequest="200" Padding="10">
+                            </Frame>
+                            <Label FontSize="22">
+                                <Label.Text FontFamily="Roboto-Boldsx" TextColor="Black">Calendar</Label.Text>
+                            </Label>
+                            <Frame CornerRadius="20" HasShadow="True"  OutlineColor="White" HeightRequest="150" BackgroundColor="White" Padding="10">
+                            </Frame>-->
+                            <Grid
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Margin="14,0,14,0" 
+                            ColumnSpacing="0"
+                            IsClippedToBounds="True"
+                            RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="138" /> <!-- movie detail box -->
+                                <RowDefinition Height="46" />  <!-- rating button row -->
+                                <RowDefinition Height="46" />  <!-- spacing between button and tab-->
+                                <RowDefinition Height="*" />   <!-- rest of the page -->
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <BoxView
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                BackgroundColor="White"
+                                CornerRadius="6,6,0,0"/>
+
+                            <!-- the add your rating button -->
+                            <BoxView
+                                Grid.Row="1"
+                                Grid.ColumnSpan="2"
+                                BackgroundColor="#b5d83b"
+                                CornerRadius="0,0,6,6" />
+                            <Label
+                                x:Name="openAnnouncements"
+                                Grid.Row="1"
+                                Grid.ColumnSpan="2"
+                                HorizontalOptions="Center"
+                                Text="View More Announcements"
+                                TextColor="White"
+                                VerticalOptions="Center" />
+                            <!--<ImageButton  />-->
+                            <skia:SKCanvasView
+                            Grid.Row="2"
+                            Grid.RowSpan="2"
+                            Grid.ColumnSpan="2"
+                            PaintSurface="SKCanvasView_PaintSurface" />
+                           </Grid>
+                            <Label FontSize="22">
+                                <Label.Text FontFamily="Roboto-Boldsx" TextColor="Black">Calendar</Label.Text>
+                            </Label>
+                            <Grid
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Margin="14,0,14,0" 
+                            ColumnSpacing="0"
+                            IsClippedToBounds="True"
+                            RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="138" /> <!-- movie detail box -->
+                                <RowDefinition Height="46" />  <!-- rating button row -->
+                                <RowDefinition Height="46" />  <!-- spacing between button and tab-->
+                                <RowDefinition Height="*" />   <!-- rest of the page -->
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <BoxView
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                BackgroundColor="White"
+                                CornerRadius="6,6,0,0"/>
+
+                            <!-- the add your rating button -->
+                            <BoxView
+                                Grid.Row="1"
+                                Grid.ColumnSpan="2"
+                                BackgroundColor="#f9a72b"
+                                CornerRadius="0,0,6,6" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.ColumnSpan="2"
+                                HorizontalOptions="Center"
+                                Text="View Upcoming Deliveries"
+                                TextColor="White"
+                                VerticalOptions="Center" />
+                            <skia:SKCanvasView
+                            Grid.Row="2"
+                            Grid.RowSpan="2"
+                            Grid.ColumnSpan="2"
+                            PaintSurface="SKCanvasView_PaintSurface" />
+                           </Grid>
+                        </StackLayout>
+                    </Frame>
+                </FlexLayout>
+
+                <!--<ScrollView Grid.Row="2">
+                    <Frame CornerRadius="20" OutlineColor="{StaticResource LightTextColor}" BackgroundColor="{StaticResource LightTextColor}" Padding="10" HasShadow="False">
+                        <StackLayout>
+                            <Label FontSize="22">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span FontFamily="Alike-Regular" Text="Announcements" FontAttributes="Bold" FontSize="20" TextColor="White"/>
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+                    </Frame>
+                </ScrollView>
+                 <ScrollView Grid.Row="3">
+                     <Frame CornerRadius="20" OutlineColor="LightGray" BackgroundColor="LightGray" Padding="10" HasShadow="False" >
+                        <StackLayout>
+                            <Label FontSize="22">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span FontFamily="Alike-Regular" Text="Calendar" FontAttributes="Bold" FontSize="20" TextColor="White"/>
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+                    </Frame>
+                 </ScrollView>-->
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

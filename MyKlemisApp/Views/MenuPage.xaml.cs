@@ -11,6 +11,7 @@ namespace MyKlemisApp.Views
     public partial class MenuPage : ContentPage
     {
         MainPage RootPage { get => Application.Current.MainPage as MainPage; }
+        StudentMainPage RootPage2 { get => Application.Current.MainPage as StudentMainPage; }
         List<HomeMenuItem> menuItems;
         public MenuPage()
         {
@@ -24,8 +25,8 @@ namespace MyKlemisApp.Views
                     new HomeMenuItem {Id = MenuItemType.Locations, Title="Locations", IconSource=""},
                     new HomeMenuItem {Id = MenuItemType.Inventory, Title="Inventory", IconSource="" },
                     new HomeMenuItem {Id = MenuItemType.Help, Title="Help Chat", IconSource=""},
-                    new HomeMenuItem {Id = MenuItemType.DBTest, Title = "[DB Test]", IconSource = ""},
-                    new HomeMenuItem {Id = MenuItemType.AnnouncementEnter, Title = "Announcement Entry", IconSource = ""},
+                    //new HomeMenuItem {Id = MenuItemType.DBTest, Title = "[DB Test]", IconSource = ""},
+                    //new HomeMenuItem {Id = MenuItemType.AnnouncementEnter, Title = "Announcement Entry", IconSource = ""},
                     new HomeMenuItem {Id = MenuItemType.Contacts, Title="Contacts", IconSource=""}
                 };
             } else
@@ -36,7 +37,7 @@ namespace MyKlemisApp.Views
                     new HomeMenuItem {Id = MenuItemType.Locations, Title="Locations", IconSource=""},
                     new HomeMenuItem {Id = MenuItemType.Inventory, Title="Inventory", IconSource="" },
                     new HomeMenuItem {Id = MenuItemType.Help, Title="Help Chat", IconSource=""},
-                    new HomeMenuItem {Id = MenuItemType.DBTest, Title = "[DB Test]", IconSource = ""}
+                    //new HomeMenuItem {Id = MenuItemType.DBTest, Title = "[DB Test]", IconSource = ""}
                 };
             }
 
@@ -49,7 +50,14 @@ namespace MyKlemisApp.Views
                     return;
 
                 var id = (int)((HomeMenuItem)e.SelectedItem).Id;
-                await RootPage.NavigateFromMenu(id);
+                if (Settings.IsAdmin)
+                {
+                    await RootPage.NavigateFromMenu(id);
+                } else
+                {
+                    await RootPage2.NavigateFromMenu(id);
+                }
+           
             };
         }
     }
