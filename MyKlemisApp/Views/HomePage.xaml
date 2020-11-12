@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyKlemisApp.Views.HomePage"
-             xmlns:vm="clr-namespace:MyKlemisApp.ViewModels" xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             xmlns:vm="clr-namespace:MyKlemisApp.ViewModels"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             xmlns:controls="clr-namespace:XamForms.Controls;assembly=XamForms.Controls.Calendar"
              Title="{Binding Title}"
             >  <!--Title="{Binding Title}"-->
     <ContentPage.BindingContext>
@@ -110,6 +112,7 @@
                             <Label FontSize="22">
                                 <Label.Text FontFamily="Roboto-Boldsx" TextColor="Black">Calendar</Label.Text>
                             </Label>
+
                             <Grid
                             Grid.Row="0"
                             Grid.RowSpan="2"
@@ -125,13 +128,27 @@
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="150" />
-                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="200" />
                             </Grid.ColumnDefinitions>
-                            <BoxView
-                                Grid.Row="0"
-                                Grid.ColumnSpan="2"
-                                BackgroundColor="White"
-                                CornerRadius="6,6,0,0"/>
+                            <StackLayout
+                                WidthRequest="200"
+                                VerticalOptions="StartAndExpand"
+                                HorizontalOptions="StartAndExpand"
+                                >
+                                <controls:Calendar WidthRequest="200"
+                                                   VerticalOptions="StartAndExpand"
+                                                   HorizontalOptions="StartAndExpand"
+                                                    Padding="10,0,10,0"
+                                                    SelectedBorderWidth="4"   
+                                                    DisabledBorderColor="Black"  
+                                                    ShowNumberOfWeek="false"  
+                                                    StartDay="Monday"  
+                                                    TitleLabelTextColor="Purple"  
+                                                    TitleLeftArrowTextColor="Blue"  
+                                                    SelectedDate="{Binding Date}"  
+                                                    SpecialDates="{Binding Attendances}"  
+                                                    DateCommand="{Binding DateChosen}"/>  
+                            </StackLayout>
 
                             <!-- the add your rating button -->
                             <BoxView
