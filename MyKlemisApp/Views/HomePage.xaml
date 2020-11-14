@@ -121,25 +121,26 @@
                             IsClippedToBounds="True"
                             RowSpacing="0">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="138" /> <!-- movie detail box -->
+                                <RowDefinition Height="*" /> <!-- movie detail box -->
                                 <RowDefinition Height="46" />  <!-- rating button row -->
                                 <RowDefinition Height="46" />  <!-- spacing between button and tab-->
                                 <RowDefinition Height="*" />   <!-- rest of the page -->
                             </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="150" />
-                                <ColumnDefinition Width="200" />
-                            </Grid.ColumnDefinitions>
-                            <StackLayout
-                                WidthRequest="200"
-                                VerticalOptions="StartAndExpand"
-                                HorizontalOptions="StartAndExpand"
-                                >
-                                <controls:Calendar WidthRequest="200"
-                                                   VerticalOptions="StartAndExpand"
-                                                   HorizontalOptions="StartAndExpand"
-                                                    Padding="10,0,10,0"
-                                                    SelectedBorderWidth="4"   
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="150" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <!-- the add your rating button -->
+                                <StackLayout
+                                    WidthRequest="300"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="FillAndExpand"
+                                    Grid.Row="0"
+                                    Grid.ColumnSpan="2"
+                                    Margin="0, 0, 0, 10">
+                                    <controls:Calendar 
+                                                   SelectedBorderWidth="4"   
                                                     DisabledBorderColor="Black"  
                                                     ShowNumberOfWeek="false"  
                                                     StartDay="Monday"  
@@ -147,11 +148,9 @@
                                                     TitleLeftArrowTextColor="Blue"  
                                                     SelectedDate="{Binding Date}"  
                                                     SpecialDates="{Binding Attendances}"  
-                                                    DateCommand="{Binding DateChosen}"/>  
-                            </StackLayout>
-
-                            <!-- the add your rating button -->
-                            <BoxView
+                                                    DateCommand="{Binding DateChosen}"/>
+                                </StackLayout>
+                                <BoxView
                                 Grid.Row="1"
                                 Grid.ColumnSpan="2"
                                 BackgroundColor="#f9a72b"
