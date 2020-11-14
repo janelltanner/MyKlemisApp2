@@ -71,22 +71,23 @@
                             IsClippedToBounds="True"
                             RowSpacing="0">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="138" /> <!-- movie detail box -->
-                                <RowDefinition Height="46" />  <!-- rating button row -->
-                                <RowDefinition Height="46" />  <!-- spacing between button and tab-->
-                                <RowDefinition Height="*" />   <!-- rest of the page -->
+                                <RowDefinition Height="138" /> 
+                                <RowDefinition Height="46" />  
+                                <RowDefinition Height="46" /> 
+                                <RowDefinition Height="*" />   
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="150" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <BoxView
+                            <StackLayout
                                 Grid.Row="0"
                                 Grid.ColumnSpan="2"
                                 BackgroundColor="White"
-                                CornerRadius="6,6,0,0"/>
+                                x:Name="announcementStack" />
 
-                            <!-- the add your rating button -->
+
+
                             <BoxView
                                 Grid.Row="1"
                                 Grid.ColumnSpan="2"

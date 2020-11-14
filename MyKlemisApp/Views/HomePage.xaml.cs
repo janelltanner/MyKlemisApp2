@@ -6,6 +6,11 @@ using SkiaSharp.Views.Forms;
 using System.Threading.Tasks;
 using Rg.Plugins.Popup.Services;
 using System;
+using System.Collections.Generic;
+using Amazon.CognitoIdentity;
+using Amazon.DynamoDBv2.DataModel;
+using Amazon.DynamoDBv2.DocumentModel;
+using Amazon;
 
 namespace MyKlemisApp.Views
 {
@@ -13,6 +18,8 @@ namespace MyKlemisApp.Views
     {
         HomeViewModel viewModel;
         private AnnouncementPopupPage _announcementPopup = new AnnouncementPopupPage();
+        private List<Models.Announcements> announcements = new List<Models.Announcements>();
+        private bool areAnnouncementsLoaded = false;
         public static string welcomeMessage = "";
         public static bool isAdminBtnVisible;
         public static bool IsAdminBtnVisible { get { return isAdminBtnVisible; } }
@@ -25,8 +32,15 @@ namespace MyKlemisApp.Views
         public HomePage()
         {
             InitializeComponent();
+
+            //fill announcements field
+            Task announcementsTask = Task.Run(() => pullAnnouncements());
+            while (areAnnouncementsLoaded == false) { }
+            
+
             //intialize inventory cache
             Task init = Task.Run(() => TransactInterface.initialize());
+
             Title = "Home";
             ToolbarItems.Add(new ToolbarItem("Log Out", "", async () =>
             {
@@ -35,6 +49,31 @@ namespace MyKlemisApp.Views
             }));
             
             this.BindingContext = this;
+        }
+
+        private async void pullAnnouncements()
+        {
+            CognitoAWSCredentials awsCredentials = new CognitoAWSCredentials(
+               "us-east-2:d2f90bfd-19f7-4b20-ad29-09f8b19da906", // Identity pool ID
+               RegionEndpoint.USEast2 // Region
+           );
+            var client = new Amazon.DynamoDBv2.AmazonDynamoDBClient(awsCredentials);
+            DynamoDBContext context = new DynamoDBContext(client);
+            IEnumerable<ScanCondition> filters = new List<ScanCondition>() { new ScanCondition("description", ScanOperator.IsNotNull) };
+            AsyncSearch<Models.Announcements> credSearch = context.ScanAsync<Models.Announcements>(filters);
+
+            while (!credSearch.IsDone)
+            {
+                Task<List<Models.Announcements>> task = credSearch.GetNextSetAsync();
+                task.Wait();
+                List<Models.Announcements> fetched = task.Result;
+                for (int i = 0; i < fetched.Count; i++)
+                {
+                    announcements.Add(fetched[i]);
+                }
+            }
+
+            areAnnouncementsLoaded = true;
         }
 
         async void OpenAnnouncementsForm(object sender, EventArgs e)
