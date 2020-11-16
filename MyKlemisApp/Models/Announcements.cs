@@ -4,11 +4,15 @@ using System.Text;
 
 namespace MyKlemisApp.Models
 {
-    class Announcements
+    class Announcements : IComparable
     {
-        String timestamp { get; set; }
-        String description { get; set; }
-        String expiration { get; set; }
-        String poster { get; set; }
+        public String timestamp { get; set; }
+        public String description { get; set; }
+        public String expiration { get; set; }
+        public String poster { get; set; }
+        public int CompareTo(object obj)
+        {
+            return timestamp.CompareTo(((Announcements)obj).timestamp);
+        }
     }
 }

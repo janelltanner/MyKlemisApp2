@@ -24,6 +24,7 @@ namespace MyKlemisApp.Views
         public static bool isAdminBtnVisible;
         public static bool IsAdminBtnVisible { get { return isAdminBtnVisible; } }
         public string WelcomeMessage { get { return welcomeMessage; } }
+        public const int NUM_DISPLAYED_ANNOUNCEMENTS = 2;
         public HomePage(HomeViewModel viewModel)
         {
             InitializeComponent();
@@ -36,7 +37,36 @@ namespace MyKlemisApp.Views
             //fill announcements field
             Task announcementsTask = Task.Run(() => pullAnnouncements());
             while (areAnnouncementsLoaded == false) { }
+            announcements.Sort();
             
+            for(int i = 0; i < Math.Min(announcements.Count, NUM_DISPLAYED_ANNOUNCEMENTS); i++)
+            {
+                Models.Announcements ann = announcements[i];
+                StackLayout annLayout = new StackLayout();
+                Frame annFrame = new Frame();
+                annFrame.BackgroundColor = Color.White;
+                annFrame.HasShadow = false;
+                annLayout.Orientation = StackOrientation.Horizontal;
+
+                Label annText = new Label();
+                Label annDate = new Label();
+
+                annText.TextColor = Color.DarkSlateGray;
+                annText.FontFamily = "Roboto-Regular";
+                annText.FontSize = 20;
+                annText.Text = ann.description;
+                annText.LineBreakMode = LineBreakMode.TailTruncation;
+                annLayout.Children.Add(annText);
+
+                annDate.TextColor = Color.DarkSlateGray;
+                annDate.FontFamily = "Roboto-Regular";
+                annDate.FontSize = 13;
+                annDate.Text = ann.timestamp;
+                annLayout.Children.Add(annDate);
+
+                annFrame.Content = annLayout;
+                announcementStack.Children.Add(annFrame);
+            }
 
             //intialize inventory cache
             Task init = Task.Run(() => TransactInterface.initialize());
