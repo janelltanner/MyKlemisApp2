@@ -91,6 +91,11 @@ namespace MyKlemisApp.Models
             areCredsLoaded = true;
 
         }
+
+        public static bool areCredentialsLoaded()
+        {
+            return areCredsLoaded;
+        }
     }
 }
 

@@ -23,7 +23,10 @@ namespace MyKlemisApp.Views
             Xamarin.Forms.NavigationPage.SetHasNavigationBar(this, false);
 
             StudentLogin.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnLabelClicked()));
-            Task cred = Task.Run(() => Admin.pullCredentials());
+            if (Admin.areCredentialsLoaded() == false)
+            {
+                Task cred = Task.Run(() => Admin.pullCredentials());
+            }
         }
         
 
