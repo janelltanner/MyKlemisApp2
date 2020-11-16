@@ -58,11 +58,13 @@ namespace MyKlemisApp.Views
                 annText.LineBreakMode = LineBreakMode.TailTruncation;
                 annLayout.Children.Add(annText);
 
-                annDate.TextColor = Color.DarkSlateGray;
+/*                annDate.TextColor = Color.DarkSlateGray;
                 annDate.FontFamily = "Roboto-Regular";
                 annDate.FontSize = 13;
                 annDate.Text = ann.timestamp;
-                annLayout.Children.Add(annDate);
+                annDate.HorizontalOptions = LayoutOptions.EndAndExpand;
+                annDate.LineBreakMode = LineBreakMode.NoWrap;
+                annLayout.Children.Add(annDate);*/
 
                 annFrame.Content = annLayout;
                 announcementStack.Children.Add(annFrame);
