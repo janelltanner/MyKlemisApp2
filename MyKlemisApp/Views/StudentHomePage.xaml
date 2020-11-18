@@ -1,5 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:vm="clr-namespace:MyKlemisApp.ViewModels" xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MyKlemisApp.Views.StudentHomePage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:vm="clr-namespace:MyKlemisApp.ViewModels"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XamForms.Controls;assembly=XamForms.Controls.Calendar"
+             x:Class="MyKlemisApp.Views.StudentHomePage">
     <ContentPage.BindingContext>
         <vm:HomeViewModel/>
     </ContentPage.BindingContext>
@@ -108,14 +113,14 @@
                                 <Label.Text FontFamily="Roboto-Boldsx" TextColor="Black">Calendar</Label.Text>
                             </Label>
                             <Grid
-                            Grid.Row="0"
-                            Grid.RowSpan="2"
-                            Margin="14,0,14,0" 
-                            ColumnSpacing="0"
-                            IsClippedToBounds="True"
-                            RowSpacing="0">
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Margin="14,0,14,0" 
+                                ColumnSpacing="0"
+                                IsClippedToBounds="True"
+                                RowSpacing="0">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="138" /> <!-- movie detail box -->
+                                <RowDefinition Height="*" /> <!-- movie detail box -->
                                 <RowDefinition Height="46" />  <!-- rating button row -->
                                 <RowDefinition Height="46" />  <!-- spacing between button and tab-->
                                 <RowDefinition Height="*" />   <!-- rest of the page -->
@@ -124,13 +129,28 @@
                                 <ColumnDefinition Width="150" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <BoxView
-                                Grid.Row="0"
-                                Grid.ColumnSpan="2"
-                                BackgroundColor="White"
-                                CornerRadius="6,6,0,0"/>
 
                             <!-- the add your rating button -->
+                            <StackLayout
+                                WidthRequest="300"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                Grid.RowSpan="1"
+                                Margin="0, 0, 0, 10">
+                                <controls:Calendar
+                                    SelectedBorderWidth="4"   
+                                    DisabledBorderColor="Black"  
+                                    ShowNumberOfWeek="false"  
+                                    StartDay="Monday"  
+                                    TitleLabelTextColor="Purple"  
+                                    TitleLeftArrowTextColor="Blue"  
+                                    SelectedDate="{Binding Date}"  
+                                    SpecialDates="{Binding Attendances}"  
+                                    DateCommand="{Binding DateChosen}"/>
+                            </StackLayout>
+
                             <BoxView
                                 Grid.Row="1"
                                 Grid.ColumnSpan="2"
