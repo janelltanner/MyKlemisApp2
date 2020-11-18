@@ -95,14 +95,16 @@
                                 Grid.ColumnSpan="2"
                                 BackgroundColor="#b5d83b"
                                 CornerRadius="0,0,6,6" />
-                            <Label
+                            <Button
                                 x:Name="openAnnouncements"
                                 Grid.Row="1"
                                 Grid.ColumnSpan="2"
-                                HorizontalOptions="Center"
+                                HorizontalOptions="CenterAndExpand"
                                 Text="View More Announcements"
                                 TextColor="White"
-                                VerticalOptions="Center" />
+                                BackgroundColor="Transparent"
+                                VerticalOptions="Center" 
+                                Clicked="NavToAllAnnouncements"/>
                             <!--<ImageButton  />-->
                             <skia:SKCanvasView
                             Grid.Row="2"

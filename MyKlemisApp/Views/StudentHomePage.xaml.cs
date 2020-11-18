@@ -83,6 +83,11 @@ namespace MyKlemisApp.Views
             this.BindingContext = this;
         }
 
+        async void NavToAllAnnouncements(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AllAnnouncementsPage(announcements));
+        }
+
         private async void pullAnnouncements()
         {
             CognitoAWSCredentials awsCredentials = new CognitoAWSCredentials(

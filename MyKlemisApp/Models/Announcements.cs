@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Amazon.DynamoDBv2.DataModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MyKlemisApp.Models
 {
-    class Announcements : IComparable
+    [DynamoDBTable("Announcements")]
+    public class Announcements : IComparable
     {
         public String timestamp { get; set; }
         public String description { get; set; }
@@ -12,7 +14,7 @@ namespace MyKlemisApp.Models
         public String poster { get; set; }
         public int CompareTo(object obj)
         {
-            return timestamp.CompareTo(((Announcements)obj).timestamp);
+            return -1 * timestamp.CompareTo(((Announcements)obj).timestamp);
         }
     }
 }

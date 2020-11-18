@@ -17,14 +17,15 @@ namespace MyKlemisApp.Views
     public partial class HomePage : ContentPage
     {
         HomeViewModel viewModel;
-        private AnnouncementPopupPage _announcementPopup = new AnnouncementPopupPage();
         private List<Models.Announcements> announcements = new List<Models.Announcements>();
         private bool areAnnouncementsLoaded = false;
         public static string welcomeMessage = "";
         public static bool isAdminBtnVisible;
         public static bool IsAdminBtnVisible { get { return isAdminBtnVisible; } }
         public string WelcomeMessage { get { return welcomeMessage; } }
+        public static string adminName = "";
         public const int NUM_DISPLAYED_ANNOUNCEMENTS = 2;
+        private Amazon.DynamoDBv2.AmazonDynamoDBClient dbClient;
         public HomePage(HomeViewModel viewModel)
         {
             InitializeComponent();
@@ -36,6 +37,11 @@ namespace MyKlemisApp.Views
 
             //fill announcements field
             Task announcementsTask = Task.Run(() => pullAnnouncements());
+            CognitoAWSCredentials awsCredentials = new CognitoAWSCredentials(
+               "us-east-2:d2f90bfd-19f7-4b20-ad29-09f8b19da906", // Identity pool ID
+               RegionEndpoint.USEast2 // Region
+           );
+            dbClient = new Amazon.DynamoDBv2.AmazonDynamoDBClient(awsCredentials);
             while (areAnnouncementsLoaded == false) { }
             announcements.Sort();
             
@@ -112,8 +118,14 @@ namespace MyKlemisApp.Views
         {
             if (Settings.IsAdmin)
             {
-                await PopupNavigation.Instance.PushAsync(_announcementPopup);
+                //await PopupNavigation.Instance.PushAsync(new AnnouncementPopupPage());
+                await Navigation.PushAsync(new AnnouncementEntry(adminName, dbClient));
             }
+        }
+
+        async void NavToAllAnnouncements(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AllAnnouncementsPage(announcements));
         }
 
         private void SKCanvasView_PaintSurface(object sender, SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs args)

@@ -42,10 +42,9 @@
                 </StackLayout>
             </RelativeLayout>
              
-                <Entry Grid.Row="2" Placeholder="Enter Subject"/>
             
-                <Entry Grid.Row="3" Placeholder="Enter Announcement" />
-                <Button Grid.Row="4" Text="Post Announcement" VerticalOptions="Start" Clicked="NavigateButton_PostAnnouncement"/>
+                <Entry Grid.Row="2" Placeholder="Enter Announcement" x:Name="descEntry"/>
+                <Button Grid.Row="3" Text="Post Announcement" VerticalOptions="Start" Clicked="NavigateButton_PostAnnouncement"/>
 
 
             </Grid> 

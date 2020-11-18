@@ -60,6 +60,7 @@ namespace MyKlemisApp.Views
                     if (currAdmin != null)
                     {
                         HomePage.welcomeMessage = "Welcome Back, " + currAdmin.name + "!";
+                        HomePage.adminName = currAdmin.name;
                         Admin.AddToContactBook();
                     }
                     Application.Current.MainPage = new MainPage();
