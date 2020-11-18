@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>195061976037-hliifje9p19vm4bjd05usi3u7i1q52ph.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.195061976037-hliifje9p19vm4bjd05usi3u7i1q52ph</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD9eZDc8_pRo8PmoGcDWJeELbBdAWvC-c4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>195061976037</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.xamarin.MyKlemisApp</string>
+	<key>PROJECT_ID</key>
+	<string>myklemis</string>
+	<key>STORAGE_BUCKET</key>
+	<string>myklemis.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:195061976037:ios:a107a3f656c1fb1ce37d0c</string>
+	<key>DATABASE_URL</key>
+	<string>https://myklemis.firebaseio.com</string>
+</dict>
+</plist>

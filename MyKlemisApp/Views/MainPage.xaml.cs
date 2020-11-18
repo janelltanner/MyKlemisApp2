@@ -45,9 +45,9 @@ namespace MyKlemisApp.Views
                         case (int)MenuItemType.Inventory:
                             MenuPages.Add(id, new NavigationPage(new InventoryPage()));
                             break;
-                        case (int)MenuItemType.Help:
-                            MenuPages.Add(id, new NavigationPage(new HelpPage()));
-                            break;
+                        //case (int)MenuItemType.Help:
+                        //    MenuPages.Add(id, new NavigationPage(new HelpPage()));
+                        //    break;
                         //case (int)MenuItemType.DBTest:
                         //    //MenuPages.Add(id, new NavigationPage(new DBTestPage()));
                         //    break;

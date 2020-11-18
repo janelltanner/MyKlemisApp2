@@ -13,8 +13,9 @@ namespace MyKlemisApp.Views
     public partial class Contacts : ContentPage
     {
         private EmailPopupPage _emailPopup;
-        public static List<KlemisCredentials> admins = new List<KlemisCredentials>();
-        public static List<KlemisCredentials> Admins { get { return admins; } set { admins = value; } }
+        private Admin admin = new Admin();
+        //public static List<KlemisCredentials> admins = new List<KlemisCredentials>();
+        //public static List<KlemisCredentials> Admins { get { return admins; } set { admins = value; } }
         public Contacts()
         {
             if (Settings.IsAdmin)
@@ -36,15 +37,13 @@ namespace MyKlemisApp.Views
         }
         protected override void OnAppearing()
         {
-            AdminView.ItemsSource = admins;
+            AdminView.ItemsSource = admin.getCredentials();
 
         }
 
         void OnItemSelected(object sender, EventArgs e)
         {
-            //EmailPopupPage.toRecipient =
             KlemisCredentials selectedItem = (KlemisCredentials)AdminView.SelectedItem;
-            //Console.WriteLine("[CONTACT PAGE]" + selectedItem.email);
             EmailPopupPage.toRecipient = selectedItem.email;
 
         }

@@ -8,6 +8,10 @@ using MyKlemisApp.Droid;
 using System.Collections.Generic;
 using Android.Content;
 using AndroidX.Core.App;
+using System.Text.RegularExpressions;
+using Android.OS;
+using System.Drawing;
+using Android.Graphics;
 
 namespace MyKlemisApp.Droid
 {
@@ -17,6 +21,7 @@ namespace MyKlemisApp.Droid
     public class MyFirebaseMsgService: FirebaseMessagingService
     {
         const string TAG = "MyFirebaseMsgService";
+        public const string PRIMARY_CHANNEL = "default";
         public override void OnNewToken(string s)
         {
             //var refreshedToken = FirebaseInstanceId.Instance.Token;
@@ -32,19 +37,46 @@ namespace MyKlemisApp.Droid
         public override void OnMessageReceived(RemoteMessage message)
         {
             base.OnMessageReceived(message);
-            SendNotification(message.GetNotification().Body, message.Data);
+            SendNotifications(message);
         }
-        private void SendNotification(string messageBody, IDictionary<string, string> data)
+    
+        public void SendNotifications(RemoteMessage message)
         {
-            var intent = new Intent(this, typeof(MainActivity)); intent.AddFlags(ActivityFlags.ClearTop);
-            foreach (var key in data.Keys)
+            try
             {
-                intent.PutExtra(key, data[key]);
+                NotificationManager manager = (NotificationManager)GetSystemService(NotificationService);
+                var seed = Convert.ToInt32(Regex.Match(Guid.NewGuid().ToString(), @"\d+").Value);
+                int id = new Random(seed).Next(000000000, 999999999);
+                var push = new Intent();
+                var fullScreenPendingIntent = PendingIntent.GetActivity(this, 0,
+               push, PendingIntentFlags.CancelCurrent);
+                NotificationCompat.Builder notification;
+                if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
+                {
+                    var chan1 = new NotificationChannel(PRIMARY_CHANNEL,
+                     new Java.Lang.String("Primary"), NotificationImportance.High);
+                    chan1.LightColor = Android.Graphics.Color.Green;
+                    manager.CreateNotificationChannel(chan1);
+                    notification = new NotificationCompat.Builder(this, PRIMARY_CHANNEL);
+                }
+                else
+                {
+                    notification = new NotificationCompat.Builder(this);
+                }
+                notification.SetContentIntent(fullScreenPendingIntent)
+                         .SetContentTitle(message.GetNotification().Title)
+                         .SetContentText(message.GetNotification().Body)
+                         .SetLargeIcon(BitmapFactory.DecodeResource(Resources, Resource.Drawable.notifLogo2))
+                         .SetSmallIcon(Resource.Drawable.notifLogo2)
+                         .SetStyle((new NotificationCompat.BigTextStyle()))
+                         .SetPriority(NotificationCompat.PriorityHigh)
+                         .SetColor(0x9c6114)
+                         .SetAutoCancel(true);
+                manager.Notify(id, notification.Build());
             }
-            var pendingIntent = PendingIntent.GetActivity(this, MainActivity.NOTIFICATION_ID, intent, PendingIntentFlags.OneShot);
-            var notificationBuilder = new NotificationCompat.Builder(this, MainActivity.CHANNEL_ID).SetSmallIcon(Resource.Drawable.logo6).SetContentTitle("FCM Message").SetContentText(messageBody).SetAutoCancel(true).SetContentIntent(pendingIntent);
-            var notificationManager = NotificationManagerCompat.From(this); notificationManager.Notify(MainActivity.NOTIFICATION_ID, notificationBuilder.Build());
-            notificationManager.Notify(MainActivity.NOTIFICATION_ID, notificationBuilder.Build());
+            catch (Exception ex)
+            {
+            }
         }
     }
 }

@@ -32,7 +32,7 @@ namespace MyKlemisApp.Models
 
         public static void AddToContactBook()
         {
-            Contacts.admins = credentials;
+            //Contacts.admins = credentials;
            
         }
 
@@ -89,7 +89,11 @@ namespace MyKlemisApp.Models
             }
 
             areCredsLoaded = true;
+        }
 
+        public List<KlemisCredentials> getCredentials()
+        {
+            return credentials;
         }
     }
 }

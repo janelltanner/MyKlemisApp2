@@ -6,7 +6,7 @@ using Rg.Plugins.Popup.Services;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
-namespace MyKlemisApp
+namespace MyKlemisApp.Views
 {
     public partial class AnnouncementPopupPage : Rg.Plugins.Popup.Pages.PopupPage
     {
@@ -17,22 +17,13 @@ namespace MyKlemisApp
         async void CloseAnnouncementForm(object sender, EventArgs e)
         {
             await PopupNavigation.Instance.PopAsync();
-            //await Navigation.PushAsync(new MainPage());
-            //await Device.InvokeOnMainThreadAsync(() => {
-            //    Application.Current.MainPage = new MainPage();
-            //    Settings.IsAdmin = false;
-            //});
-            //ContactAdmins;
+          
         }
 
         private async void NavigateButton_PostAnnouncement(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new HomePage());
 
-
-            //var id = (int) MenuItemType.Home;
-            //await RootPage.NavigateFromMenu(id);
-            //await Navigation.PushAsync(new LocationDetailPage());
         }
         protected override void OnAppearing()
         {

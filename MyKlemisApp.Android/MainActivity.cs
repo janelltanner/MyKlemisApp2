@@ -74,7 +74,6 @@ namespace MyKlemisApp.Droid
             if (intent.Extras != null)
             {
                 var message = intent.GetStringExtra("message");
-                //(App.Current.MainPage as MainPage)?.AddMessage(message);
             }
 
             base.OnNewIntent(intent);
@@ -85,17 +84,9 @@ namespace MyKlemisApp.Droid
             int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
             if (resultCode != ConnectionResult.Success)
             {
-            //    if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))
-            //        Log.Debug(AppConstants.DebugTag, GoogleApiAvailability.Instance.GetErrorString(resultCode));
-            //    else
-            //    {
-            //        Log.Debug(AppConstants.DebugTag, "This device is not supported");
-            //    }
-            //    return false;
-            //}
-            //return true;
-            if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))
-                    msgText = GoogleApiAvailability.Instance.GetErrorString(resultCode);
+        
+                if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))
+                        msgText = GoogleApiAvailability.Instance.GetErrorString(resultCode);
                 else
                 {
                     msgText = "This device is not supported";
