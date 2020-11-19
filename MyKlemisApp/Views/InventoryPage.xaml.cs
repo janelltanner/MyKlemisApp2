@@ -30,7 +30,14 @@ namespace MyKlemisApp.Views
 
             //add inventory items
             List<Models.Item> items = Models.InventoryCache.getItems();
-            items.Sort();
+            List<String> locations = getLocations(items);
+            LocationPicker.Items.Add("All");
+            LocationPicker.Items.Add("Demo");
+            foreach (String s in locations)
+            {
+                LocationPicker.Items.Add(s);
+            }
+            LocationPicker.SelectedIndex = 0;
             foreach(Models.Item i in items)
             {
                 Frame itemFrame = new Frame();
@@ -145,6 +152,20 @@ namespace MyKlemisApp.Views
             await Navigation.PushAsync(new ProductInfo(i));
         }
 
+        public List<String> getLocations(List<Models.Item> items)
+        {
+            List<String> locations = new List<String>();
+            foreach (Models.Item i in items)
+            {
+                if (!locations.Contains(i.Location))
+                {
+                    locations.Add(i.Location);
+                }
+            }
+            return locations;
+
+        }
+
         //this isn't working aaaa feel free to delete -- Rebekah
 
         async void Handle_SearchButtonPressed(object sender, System.EventArgs e)
@@ -157,7 +178,7 @@ namespace MyKlemisApp.Views
             }
 
             IEnumerable<String> itemsSearched = itemnames.Where(c => c.Contains(InventorySearch.Text));
-            await Navigation.PushAsync(new InventorySearchResults(itemsSearched));
+            await Navigation.PushAsync(new InventorySearchResults(itemsSearched, LocationPicker.Items[LocationPicker.SelectedIndex]));
 
 
         }

@@ -18,7 +18,7 @@ namespace MyKlemisApp.Views
             InitializeComponent();
             BindingContext = this.viewModel = viewModel;
         }
-        public InventorySearchResults(IEnumerable<String> itemnames)
+        public InventorySearchResults(IEnumerable<String> itemnames,String location)
         {
             InitializeComponent();
             //Title = "Inventory";
@@ -36,7 +36,7 @@ namespace MyKlemisApp.Views
             items.Sort();
             foreach (Models.Item i in items)
             {
-                if (itemnames.Contains(i.label))
+                if (itemnames.Contains(i.label) && (location=="All" || i.Location.Equals(location)))
                 { 
                     Frame itemFrame = new Frame();
                     StackLayout layout = new StackLayout();
