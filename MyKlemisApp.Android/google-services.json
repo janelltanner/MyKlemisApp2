@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "195061976037",
+    "firebase_url": "https://myklemis.firebaseio.com",
+    "project_id": "myklemis",
+    "storage_bucket": "myklemis.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195061976037:android:fcf408a7908733d2e37d0c",
+        "android_client_info": {
+          "package_name": "com.xamarin.myklemisapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195061976037-t64l2ls099lo8jtp09beqp70urm47gtp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3cXKv5hhE9zdjMhvPKI85iNDIBTYoWd4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195061976037-t64l2ls099lo8jtp09beqp70urm47gtp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

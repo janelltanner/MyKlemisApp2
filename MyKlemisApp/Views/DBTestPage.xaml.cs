@@ -31,17 +31,30 @@ namespace MyKlemisApp.Views
         public DBTestPage()
         {
             InitializeComponent();
-            Title = "Home";
+            //Title = "Home";
             //Task food = addFoodItemsAsync();
             //food.Wait();
             Services.TransactInterface test = new Services.TransactInterface();
             //Task t = test.authenticate();
             //t.Wait();
-            test.authenticateTask();
-            while (!test.isAuthorized()) { }
-            test.GetInventoryItems();
-            Task food = addFoodItemsAsync();
-            food.Wait();
+
+            //old db test code
+            while (!TransactInterface.isInitialized()) { }
+            IEnumerator<Item> itemsEnum = Models.InventoryCache.getItemsEnum();
+            itemsEnum.MoveNext();
+            int count = 0;
+            while (itemsEnum.Current != null)
+            {
+                Label item = new Label();
+                item.Text = itemsEnum.Current.label + ": " + itemsEnum.Current.total_on_hand;
+                item.WidthRequest = 150.0;
+                item.HeightRequest = 50.0;
+                layout.Children.Add(item);
+                itemsEnum.MoveNext();
+            }
+
+
+
             if (Settings.IsAdmin)
             {
                 ToolbarItems.Add(new ToolbarItem("Edit", "", () =>

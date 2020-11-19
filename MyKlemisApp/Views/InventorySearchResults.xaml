@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyKlemisApp.Views.InventorySearchResults"
+             xmlns:vm="clr-namespace:MyKlemisApp.ViewModels"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:InventoryViewModel/>
+    </ContentPage.BindingContext>
+      <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#5BBB93</Color>
+            <Color x:Key="Accent">#1E4471</Color>
+            <Color x:Key="LightTextColor">#F5C851</Color>
+            <Color x:Key="Accent2">#EF823F</Color>
+            <Color x:Key="Accent3">#CEE2DA</Color>
+            <Color x:Key="Black">#000000</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Padding="20,0,0,0">
+                <!--<Label
+                        FontFamily="Roboto-Black"
+                        Text="Inventory"
+                        TextColor="Black"
+                        VerticalOptions="Start"
+                        HorizontalOptions="Start"
+                        FontSize="32"
+                        WidthRequest="200"/>-->
+                <!-- <SearchBar x:Name="InventorySearch" SearchButtonPressed="Handle_SearchButtonPressed"
+                           Placeholder="Search items..." /> -->
+            </StackLayout>
+            <ScrollView>
+                <StackLayout x:Name="scrollLayout"></StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

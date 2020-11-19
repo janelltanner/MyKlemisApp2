@@ -17,7 +17,60 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <ScrollView>
+        <StackLayout Margin="10" 
+                     Orientation="Vertical">
+
+            <Button Text="Edit" x:Name="editBtn" Clicked="OnClickEditLocations" FontFamily="Roboto-Black" FontSize="Medium" BackgroundColor="Transparent"  BorderColor="Transparent" BorderRadius="2" TextColor="#f9a72b"  VerticalOptions="CenterAndExpand" HorizontalOptions="End" Margin="15, 15, 15, 0" IsVisible="false"/>
+            <Label Text="Klemis Locations" FontSize="30" TextColor="Black" HorizontalOptions="Start" VerticalTextAlignment="Left" Margin="15, 15, 15, 15" FontFamily="Roboto-Black"/>
+
+            <ListView ItemsSource="{Binding Locations}"
+                      HasUnevenRows="true"
+                      AbsoluteLayout.LayoutFlags="All"
+                      ItemTapped="OnClickLocation">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <AbsoluteLayout x:Name="ViewLayout" HeightRequest="200"  Margin="15, 15, 15, 15">
+                                <Image Source="{Binding Img}" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" />
+                                <AbsoluteLayout x:Name="ViewControls" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#26000000" >
+
+                                    <StackLayout Orientation="Vertical"  BackgroundColor="Transparent" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1,1,1,1">
+                                        <Grid Margin="10, 10, 10, 10">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Text="{Binding Name}" FontSize="Large" FontAttributes="Bold" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" Grid.Row="1" Margin="0, 15, 0, 15"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </AbsoluteLayout>
+                            </AbsoluteLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+<!--<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyKlemisApp.Views.LocationsPage"
+             xmlns:vm="clr-namespace:MyKlemisApp.ViewModels"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:LocationsViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#5BBB93</Color>
+            <Color x:Key="Accent">#1E4471</Color>
+            <Color x:Key="LightTextColor">#F5C851</Color>
+            <Color x:Key="Accent2">#EF823F</Color>
+            <Color x:Key="Accent3">#CEE2DA</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="White">
             <Grid  HorizontalOptions="Center" VerticalOptions="Center" RowSpacing="10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="100" />
@@ -33,27 +86,28 @@
                 
                 <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
                     <StackLayout>
-                        <StackLayout Padding="0,40,0,0" VerticalOptions="FillAndExpand">
+                        <StackLayout Padding="0,25,0,0" VerticalOptions="Start">
                             <Label TextColor="Black" FontSize="30" FontFamily="Roboto-Black">MyKlemis Locations</Label>
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
 
-                <RelativeLayout BackgroundColor="#E2E2E2" HeightRequest="210"  IsClippedToBounds="True" Grid.Row="1">
+                <RelativeLayout BackgroundColor="Transparent" HeightRequest="210" WidthRequest="200" IsClippedToBounds="True" Grid.Row="1">
                     <RelativeLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnClickLocation"/>
                     </RelativeLayout.GestureRecognizers>
-                    <Image Source="moseBldg.jpg" Aspect="Fill" HeightRequest="150"/>
+                    <Image Source="moseBldg.jpg" Aspect="Fill" WidthRequest="300" HeightRequest="150"/>
                     <StackLayout BackgroundColor="Transparent" Padding="20,30,5,10" Spacing="1">
                         <Label FontAttributes="Bold" FontFamily="Roboto-Regular" Text="Klemis Kitchen (Main)" TextColor="White" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="20" WidthRequest="280"/>
                     </StackLayout>
                 </RelativeLayout>
 
-                <RelativeLayout BackgroundColor="#E2E2E2" HeightRequest="210"  IsClippedToBounds="True" Grid.Row="2">
+
+                <RelativeLayout BackgroundColor="Transparent" HeightRequest="210"  IsClippedToBounds="True" Grid.Row="2">
                     <RelativeLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnClickNotAvaliable"/>
                     </RelativeLayout.GestureRecognizers>
-                    <Image Source="croslandTower.jpg" Aspect="Fill" HeightRequest="150"/>
+                    <Image Source="croslandTower.jpg" WidthRequest="300"  Aspect="Fill" HeightRequest="150"/>
                     <StackLayout BackgroundColor="Transparent" Padding="20,30,5,10" Spacing="1">
                         <Label FontAttributes="Bold" FontFamily="Roboto-Regular" Text="Library Outpost (coming soon)" TextColor="White" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="20" WidthRequest="280"/>
                     </StackLayout>
@@ -61,4 +115,4 @@
             </Grid>
         </ScrollView>
     </ContentPage.Content>
-</ContentPage>
+</ContentPage>-->

@@ -7,41 +7,49 @@ using System.Threading.Tasks;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace MyKlemisApp.Services
 {
     class TransactInterface
     {
         private static HttpClient client = null;
-        private String authenticateURL  = "https://qpc.transactcampus.com/QPWebOffice-Web-AuthenticationService.svc/JSON/Authenticate";
-        private String loggedInURL      = "https://qpc.transactcampus.com/QPWebOffice-Web-AuthenticationService.svc/JSON/LoggedIn";
-        private String itemsMainURL     = "https://qpc.transactcampus.com/QPWebOffice-Web-QuadPointDomain.svc/JSON/GetItemsWithInventoryMain";
-        private String authToken = null;
+        private static String portalURL        = "https://qpc.transactcampus.com/?tenant=gatech";
+        private static String authenticateURL  = "https://qpc.transactcampus.com/QPWebOffice-Web-AuthenticationService.svc/JSON/Authenticate";
+        private static String loggedInURL      = "https://qpc.transactcampus.com/QPWebOffice-Web-AuthenticationService.svc/JSON/LoggedIn";
+        private static String itemsMainURL     = "https://qpc.transactcampus.com/QPWebOffice-Web-QuadPointDomain.svc/JSON/GetItemsWithInventoryMain";
+        private static String authToken = null;
+        private static String clientVersion = null;
+        private static bool isInit = false;
 
-        public TransactInterface()
-        {
-            if (client == null)
-            {
-                var handler = new HttpClientHandler
-                {
-                    CookieContainer = new CookieContainer(),
-                    UseCookies = true,
-                    UseDefaultCredentials = false
-                };
-
-                client = new HttpClient(handler);
-            }
-        }
-
-        public async Task authenticate()
-        {
-            Task t = new Task(() => { authenticateTask(); });
-        }
-
-        public async void authenticateTask()
+        private static async Task authenticateTask()
         {
             try
             {
+                //get portal site for client version
+                var portalReq = new HttpRequestMessage()
+                {
+                    RequestUri = new Uri(portalURL),
+                    Method = HttpMethod.Get,
+                };
+
+                var portalResp = await client.SendAsync(portalReq).ConfigureAwait(false);
+                if (portalResp.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    var portalRespString = await portalResp.Content.ReadAsStringAsync();
+                    Regex vRx = new Regex("version=\\d+\\.\\d+\\.\\d+\\.\\d+");
+                    MatchCollection matches = vRx.Matches(portalRespString);
+                    foreach (Match match in matches)
+                    {
+                        GroupCollection groups = match.Groups;
+                        clientVersion = groups[0].Value.Substring(8, groups[0].Value.Length - 8);
+                        if(clientVersion != null)
+                        {
+                            break;
+                        }
+                    }
+                }
+
                 var logInReq = new HttpRequestMessage()
                 {
                     RequestUri = new Uri(loggedInURL),
@@ -64,12 +72,6 @@ namespace MyKlemisApp.Services
                     var logRespString = await logResp.Content.ReadAsStringAsync();
                 }
 
-                
-                /*
-                 {"isPersistent":true,"customData":"","clientVersion":"6.0.12.35","dotNetLogicVer":1,"userName":"klemisrpt","password":"Yell0w!","reset":"***","id":"***"}
-                 */
-                ////////////////////
-
                 var authReq = new HttpRequestMessage()
                 {
                     RequestUri = new Uri(authenticateURL),
@@ -81,24 +83,12 @@ namespace MyKlemisApp.Services
                 authReq.Headers.Add("Accept", "*/*");
                 authReq.Headers.Add("Accept-Language", "en-US, en; q = 0.9,fr; q = 0.8");
                 authReq.Headers.Add("Accept-Encoding", "gzip, deflate, br");
-                /*HttpContent authContent = new FormUrlEncodedContent(
-                    new List<KeyValuePair<string, string>>
-                    {
-                        new KeyValuePair<string, string>("isPersistent", "true"),
-                        new KeyValuePair<string, string>("customData", ""),
-                        new KeyValuePair<string, string>("clientVersion", "6.0.12.35"),
-                        new KeyValuePair<string, string>("dotNetLogicVer", "1"),
-                        new KeyValuePair<string, string>("userName", "klemisrpt"),
-                        new KeyValuePair<string, string>("password","Yell0w!"),
-                        new KeyValuePair<string, string>("reset","***"),
-                        new KeyValuePair<string, string>("id","***"),
-                    });*/
 
-                StringContent authContent = new StringContent("{\"isPersistent\":true,\"customData\":\"\",\"clientVersion\":\"6.0.12.35\",\"dotNetLogicVer\":1,\"userName\":\"klemisrpt\",\"password\":\"Yell0w!\",\"reset\":\" * **\",\"id\":\" * **\"}");
+                StringContent authContent = new StringContent("{\"isPersistent\":true,\"customData\":\"\",\"clientVersion\":\"" + clientVersion + "\",\"dotNetLogicVer\":1,\"userName\":\"klemisrpt\",\"password\":\"Yell0w!\",\"reset\":\" * **\",\"id\":\" * **\"}");
                 authContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
                 authReq.Content = authContent;
 
-                var authResp = await client.SendAsync(authReq);
+                var authResp = await client.SendAsync(authReq).ConfigureAwait(false);
                 if(authResp.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     var authRespString = await authResp.Content.ReadAsStringAsync();
@@ -112,7 +102,7 @@ namespace MyKlemisApp.Services
             }
         }
 
-        public async Task<List<Models.Item>> GetInventoryItems()
+        private static async Task getInventoryItems()
         {
             try
             {
@@ -127,7 +117,7 @@ namespace MyKlemisApp.Services
                 itemsReq.Headers.Add("Accept", "*/*");
 
                 Models.InventoryRootObj res = null;
-                var itemsResp = await client.SendAsync(itemsReq);
+                var itemsResp = await client.SendAsync(itemsReq).ConfigureAwait(false);
                 if (itemsResp.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     String itemsRespString = await itemsResp.Content.ReadAsStringAsync();
@@ -135,18 +125,45 @@ namespace MyKlemisApp.Services
                     json.NullValueHandling = NullValueHandling.Ignore;
                     res = json.Deserialize<Models.InventoryRootObj>(new JsonTextReader(new StringReader(itemsRespString)));
                     //res = JsonConvert.DeserializeObject<Models.InventoryRootObj>(itemsRespString);
-                    return res.GetItemsWithInventoryMainResult.RootResults;
-
+                    
+                    Models.InventoryCache.setItems(res.GetItemsWithInventoryMainResult.RootResults);
                 }
+                int i = 0;
 
-                return null;
             } catch(Exception e)
             {
                 throw e;
             }
         }
 
-        public bool isAuthorized()
+        public static async void initialize()
+        {
+            if (isInit == false)
+            {
+                if (client == null)
+                {
+                    var handler = new HttpClientHandler
+                    {
+                        CookieContainer = new CookieContainer(),
+                        UseCookies = true,
+                        UseDefaultCredentials = false
+                    };
+
+                    client = new HttpClient(handler);
+                }
+                await authenticateTask();
+                await getInventoryItems();
+                isInit = true;
+            }
+        }
+
+
+        public static bool isInitialized()
+        {
+            return isInit;
+        }
+
+        public static bool isAuthorized()
         {
             return authToken != null;
         }

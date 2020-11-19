@@ -12,85 +12,40 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <ScrollView>
-            <Grid  HorizontalOptions="Center" x:Name="locationsLayout" VerticalOptions="Center" RowSpacing="10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="100" />
-                    <RowDefinition Height="150" />
-                    <RowDefinition Height="150" />
-                    <RowDefinition Height="150" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="300"/>
-                    <ColumnDefinition Width="*"/>
+        <StackLayout Margin="10" 
+                     Orientation="Vertical">
 
-                </Grid.ColumnDefinitions>
+            <Button Text="Done" Clicked="OnClickDone" FontSize="Medium" BackgroundColor="Transparent" FontFamily="Roboto-Black" BorderColor="Transparent" TextColor="#b5d83b"  VerticalOptions="CenterAndExpand" HorizontalOptions="End" Margin="15, 15, 15, 0"/>
+            <Label Text="Klemis Locations" FontFamily="Roboto-Black" FontSize="30" TextColor="Black" HorizontalOptions="Start" VerticalTextAlignment="Left" Margin="15, 15, 15, 15"/>
 
-                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
-                    <StackLayout>
-                        <Button Text="Done"
-                        BackgroundColor="{StaticResource Accent2}"
-                        TextColor="White"
-                        VerticalOptions="Start"
-                        HorizontalOptions="End"
-                        Clicked="OnClickDone"/>
-                        <StackLayout Padding="0,0,0,0" VerticalOptions="FillAndExpand">
-                            <Label TextColor="{StaticResource Accent3}" FontSize="30" FontFamily="Alike">Klemis Locations</Label>
-                        </StackLayout>
-                    </StackLayout>
-                </StackLayout>
+            <ListView ItemsSource="{Binding Locations}"
+                      HasUnevenRows="true"
+                      AbsoluteLayout.LayoutFlags="All" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <AbsoluteLayout x:Name="ViewLayout" HeightRequest="200"  Margin="15, 15, 15, 15">
+                                <Image Source="{Binding Img}" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" />
+                                <AbsoluteLayout x:Name="ViewControls" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#26000000" >
 
-
-
-                <RelativeLayout x:Name="location1" BackgroundColor="#E2E2E2" HeightRequest="210"  IsClippedToBounds="True" Grid.Row="1">
-                    <Button Text="Delete"
-                        BackgroundColor="Transparent"
-                        TextColor="White"
-                        HeightRequest="40"
-                        Margin="220, 0, 0, 0"
-                        Clicked="OnClickDelete1"/>
-
-
-
-                    <Button Text="Edit"
-                        BackgroundColor="{StaticResource Accent}"
-                        TextColor="White"
-                        WidthRequest="60"
-                        HeightRequest="40"
-                        Margin="230, 100, 0, 0"
-                        Clicked="OnClickEditor"/>
-                    <!--this is gonna cause problems future me - Rebekah-->
-                    <Image Source="moseBldg.jpg" Aspect="Fill" HeightRequest="150"/>
-
-                    <StackLayout BackgroundColor="Transparent" Padding="20,30,5,10" Spacing="1">
-                        <Label FontAttributes="Bold" Text="Klemis Kitchen (Main)" TextColor="White" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="30" WidthRequest="280"/>
-                    </StackLayout>
-                </RelativeLayout>
-
-
-                <RelativeLayout x:Name="location2" BackgroundColor="#E2E2E2" HeightRequest="210"  IsClippedToBounds="True" Grid.Row="2">
-                    <Button Text="Delete"
-                        BackgroundColor="Transparent"
-                        TextColor="White"
-                        HeightRequest="40"
-                        Margin="220, 0, 0, 0"
-                        Clicked="OnClickDelete2"/>
-
-
-
-                    <Button Text="Edit"
-                        BackgroundColor="{StaticResource Accent}"
-                        TextColor="White"
-                        WidthRequest="60"
-                        HeightRequest="40"
-                        Margin="230, 100, 0, 0"
-                        Clicked="OnClickEditor"/>
-                    <Image Source="croslandTower.jpg" Aspect="Fill" HeightRequest="150"/>
-                    <StackLayout BackgroundColor="Transparent" Padding="20,30,5,10" Spacing="1">
-                        <Label FontAttributes="Bold" Text="Library Outpost (coming soon)" TextColor="White" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="30" WidthRequest="280"/>
-                    </StackLayout>
-                </RelativeLayout>
-            </Grid>
-        </ScrollView>
+                                    <StackLayout Orientation="Vertical"  BackgroundColor="Transparent" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1,1,1,1">
+                                        <Grid Margin="10, 10, 10, 10">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Button Text="Edit" Clicked="OnClickEditor" FontSize="Small" BackgroundColor="#77000000" BorderRadius="2" BorderColor="White" BorderWidth="2" TextColor="White" Grid.Row="0" Grid.Column="3"  />
+                                            <Label Text="{Binding Name}" FontSize="Large" FontAttributes="Bold" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2"  Margin="0, 15, 0, 15"/>
+                                            <Button Text="Delete" FontSize="Small" BackgroundColor="{StaticResource Primary}"  TextColor="White" Grid.Row="3" Grid.Column="3"  />
+                                        </Grid>
+                                    </StackLayout>
+                                </AbsoluteLayout>
+                            </AbsoluteLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

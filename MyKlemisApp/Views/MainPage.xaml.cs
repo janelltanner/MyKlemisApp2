@@ -8,6 +8,7 @@ using Xamarin.Forms.Xaml;
 using MyKlemisApp.Models;
 using Newtonsoft.Json;
 using System.IO;
+using MyKlemisApp.Services;
 
 namespace MyKlemisApp.Views
 {
@@ -23,34 +24,60 @@ namespace MyKlemisApp.Views
 
             MasterBehavior = MasterBehavior.Popover;
             Xamarin.Forms.NavigationPage.SetHasNavigationBar(this, false);
-//             MenuPages.Add((int)MenuItemType.Home, (NavigationPage)Detail);
+            MenuPages.Add((int)MenuItemType.Home, (NavigationPage)Detail);
+            
+
         }
         public async Task NavigateFromMenu(int id)
         {
             if (!MenuPages.ContainsKey(id))
             {
-                switch (id)
+               if (Settings.IsAdmin)
                 {
-                    case (int)MenuItemType.Home:
-                        MenuPages.Add(id, new NavigationPage(new HomePage()));
-                        break;
-                    case (int)MenuItemType.Locations:
-                        MenuPages.Add(id, new NavigationPage(new LocationsPage()));
-                        break;
-                    case (int)MenuItemType.Inventory:
-                        MenuPages.Add(id, new NavigationPage(new InventoryPage()));
-                        break;
-                    case (int)MenuItemType.Help:
-                        MenuPages.Add(id, new NavigationPage(new HelpPage()));
-                        break;
-                    case (int)MenuItemType.DBTest:
-                        MenuPages.Add(id, new NavigationPage(new DBTestPage()));
-                        break;
-                    case (int)MenuItemType.AnnouncementEnter:
-                        MenuPages.Add(id, new NavigationPage(new AnnouncementEntry()));
-                    case (int)MenuItemType.LocationsAdmin:
-                        MenuPages.Add(id, new NavigationPage(new LocationsAdminPage()));
-                        break;
+                    switch (id)
+                    {
+                        case (int)MenuItemType.Home:
+                            MenuPages.Add(id, new NavigationPage(new HomePage()));
+                            break;
+                        case (int)MenuItemType.Locations:
+                            MenuPages.Add(id, new NavigationPage(new LocationsPage()));
+                            break;
+                        case (int)MenuItemType.Inventory:
+                            MenuPages.Add(id, new NavigationPage(new InventoryPage()));
+                            break;
+                        //case (int)MenuItemType.Help:
+                        //    MenuPages.Add(id, new NavigationPage(new HelpPage()));
+                        //    break;
+                        //case (int)MenuItemType.DBTest:
+                        //    //MenuPages.Add(id, new NavigationPage(new DBTestPage()));
+                        //    break;
+                        //case (int)MenuItemType.AnnouncementEnter:
+                        //    MenuPages.Add(id, new NavigationPage(new AnnouncementEntry()));
+                        //    break;
+                        case (int)MenuItemType.Contacts:
+                            MenuPages.Add(id, new NavigationPage(new Contacts()));
+                            break;
+                    }
+                } else
+                {
+                    switch (id)
+                    {
+                        case (int)MenuItemType.Home:
+                            MenuPages.Add(id, new NavigationPage(new StudentHomePage()));
+                            break;
+                        case (int)MenuItemType.Locations:
+                            MenuPages.Add(id, new NavigationPage(new LocationsPage()));
+                            break;
+                        case (int)MenuItemType.Inventory:
+                            MenuPages.Add(id, new NavigationPage(new InventoryPage()));
+                            break;
+                        case (int)MenuItemType.Help:
+                            MenuPages.Add(id, new NavigationPage(new HelpPage()));
+                            break;
+                        //case (int)MenuItemType.DBTest:
+                        //    MenuPages.Add(id, new NavigationPage(new DBTestPage()));
+                        //    break;
+                    }
                 }
             }
 

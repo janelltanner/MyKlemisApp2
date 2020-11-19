@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MyKlemisApp.Views.Contacts" Title="{Binding Title}">
+    <ContentPage.Content>
+        <ScrollView>
+             <Grid Padding="10" HorizontalOptions="Center" VerticalOptions="Center" RowSpacing="10" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="50" />
+                    <!--<RowDefinition Height="150" />
+                    <RowDefinition Height="170" />
+                    <RowDefinition Height="100" />-->
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Padding="20,0,0,0" TextColor="Black" Grid.Row="1" VerticalTextAlignment="Start" FontSize="30" FontFamily="Roboto-Bold">Contact Book</Label>
+                <ListView x:Name="AdminView" ItemsSource="{Binding Admins}" ItemSelected="OnItemSelected" Grid.Row="2">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <!--<TextCell Text="{Binding FullName}" />-->
+                            <ViewCell>
+                                <ViewCell.View>
+                                     <Grid Padding="0, 10, 0, 0" x:Name="Item">
+
+                                        <Grid.ColumnDefinitions>
+                                          <ColumnDefinition Width="Auto"/>
+                                          <ColumnDefinition Width="200"/>
+                                          <ColumnDefinition Width="100"/>
+                                          <ColumnDefinition />
+                                          <!--<ColumnDefinition Width="Auto"/>-->
+                                          <!--<ColumnDefinition Width="Auto"/>-->
+                                        </Grid.ColumnDefinitions>
+                                        <Image Margin="20,0,0,0" Source="anonymous.png"/>
+                                        <Label Grid.Column="1" Text="{Binding name}"/>
+                                        <Button  Grid.Column="2" BorderColor="Transparent" BackgroundColor="Transparent" Text="Contact" TextColor="#0bb0e7" Clicked="OpenEmailForm" />
+                                        
+                                      </Grid>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -5,10 +5,18 @@
     <Application.Resources>
         <ResourceDictionary>
             <!--Global Styles-->
-            <Color x:Key="NavigationPrimary">#213037</Color>
+            <Color x:Key="NavigationPrimary">#0bb0e7</Color> <!--admin-->
+            <Color x:Key="NavigationSecondary">#c32c40</Color> <!--student-->
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="BarTextColor" Value="White" />
+                <Style.Triggers>
+                <DataTrigger TargetType="NavigationPage" Binding="{Binding IsAdmin}" Value="False">
+                    <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationSecondary }" />
+                </DataTrigger>
+                </Style.Triggers>
+                <!--<Setter x:Name="NavBarStatus" Property="BarBackgroundColor" />-->
+                <!--<Setter Property="BarBackgroundColor" Value="Transparent" />-->
             </Style>
         </ResourceDictionary>
     </Application.Resources>

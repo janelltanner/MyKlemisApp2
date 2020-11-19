@@ -31,12 +31,12 @@ namespace MyKlemisApp.Views
 
             viewModel = new ItemDetailViewModel(item);
             BindingContext = viewModel;
-            Console.WriteLine("ITEM ADMIN STATUS: " + Settings.IsAdmin);
+            //Console.WriteLine("ITEM ADMIN STATUS: " + Settings.IsAdmin);
             if (Settings.IsAdmin)
             {
-                ToolbarItems.Add(new ToolbarItem("Edit", "", () =>
+                ToolbarItems.Add(new ToolbarItem("Log Out", "", async () =>
                 {
-                    //logic code goes here
+                    await Navigation.PushAsync(new LoginPage());
                 }));
             }
         }

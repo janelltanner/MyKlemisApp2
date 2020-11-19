@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    x:Class="MyKlemisApp.Views.AnnouncementPopupPage">
+    <!--You can set an animation in the xaml file or in the csharp code behind-->
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    <!--You can use any elements here which are extended from Xamarin.Forms.View-->
+    <StackLayout BackgroundColor="White">
+        <Grid BackgroundColor="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="100"/>
+                <!--<ColumnDefinition Width="*"/>-->
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="350"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Label Padding="20,50,0,0" FontSize="25" FontFamily="Roboto-Black" Text="Create Announcement" />
+            <StackLayout Padding="60,100,0,0" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="70"/>
+                    </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Padding="0,9,0,0" FontSize="Micro" Text="Students"/>
+                <Switch Grid.Column="1" OnColor="#f9a72b" />
+                <Label Grid.Column="2" Padding="0,9,0,0" FontSize="Micro" Text="Admins"/>
+
+                </Grid>
+            </StackLayout>
+            <StackLayout Grid.Row="1"  Padding="20,0,0,0" VerticalOptions="Center" HorizontalOptions="Center" >
+                <Entry Placeholder="Enter Subject" WidthRequest="300" />
+                <Entry Placeholder="Enter Announcement" WidthRequest="150" HeightRequest="300"/>
+                <!--<Button Text="Post Announcement" VerticalOptions="Start" Clicked=""/>-->
+            </StackLayout>
+            
+        </Grid>
+        <Button x:Name="PostAnnouncement" VerticalOptions="Center" HorizontalOptions="Center" Text="Post Announcement"
+                        TextColor="Black" WidthRequest="250" BorderRadius="20"
+                        BackgroundColor="#f9a72b" Clicked="NavigateButton_PostAnnouncement" />
+        <Button FontSize="Small" TextColor="#0bb0e7" Clicked="CloseAnnouncementForm" Padding="0,0,0,0" VerticalOptions="Center" BackgroundColor="Transparent" HorizontalOptions="Center" FontFamily="Roboto-Black" Text="Cancel"  />
+    </StackLayout>
+</pages:PopupPage>

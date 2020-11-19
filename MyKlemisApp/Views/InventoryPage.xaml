@@ -18,23 +18,9 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <ScrollView>
-             <Grid HorizontalOptions="Start"
-                 VerticalOptions="Start"
-                 RowSpacing="10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0" />
-                    <RowDefinition Height="150" />
-                    <RowDefinition Height="170" />
-                    <RowDefinition Height="100" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="350"/>
-                </Grid.ColumnDefinitions>
-            <RelativeLayout
-                Grid.Row="1">
-                <StackLayout Padding="20,0,0,0">
-                    <!--<Label
+        <StackLayout>
+            <StackLayout Padding="0,0,0,0">
+                <!--<Label
                         FontFamily="Roboto-Black"
                         Text="Inventory"
                         TextColor="Black"
@@ -42,10 +28,14 @@
                         HorizontalOptions="Start"
                         FontSize="32"
                         WidthRequest="200"/>-->
-                    <SearchBar Placeholder="Search items..." />
-                </StackLayout>
-            </RelativeLayout>
-           </Grid>
-       </ScrollView>
+                <SearchBar x:Name="InventorySearch" SearchButtonPressed="Handle_SearchButtonPressed"
+                           TextChanged="Handle_SearchTextChanged" Placeholder="Search items..." />
+                <Label Text="Search Location:" Margin="4,0,0,0" />
+               <Picker Title="Select Location" x:Name="LocationPicker" SelectedIndexChanged="Handle_PickerChanged"/>
+            </StackLayout>
+            <ScrollView>
+                <StackLayout x:Name="scrollLayout"></StackLayout>
+            </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

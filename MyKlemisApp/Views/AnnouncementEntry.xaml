@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MyKlemisApp.Views.AnnouncementEntry">
     <ContentPage.Content>
-        <StackLayout>
+        <ScrollView>
             <Grid HorizontalOptions="Center"
                  VerticalOptions="Center"
                  RowSpacing="20">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="200" />
+                    <RowDefinition Height="100" />
                     <RowDefinition Height="100" />
                     <RowDefinition Height="100" />
                     <RowDefinition Height="100" />
@@ -21,22 +21,20 @@
            
                 </RelativeLayout>-->
                 <RelativeLayout
-                BackgroundColor="#D3D3D3"
-                HeightRequest="210"
                 IsClippedToBounds="True"
                 Grid.Row="1">
-                <Image
+                <!--<Image
                     Source="welcome3.jpg"
                     Aspect="Fill"
-                    HeightRequest="100" />
+                    HeightRequest="100" />-->
                 <StackLayout
                     BackgroundColor="Transparent"
                     Padding="10, 30, 0, 0"
                     Spacing="1">
                     <Label
-                        FontFamily="Alike-Regular"
+                        FontFamily="Roboto-Black"
                         Text="Announcement Manager"
-                        TextColor="White"
+                        TextColor="Black"
                         VerticalOptions="Center"
                         HorizontalOptions="Center"
                         FontSize="25"
@@ -44,15 +42,14 @@
                 </StackLayout>
             </RelativeLayout>
              
-                <Entry Grid.Row="2" Placeholder="Enter Subject" />
             
-                <Entry Grid.Row="3" Placeholder="Enter Announcement" />
-                <Button Grid.Row="4" Text="Post Announcement" VerticalOptions="Start" Clicked="NavigateButton_PostAnnouncement"/>
+                <Entry Grid.Row="2" Placeholder="Enter Announcement" x:Name="descEntry"/>
+                <Button Grid.Row="3" Text="Post Announcement" VerticalOptions="Start" Clicked="NavigateButton_PostAnnouncement"/>
 
 
             </Grid> 
             
-        </StackLayout>
+        </ScrollView>
         
     </ContentPage.Content>
 </ContentPage>
