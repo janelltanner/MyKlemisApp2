@@ -175,10 +175,10 @@ namespace MyKlemisApp.Views
             List<String> itemnames = new List<String>();
             foreach (Models.Item i in items)
             {
-                itemnames.Add(i.label);
+                itemnames.Add(i.label.ToLower());
             }
 
-            IEnumerable<String> itemsSearched = itemnames.Where(c => c.Contains(InventorySearch.Text));
+            IEnumerable<String> itemsSearched = itemnames.Where(c => c.Contains(InventorySearch.Text.ToLower()));
             await Navigation.PushAsync(new InventorySearchResults(itemsSearched, LocationPicker.Items[LocationPicker.SelectedIndex]));
 
 
@@ -191,12 +191,12 @@ namespace MyKlemisApp.Views
             List<String> itemnames = new List<String>();
             foreach (Models.Item i in items)
             {
-                itemnames.Add(i.label);
+                itemnames.Add(i.label.ToLower());
             }
             IEnumerable<String> itemsSearched;
             if (!(InventorySearch.Text==null))
             {
-                itemsSearched = itemnames.Where(c => c.Contains(InventorySearch.Text));
+                itemsSearched = itemnames.Where(c => c.Contains(InventorySearch.Text.ToLower()));
             } else
             {
                 itemsSearched = itemnames;
@@ -206,7 +206,7 @@ namespace MyKlemisApp.Views
             String location = LocationPicker.Items[LocationPicker.SelectedIndex];
             foreach (Models.Item i in items)
             {
-                if (itemsSearched.Contains(i.label) && (location == "All" || i.Location.Equals(location)))
+                if (itemsSearched.Contains(i.label.ToLower()) && (location == "All" || i.Location.Equals(location)))
                 {
                     Frame itemFrame = new Frame();
                     StackLayout layout = new StackLayout();
