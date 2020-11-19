@@ -129,6 +129,7 @@ namespace MyKlemisApp.Views
                 }
 
                 layout.Children.Add(itemGrid);
+              
             }
 
             //this isn't working 
@@ -181,6 +182,132 @@ namespace MyKlemisApp.Views
             await Navigation.PushAsync(new InventorySearchResults(itemsSearched, LocationPicker.Items[LocationPicker.SelectedIndex]));
 
 
+        }
+
+        async void Handle_SearchTextChanged(object sender, System.EventArgs e)
+        {
+            scrollLayout.Children.Clear();
+            List<Models.Item> items = Models.InventoryCache.getItems();
+            List<String> itemnames = new List<String>();
+            foreach (Models.Item i in items)
+            {
+                itemnames.Add(i.label);
+            }
+            IEnumerable<String> itemsSearched;
+            if (!(InventorySearch.Text==null))
+            {
+                itemsSearched = itemnames.Where(c => c.Contains(InventorySearch.Text));
+            } else
+            {
+                itemsSearched = itemnames;
+            }
+
+            
+            String location = LocationPicker.Items[LocationPicker.SelectedIndex];
+            foreach (Models.Item i in items)
+            {
+                if (itemsSearched.Contains(i.label) && (location == "All" || i.Location.Equals(location)))
+                {
+                    Frame itemFrame = new Frame();
+                    StackLayout layout = new StackLayout();
+                    itemFrame.BackgroundColor = Color.White;
+                    itemFrame.HasShadow = false;
+                    layout.Orientation = StackOrientation.Horizontal;
+
+                    //for layout purposes, everything is stuck into the grid
+                    Grid itemGrid = new Grid
+                    {
+                        RowDefinitions =
+                    {
+                        new RowDefinition(),
+                    },
+                        ColumnDefinitions =
+                    {
+                       new ColumnDefinition{ Width = new GridLength(1, GridUnitType.Star) },
+                       new ColumnDefinition{ Width = new GridLength(2, GridUnitType.Star) },
+                       new ColumnDefinition{ Width = new GridLength(0.5, GridUnitType.Star)},
+                       new ColumnDefinition{ Width = new GridLength(0.5, GridUnitType.Star)},
+                       new ColumnDefinition{ Width = new GridLength(0.5, GridUnitType.Star)}
+                    }
+                    };
+
+                    Label itemName = new Label();
+
+                    itemName.TextColor = Color.DarkSlateGray;
+                    itemName.FontFamily = "Roboto-Regular";
+                    itemName.FontSize = 20;
+                    itemName.GestureRecognizers.Add(new TapGestureRecognizer((view) => sendToProductInfo(i)));
+                    itemName.Text = i.label;
+                    itemGrid.Children.Add(itemName, 1, 0);
+
+                    itemFrame.Content = layout;
+                    scrollLayout.Children.Add(itemFrame);
+
+                    int index = random.Next(randomPNGs.Count);
+
+                    //placeholder image -- this should be replaced by item specific images that are held in the item class
+                    // see Location model for example
+                    Image sample = new Image()
+                    {
+                        //Source = "moseBldg.jpg",
+                        Source = randomPNGs[index],
+                        HeightRequest = 40,
+                    };
+                    itemGrid.Children.Add(sample);
+
+                    //Console.WriteLine("LOCATION ADMIN STATUS: " + Settings.IsAdmin);
+                    if (!Settings.IsAdmin)
+                    {
+                        Label itemQuantity = new Label()
+                        {
+                            Text = i.total_on_hand.ToString(),
+                            FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
+                            FontAttributes = FontAttributes.Bold,
+                            Margin = new Thickness(5, 0, 0, 5)
+                        };
+                        itemGrid.Children.Add(itemQuantity, 3, 0);
+                    }
+                    else
+                    {
+                        Button subButton = new Button
+                        {
+                            Text = "-",
+                            VerticalOptions = LayoutOptions.CenterAndExpand,
+                            HorizontalOptions = LayoutOptions.Center
+                        };
+                        itemGrid.Children.Add(subButton, 2, 0);
+
+                        Entry itemQuantity = new Entry()
+                        {
+                            Text = i.total_on_hand.ToString()
+                        };
+                        itemGrid.Children.Add(itemQuantity, 3, 0);
+
+                        Button addButton = new Button
+                        {
+                            Text = "+",
+                            VerticalOptions = LayoutOptions.CenterAndExpand,
+                            HorizontalOptions = LayoutOptions.Center
+                        };
+                        itemGrid.Children.Add(addButton, 4, 0);
+
+                        var leftSwipeGesture = new SwipeGestureRecognizer { Direction = SwipeDirection.Left };
+                        leftSwipeGesture.Swiped += OnItemSwiped;
+                        layout.GestureRecognizers.Add(leftSwipeGesture);
+
+                    }
+
+                    layout.Children.Add(itemGrid);
+
+                }
+
+            }
+
+        }
+
+        async void Handle_PickerChanged(object sender, System.EventArgs e)
+        {
+            Handle_SearchTextChanged(sender, e);
         }
 
         async public void OnItemSwiped(object sender, SwipedEventArgs e) {

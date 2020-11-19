@@ -29,9 +29,9 @@
                         FontSize="32"
                         WidthRequest="200"/>-->
                 <SearchBar x:Name="InventorySearch" SearchButtonPressed="Handle_SearchButtonPressed"
-                           Placeholder="Search items..." />
+                           TextChanged="Handle_SearchTextChanged" Placeholder="Search items..." />
                 <Label Text="Search Location:" Margin="4,0,0,0" />
-               <Picker Title="Select Location" x:Name="LocationPicker" />
+               <Picker Title="Select Location" x:Name="LocationPicker" SelectedIndexChanged="Handle_PickerChanged"/>
             </StackLayout>
             <ScrollView>
                 <StackLayout x:Name="scrollLayout"></StackLayout>
